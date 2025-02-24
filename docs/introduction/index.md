@@ -7,7 +7,7 @@ icon: material/information-slab-circle
 ## Description
 
 EasyPeasy is scientific software for
-imaginary calculations of something bsed on a model and refining its parameters against experimental data.
+imaginary calculations of something based on a model and refining its parameters against experimental data.
 
 
 EasyPeasy is distributed as both a cross-platform desktop application

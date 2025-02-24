@@ -53,7 +53,7 @@ docs = [
   'mkdocs-jupyter',                  # MkDocs: Jupyter notebook support
   'mkdocs-plugin-inline-svg',        # MkDocs: Inline SVG support
   'mkdocs-markdownextradata-plugin', # MkDocs: Markdown extra data support, such as global variables
-  'mkdocstrings',                    # MkDocs: Python docstring support
+  'mkdocstrings-python',             # MkDocs: Python docstring support
 ]
 
 [project.urls]
