@@ -3,23 +3,23 @@
 ###########################
 
 # Project information
-site_name: EasyPeasy Library
-site_url: https://easyscience.github.io/peasy-lib
+site_name:  Library
+site_url: 
 
 # Repository
-repo_url: https://github.com/easyscience/EasyDiffractionLib
+repo_url: https://github.com/easyscience/peasy-lib
 edit_uri: edit/develop/docs/
 
 # Copyright
-copyright: © 2025 EasyPeasy
+copyright: ©  
 
 # Extra icons in the bottom right corner
 extra:
   social:
-    - icon: easydiffraction  # File: overrides/.icons/easydiffraction.svg
-      link: https://easydiffraction.org
+    #- icon: easydiffraction  # File: overrides/.icons/easydiffraction.svg
+    #  link: https://easydiffraction.org
     - icon: fontawesome/brands/github  # Name as in Font Awesome
-      link: https://github.com/EasyScience/EasyDiffractionLib
+      link: https://github.com/easyscience/peasy-lib
 
 # Jupyter notebooks
 plugins:

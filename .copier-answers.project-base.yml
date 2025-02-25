@@ -4,8 +4,8 @@ _commit: c4f4e41
 _src_path: gh:easyscience/templates-project-base
 project__copyright_year: 2025
 project__deployment_type: both
-project__extended_description: imaginary calculations of something based on a model
-    and refining its parameters against experimental data
+project__extended_description: performing imaginary calculations based on a theoretical
+    model and refining its parameters against experimental data
 project__name: EasyPeasy
 project__repos__app: peasy-app
 project__repos__lib: peasy-lib
