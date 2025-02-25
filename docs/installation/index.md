@@ -71,8 +71,9 @@ recreate the environment.
 ### Installing from PyPI <small>recommended</small> { #from-pypi data-toc-label="Installing from PyPI" }
 
 EasyPeasy is available on **PyPI (Python Package Index)** and
-can be installed using `pip`. It is recommended to install it within a
-[virtual environment](#environment-setup).
+can be installed using `pip`. It is advised to install it within a virtual
+environment, as outlined in the previous section
+[Environment setup](#environment-setup).
 
 We recommend installing the latest release of EasyPeasy with the
 `charts` extras, which include optional dependencies used for simplified

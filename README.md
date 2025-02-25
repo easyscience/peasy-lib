@@ -1,13 +1,22 @@
-# ****
+<p>
+  <picture>
+    <!-- light mode logo -->
+    <source media='(prefers-color-scheme: light)' srcset='https://raw.githubusercontent.com/easyscience/assets-branding/refs/heads/master/easypeasy/logos/light.svg'>
+    <!-- dark mode logo -->
+    <source media='(prefers-color-scheme: dark)' srcset='https://raw.githubusercontent.com/easyscience/assets-branding/refs/heads/master/easypeasy/logos/dark.svg'>
+    <!-- default logo == light mode logo -->
+    <img src='https://raw.githubusercontent.com/easyscience/assets-branding/refs/heads/master/easypeasy/logos/light.svg' alt='EasyPeasy'>
+  </picture>
+</p>
 
 **EasyPeasy** is a Python package for performing imaginary calculations based on a theoretical model and refining its parameters against experimental data.
 
-**** is built upon the [EasyScience] framework, which provides
+**EasyPeasy** is built upon the [EasyScience] framework, which provides
 essential tools for developing scientific libraries and applications.
 
 ## Useful Links
 
-- [Main Website] - Learn more about .
+- [Main Website] - Learn more about EasyPeasy.
 - [Documentation] - Access the full documentation.
 - [Discussions] - Ask questions or share ideas.
 - [Issue Tracker] - Report bugs or request new features.
@@ -15,7 +24,7 @@ essential tools for developing scientific libraries and applications.
 
 ## Contributing
 
-We welcome contributions! Our vision is for **** to be a
+We welcome contributions! Our vision is for **EasyPeasy** to be a
 community-driven, open-source project supported by a diverse group of
 contributors.
 
@@ -27,16 +36,16 @@ requests.
 
 ## License
 
-**** is licensed under the [BSD 3-Clause License].
+**EasyPeasy** is licensed under the [BSD 3-Clause License].
 
 <!-- prettier-ignore-start -->
-[BSD 3-Clause License]: https://github.com/easyscience//blob/master/LICENSE
-[Contributing Guidelines]: https://github.com/easyscience//blob/master/CONTRIBUTING.md
+[BSD 3-Clause License]: https://github.com/easyscience/peasy-lib/blob/master/LICENSE
+[Contributing Guidelines]: https://github.com/easyscience/peasy-lib/blob/master/CONTRIBUTING.md
 [EasyScience]: https://easyscience.software
 [European Spallation Source (ESS)]: https://ess.eu
-[Main Website]: 
-[Documentation]: 
-[Discussions]: https://github.com/easyscience//discussions
-[Issue Tracker]: https://github.com/easyscience//issues
-[Source Code]: https://github.com/easyscience/
+[Main Website]: https://easypeasy.org
+[Documentation]: https://easyscience.github.io/peasy-lib
+[Discussions]: https://github.com/easyscience/peasy-lib/discussions
+[Issue Tracker]: https://github.com/easyscience/peasy-lib/issues
+[Source Code]: https://github.com/easyscience/peasy-lib
 <!-- prettier-ignore-end -->

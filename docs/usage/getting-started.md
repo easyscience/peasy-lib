@@ -1,6 +1,6 @@
 # Getting started
 
-## Importing EasyDiffraction
+## Importing EasyPeasy
 
 To start using EasyPeasy, first import the package in your Python
 script or Jupyter Notebook:
