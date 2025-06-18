@@ -65,7 +65,7 @@ jobs:
       # Install EasyPeasy Library to run Jupyter notebooks
       # Install with the 'charts' and 'docs' extras
       - name: Install EasyPeasy Library and its dependencies
-        run: pip install '.[charts,docs]' 
+        run: pip install '.[charts,docs]'
 
       # Clone assets extra from:
       # - easyscience/assets-docs
@@ -86,7 +86,6 @@ jobs:
       # Add the extra files from the easyscience/assets-branding repository
       - name: Add files from easyscience/assets-branding files
         run: |
-
           mkdir -p docs/assets/images/
           cp ../assets-branding/easypeasy/hero/dark.png docs/assets/images/hero_dark.png
           cp ../assets-branding/easypeasy/hero/light.png docs/assets/images/hero_light.png
