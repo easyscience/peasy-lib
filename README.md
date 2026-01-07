@@ -1,15 +1,6 @@
-<p>
-  <picture>
-    <!-- light mode logo -->
-    <source media='(prefers-color-scheme: light)' srcset='https://raw.githubusercontent.com/easyscience/assets-branding/refs/heads/master/easypeasy/logos/light.svg'>
-    <!-- dark mode logo -->
-    <source media='(prefers-color-scheme: dark)' srcset='https://raw.githubusercontent.com/easyscience/assets-branding/refs/heads/master/easypeasy/logos/dark.svg'>
-    <!-- default logo == light mode logo -->
-    <img src='https://raw.githubusercontent.com/easyscience/assets-branding/refs/heads/master/easypeasy/logos/light.svg' alt='EasyPeasy'>
-  </picture>
-</p>
-
-**EasyPeasy** is a Python package for performing imaginary calculations based on a theoretical model and refining its parameters against experimental data.
+**EasyPeasy** is a Python package for performing imaginary calculations based on a theoretical model and
+refining its parameters against experimental data
+.
 
 **EasyPeasy** is built upon the [EasyScience] framework, which provides
 essential tools for developing scientific libraries and applications.
@@ -43,8 +34,8 @@ requests.
 [Contributing Guidelines]: https://github.com/easyscience/peasy-lib/blob/master/CONTRIBUTING.md
 [EasyScience]: https://easyscience.software
 [European Spallation Source (ESS)]: https://ess.eu
-[Main Website]: https://easypeasy.org
-[Documentation]: https://docs.easypeasy.org/lib
+[Main Website]: https://easyscience.github.io/peasy
+[Documentation]: https://easyscience.github.io/peasy-lib
 [Discussions]: https://github.com/easyscience/peasy-lib/discussions
 [Issue Tracker]: https://github.com/easyscience/peasy-lib/issues
 [Source Code]: https://github.com/easyscience/peasy-lib
