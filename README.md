@@ -1,6 +1,4 @@
-**EasyPeasy** is a Python package for performing imaginary calculations based on a theoretical model and
-refining its parameters against experimental data
-.
+**EasyPeasy** is a Python package for performing imaginary calculations based on a theoretical model and refining its parameters against experimental data.
 
 **EasyPeasy** is built upon the [EasyScience] framework, which provides
 essential tools for developing scientific libraries and applications.
