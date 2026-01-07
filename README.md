@@ -18,14 +18,14 @@ the corresponding [GUI resources](https://github.com/easyscience/peasy-app).
 
 ## Useful Links
 
-- 🌐 **Project Home** — https://easyscience.github.io/peasy
-- 📖 **Documentation** — https://easyscience.github.io/peasy-lib/latest
-- 🚀 **Getting Started** — https://easyscience.github.io/peasy-lib/latest/introduction
-- 🧪 **Tutorials** — https://easyscience.github.io/peasy-lib/latest/tutorials
-- 💬 **Get in Touch** — https://easyscience.github.io/peasy-lib/latest/introduction/#get-in-touch
-- 🧾 **Citation** — https://easyscience.github.io/peasy-lib/latest/introduction/#citation
-- 🤝 **Contributing** — https://easyscience.github.io/peasy-lib/latest/introduction/#contributing
-- 🐞 **Issue Tracker** — https://github.com/easyscience/peasy-lib/issues
-- 💡 **Discussions** — https://github.com/easyscience/peasy-lib/discussions
-- 🧑‍💻 **Source Code** — https://github.com/easyscience/peasy-lib
-- ⚖️ **License** — https://raw.githubusercontent.com/easyscience/peasy-lib/refs/heads/master/LICENSE
+- 🌐 [Project Home](https://easyscience.github.io/peasy)
+- 📖 [Documentation](https://easyscience.github.io/peasy-lib/latest)
+- 🚀 [Getting Started](https://easyscience.github.io/peasy-lib/latest/introduction)
+- 🧪 [Tutorials](https://easyscience.github.io/peasy-lib/latest/tutorials)
+- 💬 [Get in Touch](https://easyscience.github.io/peasy-lib/latest/introduction/#get-in-touch)
+- 🧾 [Citation](https://easyscience.github.io/peasy-lib/latest/introduction/#citation)
+- 🤝 [Contributing](https://easyscience.github.io/peasy-lib/latest/introduction/#contributing)
+- 🐞 [Issue Tracker](https://github.com/easyscience/peasy-lib/issues)
+- 💡 [Discussions](https://github.com/easyscience/peasy-lib/discussions)
+- 🧑‍💻 [Source Code](https://github.com/easyscience/peasy-lib)
+- ⚖️ [License](https://raw.githubusercontent.com/easyscience/peasy-lib/refs/heads/master/LICENSE)
