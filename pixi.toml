@@ -54,10 +54,10 @@ easypeasy = { path = ".", editable = true, extras = ['all'] } # Main package
 # Each feature sets a specific Python version for the environment.
 
 [feature.py311.dependencies]
-python = '3.9.*'
+python = '3.11.*'
 
 [feature.py313.dependencies]
-python = '3.12.*'
+python = '3.13.*'
 
 # This feature installs Node.js for formatting non-Python files with Prettier.
 
