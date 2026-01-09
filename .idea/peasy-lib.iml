@@ -6,6 +6,7 @@
     </content>
     <orderEntry type="jdk" jdkName="Python 3.12 (peasy-lib)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="peasy" />
   </component>
   <component name="PyDocumentationSettings">
     <option name="format" value="GOOGLE" />
