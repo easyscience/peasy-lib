@@ -3,6 +3,9 @@ __pycache__/
 .venv/
 .coverage
 
+# MkDocs
+docs/site/
+
 # Jupyter Notebooks
 .ipynb_checkpoints
 
