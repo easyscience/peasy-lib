@@ -1,3 +1,6 @@
 [submodule ".project"]
 	path = .project
 	url = https://github.com/easyscience/peasy
+[submodule ".assets-branding"]
+	path = .assets-branding
+	url = https://github.com/easyscience/assets-branding
