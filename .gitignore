@@ -1,8 +1,7 @@
 # Python
-__pycache__
-.venv
+__pycache__/
+.venv/
 .coverage
-.pyc
 
 # Jupyter Notebooks
 .ipynb_checkpoints
