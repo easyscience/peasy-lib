@@ -57,12 +57,12 @@ theme:
 extra:
   generator: false # Disable `Made with Material for MkDocs` (bottom left)
   social: # Extra icons in the bottom right corner
-    ###- icon: easyscience  # File: overrides/.icons/easyscience.svg
-    ###  link: https://easyscience.org
-    ###  name: EasyScience Framework Webpage
-    ###- icon: easypeasy  # File: overrides/.icons/easypeasy.svg
-    ###  link: https://easyscience.github.io/peasy
-    ###  name: EasyPeasy Main Webpage
+    - icon: easyscience  # File: overrides/.icons/easyscience.svg
+      link: https://easyscience.org
+      name: EasyScience Framework Webpage
+    - icon: easypeasy  # File: overrides/.icons/easypeasy.svg
+      link: https://easyscience.github.io/peasy
+      name: EasyPeasy Main Webpage
     - icon: app # File: overrides/.icons/app.svg
       link: https://easyscience.github.io/peasy-app
       name: EasyDiffraction Application Docs
