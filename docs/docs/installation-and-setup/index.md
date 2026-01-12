@@ -8,8 +8,6 @@ icon: material/cog-box
 
 EasyPeasy is a cross-platform Python library compatible with
 **Python 3.11 through 3.13**.
-Make sure Python is installed on your system before proceeding with the
-installation.
 
 Below, we outline two installation methods: using **Pixi** (recommended for
 ease of use) and the **classical approach** (for advanced users).
@@ -29,24 +27,24 @@ non-expert Python users.
 - Install Pixi by following the instructions on the
   [official Pixi Installation Guide](https://pixi.sh/latest/installation).
 - Initialize a new Pixi project and navigate into it:
-  ```bash
+  ```console
   pixi init easypeasy
   cd easypeasy
   ```
 - Set the Python version for the Pixi environment (e.g., 3.13):
-  ```bash
+  ```console
   pixi add python=3.13
   ```
 - Add the GNU Scientific Library (GSL) dependency:
-  ```bash
+  ```console
   pixi add gsl
   ```
 - Add EasyPeasy with the `visualization` extras:
-  ```bash
+  ```console
   pixi add --pypi "easypeasy[visualization]"
   ```
 - Add a Pixi task to run EasyPeasy commands easily:
-  ```bash
+  ```console
   pixi task add easypeasy "python -m easypeasy"
   ```
 
@@ -65,21 +63,21 @@ and recreate the environment.
 <!-- prettier-ignore-start -->
 
 - Create a new virtual environment:
-  ```bash
+  ```console
   python3 -m venv venv
   ```
 - Activate the environment:
 
     === ":material-apple: macOS"
-        ```bash
+        ```console
         . venv/bin/activate
         ```
     === ":material-linux: Linux"
-        ```bash
+        ```console
         . venv/bin/activate
         ```
     === ":fontawesome-brands-windows: Windows"
-        ```bash
+        ```console
         . venv/Scripts/activate      # Windows with Unix-like shells
         .\venv\Scripts\activate.bat  # Windows with CMD
         .\venv\Scripts\activate.ps1  # Windows with PowerShell
@@ -95,21 +93,21 @@ and recreate the environment.
 <!-- prettier-ignore-start -->
 
 - Exit the environment:
-  ```bash
+  ```console
   deactivate
   ```
 - If this environment is no longer needed, delete it:
 
     === ":material-apple: macOS"
-        ```bash
+        ```console
         rm -rf venv
         ```
     === ":material-linux: Linux"
-        ```bash
+        ```console
         rm -rf venv
         ```
     === ":fontawesome-brands-windows: Windows"
-        ```bash
+        ```console
         rmdir /s /q venv
         ```
 
@@ -127,38 +125,38 @@ We recommend installing the latest release of EasyPeasy with the
 visualization of charts and tables. This can be especially useful for running
 the Jupyter Notebook examples. To do so, use the following command:
 
-```bash
+```console
 pip install 'easypeasy[visualization]'
 ```
 
 If only the core functionality is needed, the library can be installed simply
 with:
 
-```bash
+```console
 pip install easypeasy
 ```
 
 To install a specific version of EasyPeasy, e.g., 1.0.3:
 
-```bash
+```console
 pip install 'easypeasy==1.0.3'
 ```
 
 To upgrade to the latest version:
 
-```bash
+```console
 pip install --upgrade easypeasy
 ```
 To upgrade to the latest version and force reinstallation of all
 dependencies (useful if files are corrupted):
 
-```bash
+```console
 pip install --upgrade --force-reinstall easypeasy
 ```
 
 To check the installed version:
 
-```bash
+```console
 pip show easypeasy
 ```
 
@@ -169,13 +167,13 @@ for testing.
 
 To install EasyPeasy from, e.g., the `develop` branch of GitHub:
 
-```bash
+```console
 pip install git+https://github.com/easyscience/peasy-lib@develop
 ```
 
 To include extra dependencies (e.g., visualization):
 
-```bash
+```console
 pip install 'easypeasy[visualization] @ git+https://github.com/easyscience/peasy-lib@develop'
 ```
 
@@ -208,15 +206,15 @@ Here are the steps to follow using **JupyterLab** with Pixi:
 - Navigate to your existing Pixi project, as described in the
   [Installing with Pixi](#installing-with-pixi) section.
 - Add JupyterLab and the Pixi kernel for Jupyter:
-  ```bash
+  ```console
   pixi add --pypi jupyterlab pixi-kernel
   ```
 - Download all the EasyPeasy tutorials to the `tutorials/` directory:
-  ```bash
+  ```console
   pixi run easypeasy download-all-tutorials
   ```
 - Start JupyterLab in the `tutorials/` directory to access the notebooks:
-  ```bash
+  ```console
   pixi run jupyter lab tutorials/
   ```
 - Your web browser should open automatically. Click on one of the `*.ipynb`
@@ -228,23 +226,23 @@ Here are the steps to follow using **JupyterLab** with Pixi:
 Here are the steps to follow in the case of **Jupyter Notebook**:
 
 - Install Jupyter Notebook and IPython kernel:
-  ```bash
+  ```console
   pip install notebook ipykernel
   ```
 - Add the virtual environment as a Jupyter kernel
-  ```bash
+  ```console
   python -m ipykernel install --user --name=venv --display-name "EasyPeasy Python kernel"
   ```
 - Download all the EasyPeasy tutorials to the `tutorials/` directory:
-  ```bash
+  ```console
   python -m easypeasy download-all-tutorials
   ```
 - Launch the Jupyter Notebook server in the `tutorials/` directory:
-  ```bash
+  ```console
   jupyter notebook tutorials/
   ```
 - In your web browser, go to:
-  ```bash
+  ```console
   http://localhost:8888/
   ```
 - Open one of the `*.ipynb` files and select the `EasyPeasy Python kernel`
