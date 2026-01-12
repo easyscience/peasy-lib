@@ -9,6 +9,7 @@ from the project's GitHub repository and applying copier template updates.
 from pathlib import Path
 import argparse
 import pooch
+import yaml
 from copier import run_update
 
 # Default configuration
@@ -121,11 +122,16 @@ def main():
         
         # Run copier update
         print("🔄 Running copier update...")
+        
+        # Load data from YAML file
+        with open(data_file, 'r') as f:
+            data = yaml.safe_load(f)
+        
         run_update(
             dst_path=Path.cwd(),
             vcs_ref=args.vcs_ref,
             answers_file=args.answers_file,
-            data_file=str(data_file),
+            data=data,
             overwrite=True,
         )
         
