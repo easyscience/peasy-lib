@@ -16,7 +16,7 @@ ease of use) and the **classical approach** (for advanced users).
 
 ## Installing with Pixi <small>recommended</small> { #installing-with-pixi data-toc-label="Installing with Pixi" }
 
-This section describes the most simple way to set up EasyDiffraction using
+This section describes the most simple way to set up EasyPeasy using
 [Pixi](https://pixi.sh), an advanced package and environment manager for Python
 and Conda-compatible packages.
 
@@ -30,24 +30,24 @@ non-expert Python users.
   [official Pixi Installation Guide](https://pixi.sh/latest/installation).
 - Initialize a new Pixi project and navigate into it:
   ```bash
-  pixi init easydiffraction
-  cd easydiffraction
+  pixi init easypeasy
+  cd easypeasy
   ```
-- Set the Python version for the Pixi environment (e.g., 3.14):
+- Set the Python version for the Pixi environment (e.g., 3.13):
   ```bash
-  pixi add python=3.14
+  pixi add python=3.13
   ```
 - Add the GNU Scientific Library (GSL) dependency:
   ```bash
   pixi add gsl
   ```
-- Add EasyDiffraction with the `visualization` extras:
+- Add EasyPeasy with the `visualization` extras:
   ```bash
-  pixi add --pypi "easydiffraction[visualization]"
+  pixi add --pypi "easypeasy[visualization]"
   ```
-- Add a Pixi task to run EasyDiffraction commands easily:
+- Add a Pixi task to run EasyPeasy commands easily:
   ```bash
-  pixi task add easydiffraction "python -m easydiffraction"
+  pixi task add easypeasy "python -m easypeasy"
   ```
 
 <!-- prettier-ignore-end -->
@@ -117,12 +117,12 @@ and recreate the environment.
 
 ### Installing from PyPI <small>recommended</small> { #from-pypi data-toc-label="Installing from PyPI" }
 
-EasyDiffraction is available on **PyPI (Python Package Index)** and can be
+EasyPeasy is available on **PyPI (Python Package Index)** and can be
 installed using `pip`. We strongly recommend installing it within a virtual
 environment, as described in the [Environment Setup](#environment-setup)
 section.
 
-We recommend installing the latest release of EasyDiffraction with the
+We recommend installing the latest release of EasyPeasy with the
 `visualization` extras, which include optional dependencies used for simplified
 visualization of charts and tables. This can be especially useful for running
 the Jupyter Notebook examples. To do so, use the following command:
@@ -138,7 +138,7 @@ with:
 pip install easypeasy
 ```
 
-To install a specific version of EasyDiffraction, e.g., 1.0.3:
+To install a specific version of EasyPeasy, e.g., 1.0.3:
 
 ```bash
 pip install 'easypeasy==1.0.3'
@@ -162,28 +162,28 @@ To check the installed version:
 pip show easypeasy
 ```
 
-### Installing from PyPI <small>alternative</small> { #from-github data-toc-label="Installing from GitHub" }
+### Installing from GitHub <small>alternative</small> { #from-github data-toc-label="Installing from GitHub" }
 
 Installing unreleased versions is generally not recommended but may be useful
 for testing.
 
-To install EasyDiffraction from, e.g., the `develop` branch of GitHub:
+To install EasyPeasy from, e.g., the `develop` branch of GitHub:
 
 ```bash
-pip install git+https://github.com/easyscience/diffraction-lib@develop
+pip install git+https://github.com/easyscience/peasy-lib@develop
 ```
 
 To include extra dependencies (e.g., visualization):
 
 ```bash
-pip install 'easypeasy[visualization] @ git+https://github.com/easyscience/diffraction-lib@develop'
+pip install 'easypeasy[visualization] @ git+https://github.com/easyscience/peasy-lib@develop'
 ```
 
 ## How to Run Tutorials
 
-EasyDiffraction includes a collection of **Jupyter Notebook examples** that
+EasyPeasy includes a collection of **Jupyter Notebook examples** that
 demonstrate key functionality. These tutorials serve as **step-by-step guides**
-to help users understand the diffraction data analysis workflow.
+to help users understand the data analysis workflow.
 
 They are available as **static HTML pages** in the
 [:material-school: Tutorials](../tutorials/index.md) section. You can also run
@@ -193,11 +193,6 @@ them interactively in two ways:
   **Download** button and run it on your computer.
 - **Run Online** – Use the :google-colab: **Open in Google Colab** button to run
   the tutorial directly in your browser (no setup required).
-
-!!! note
-
-    You can also download all Jupyter notebooks at once as a zip archive from the
-    [EasyDiffraction Releases](https://github.com/easyscience/diffraction-lib/releases/latest).
 
 ### Run Tutorials Locally
 
@@ -216,9 +211,9 @@ Here are the steps to follow using **JupyterLab** with Pixi:
   ```bash
   pixi add --pypi jupyterlab pixi-kernel
   ```
-- Download all the EasyDiffraction tutorials to the `tutorials/` directory:
+- Download all the EasyPeasy tutorials to the `tutorials/` directory:
   ```bash
-  pixi run easydiffraction download-all-tutorials
+  pixi run easypeasy download-all-tutorials
   ```
 - Start JupyterLab in the `tutorials/` directory to access the notebooks:
   ```bash
@@ -238,11 +233,11 @@ Here are the steps to follow in the case of **Jupyter Notebook**:
   ```
 - Add the virtual environment as a Jupyter kernel
   ```bash
-  python -m ipykernel install --user --name=venv --display-name "EasyDiffraction Python kernel"
+  python -m ipykernel install --user --name=venv --display-name "EasyPeasy Python kernel"
   ```
-- Download all the EasyDiffraction tutorials to the `tutorials/` directory:
+- Download all the EasyPeasy tutorials to the `tutorials/` directory:
   ```bash
-  python -m easydiffraction download-all-tutorials
+  python -m easypeasy download-all-tutorials
   ```
 - Launch the Jupyter Notebook server in the `tutorials/` directory:
   ```bash
@@ -252,7 +247,7 @@ Here are the steps to follow in the case of **Jupyter Notebook**:
   ```bash
   http://localhost:8888/
   ```
-- Open one of the `*.ipynb` files and select the `EasyDiffraction Python kernel`
+- Open one of the `*.ipynb` files and select the `EasyPeasy Python kernel`
   to get started.
 
 ### Run Tutorials via Google Colab
@@ -266,5 +261,5 @@ To use Google Colab:
 - Go to the **[:material-school: Tutorials](../tutorials/index.md)** section.
 - Click the :google-colab: **Open in Google Colab** button on any tutorial.
 
-This is the fastest way to start experimenting with EasyDiffraction, without
+This is the fastest way to start experimenting with EasyPeasy, without
 setting up Python on your system.
