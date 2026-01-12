@@ -158,7 +158,7 @@ watch:
 
 # Exclude files and folders from the global navigation
 not_in_nav: |
-  docs/index.md
+  index.md
 
 # Format and layout of the global navigation for the site
 nav:

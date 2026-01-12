@@ -27,24 +27,24 @@ non-expert Python users.
 - Install Pixi by following the instructions on the
   [official Pixi Installation Guide](https://pixi.sh/latest/installation).
 - Initialize a new Pixi project and navigate into it:
-  ```
+  ```txt
   pixi init easypeasy
   cd easypeasy
   ```
 - Set the Python version for the Pixi environment (e.g., 3.13):
-  ```
+  ```txt
   pixi add python=3.13
   ```
 - Add the GNU Scientific Library (GSL) dependency:
-  ```
+  ```txt
   pixi add gsl
   ```
 - Add EasyPeasy with the `visualization` extras:
-  ```
+  ```txt
   pixi add --pypi "easypeasy[visualization]"
   ```
 - Add a Pixi task to run EasyPeasy commands easily:
-  ```
+  ```txt
   pixi task add easypeasy "python -m easypeasy"
   ```
 
@@ -63,21 +63,21 @@ and recreate the environment.
 <!-- prettier-ignore-start -->
 
 - Create a new virtual environment:
-  ```
+  ```txt
   python3 -m venv venv
   ```
 - Activate the environment:
 
     === ":material-apple: macOS"
-        ```
+        ```txt
         . venv/bin/activate
         ```
     === ":material-linux: Linux"
-        ```
+        ```txt
         . venv/bin/activate
         ```
     === ":fontawesome-brands-windows: Windows"
-        ```
+        ```txt
         . venv/Scripts/activate      # Windows with Unix-like shells
         .\venv\Scripts\activate.bat  # Windows with CMD
         .\venv\Scripts\activate.ps1  # Windows with PowerShell
@@ -93,21 +93,21 @@ and recreate the environment.
 <!-- prettier-ignore-start -->
 
 - Exit the environment:
-  ```
+  ```txt
   deactivate
   ```
 - If this environment is no longer needed, delete it:
 
     === ":material-apple: macOS"
-        ```
+        ```txt
         rm -rf venv
         ```
     === ":material-linux: Linux"
-        ```
+        ```txt
         rm -rf venv
         ```
     === ":fontawesome-brands-windows: Windows"
-        ```
+        ```txt
         rmdir /s /q venv
         ```
 
@@ -125,38 +125,38 @@ We recommend installing the latest release of EasyPeasy with the
 visualization of charts and tables. This can be especially useful for running
 the Jupyter Notebook examples. To do so, use the following command:
 
-```
+```txt
 pip install 'easypeasy[visualization]'
 ```
 
 If only the core functionality is needed, the library can be installed simply
 with:
 
-```
+```txt
 pip install easypeasy
 ```
 
 To install a specific version of EasyPeasy, e.g., 1.0.3:
 
-```
+```txt
 pip install 'easypeasy==1.0.3'
 ```
 
 To upgrade to the latest version:
 
-```
+```txt
 pip install --upgrade easypeasy
 ```
 To upgrade to the latest version and force reinstallation of all
 dependencies (useful if files are corrupted):
 
-```
+```txt
 pip install --upgrade --force-reinstall easypeasy
 ```
 
 To check the installed version:
 
-```
+```txt
 pip show easypeasy
 ```
 
@@ -167,13 +167,13 @@ for testing.
 
 To install EasyPeasy from, e.g., the `develop` branch of GitHub:
 
-```
+```txt
 pip install git+https://github.com/easyscience/peasy-lib@develop
 ```
 
 To include extra dependencies (e.g., visualization):
 
-```
+```txt
 pip install 'easypeasy[visualization] @ git+https://github.com/easyscience/peasy-lib@develop'
 ```
 
@@ -206,15 +206,15 @@ Here are the steps to follow using **JupyterLab** with Pixi:
 - Navigate to your existing Pixi project, as described in the
   [Installing with Pixi](#installing-with-pixi) section.
 - Add JupyterLab and the Pixi kernel for Jupyter:
-  ```
+  ```txt
   pixi add --pypi jupyterlab pixi-kernel
   ```
 - Download all the EasyPeasy tutorials to the `tutorials/` directory:
-  ```
+  ```txt
   pixi run easypeasy download-all-tutorials
   ```
 - Start JupyterLab in the `tutorials/` directory to access the notebooks:
-  ```
+  ```txt
   pixi run jupyter lab tutorials/
   ```
 - Your web browser should open automatically. Click on one of the `*.ipynb`
@@ -226,23 +226,23 @@ Here are the steps to follow using **JupyterLab** with Pixi:
 Here are the steps to follow in the case of **Jupyter Notebook**:
 
 - Install Jupyter Notebook and IPython kernel:
-  ```
+  ```txt
   pip install notebook ipykernel
   ```
 - Add the virtual environment as a Jupyter kernel
-  ```
+  ```txt
   python -m ipykernel install --user --name=venv --display-name "EasyPeasy Python kernel"
   ```
 - Download all the EasyPeasy tutorials to the `tutorials/` directory:
-  ```
+  ```txt
   python -m easypeasy download-all-tutorials
   ```
 - Launch the Jupyter Notebook server in the `tutorials/` directory:
-  ```
+  ```txt
   jupyter notebook tutorials/
   ```
 - In your web browser, go to:
-  ```
+  ```txt
   http://localhost:8888/
   ```
 - Open one of the `*.ipynb` files and select the `EasyPeasy Python kernel`
