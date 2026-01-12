@@ -205,3 +205,9 @@ wheel = { depends-on = ['npm-config', 'prettier-install'] }
 
 ## 🔗 Main Package Shortcut
 easypeasy = 'python -m easypeasy'
+
+
+
+copier_update = "python copier_update.py --vcs-ref master --data-file gh:easyscience/peasy/project.yaml"
+copier_shared_update = "pixi run copier_update --answers-file .copier-answers.shared.yml"
+copier_lib_update = "pixi run copier_update --answers-file .copier-answers.lib.yml"
