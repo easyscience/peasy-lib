@@ -6,8 +6,8 @@ icon: material/cog-box
 
 ## Requirements
 
-EasyDiffraction is a cross-platform Python library compatible with **Python 3.11
-through 3.13**.  
+EasyPeasy is a cross-platform Python library compatible with
+**Python 3.11 through 3.13**.
 Make sure Python is installed on your system before proceeding with the
 installation.
 
@@ -87,32 +87,38 @@ visualization of charts and tables. This can be especially useful for running
 the Jupyter Notebook examples. To do so, use the following command:
 
 ```bash
-pip install 'easydiffraction[visualization]'
+pip install 'easypeasy[visualization]'
 ```
 
 If only the core functionality is needed, the library can be installed simply
 with:
 
 ```bash
-pip install easydiffraction
+pip install easypeasy
 ```
 
 To install a specific version of EasyDiffraction, e.g., 1.0.3:
 
 ```bash
-pip install 'easydiffraction==1.0.3'
+pip install 'easypeasy==1.0.3'
 ```
 
 To upgrade to the latest version:
 
 ```bash
-pip install --upgrade --force-reinstall easydiffraction
+pip install --upgrade easypeasy
+```
+To upgrade to the latest version and force reinstallation of all
+dependencies (useful if files are corrupted):
+
+```bash
+pip install --upgrade --force-reinstall easypeasy
 ```
 
 To check the installed version:
 
 ```bash
-pip show easydiffraction
+pip show easypeasy
 ```
 
 ### Installing from GitHub
@@ -129,7 +135,7 @@ pip install git+https://github.com/easyscience/diffraction-lib@develop
 To include extra dependencies (e.g., visualization):
 
 ```bash
-pip install 'easydiffraction[visualization] @ git+https://github.com/easyscience/diffraction-lib@develop'
+pip install 'easypeasy[visualization] @ git+https://github.com/easyscience/diffraction-lib@develop'
 ```
 
 ## How to Run Tutorials
