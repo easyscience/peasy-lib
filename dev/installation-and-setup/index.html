@@ -725,10 +725,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#run-tutorials-locally" class="md-nav__link">
+  <a href="#running-with-pixi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Run Tutorials Locally
+        Run Tutorials Locally with Pixi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classical-approach-to-run-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classical Approach to Run Locally
       
     </span>
   </a>
@@ -802,7 +813,9 @@ cd easypeasy
 <li>Add the GNU Scientific Library (GSL) dependency:
   <div class="language-text highlight"><pre><span></span><code>pixi add gsl
 </code></pre></div></li>
-<li>Add EasyPeasy with the <code>visualization</code> extras:
+<li>Add  with the <code>visualization</code> extras, which include
+  optional dependencies used for simplified visualization of charts and tables.
+  This can be especially useful for running the <abbr title="An open-source web application that allows you to create and share documents that contain live code, equations, visualizations, and narrative text.">Jupyter Notebook</abbr> examples:
   <div class="language-text highlight"><pre><span></span><code>pixi add --pypi &quot;easypeasy[visualization]&quot;
 </code></pre></div></li>
 <li>Add a Pixi task to run EasyPeasy commands easily:
@@ -811,7 +824,7 @@ cd easypeasy
 </ul>
 <!-- prettier-ignore-end -->
 
-<h2 id="classical-installation">Classical Installation <small>advanced</small></h2>
+<h2 id="classical-installation">Classical Installation</h2>
 <h3 id="environment-setup">Environment Setup <small>optional</small></h3>
 <p>We recommend using a <strong>virtual environment</strong> to isolate dependencies and avoid
 conflicts with system-wide packages. If any issues arise, you can simply delete
@@ -880,11 +893,9 @@ and recreate the environment.</p>
 </ul>
 <!-- prettier-ignore-end -->
 
-<h3 id="from-pypi">Installing from <abbr title="The Python Package Index is a repository of software for the Python programming language.">PyPI</abbr> <small>recommended</small></h3>
-<p>EasyPeasy is available on <strong><abbr title="The Python Package Index is a repository of software for the Python programming language.">PyPI</abbr> (Python Package Index)</strong> and can be
-installed using <code>pip</code>. We strongly recommend installing it within a virtual
-environment, as described in the <a href="#environment-setup">Environment Setup</a>
-section.</p>
+<h3 id="from-pypi">Installing from <abbr title="The Python Package Index is a repository of software for the Python programming language.">PyPI</abbr></h3>
+<p>is available on <strong><abbr title="The Python Package Index is a repository of software for the Python programming language.">PyPI</abbr> (Python Package Index)</strong> and can be
+installed using <code>pip</code>.</p>
 <p>We recommend installing the latest release of EasyPeasy with the
 <code>visualization</code> extras, which include optional dependencies used for simplified
 visualization of charts and tables. This can be especially useful for running
@@ -920,28 +931,15 @@ for testing.</p>
 <h2 id="how-to-run-tutorials">How to Run Tutorials</h2>
 <p>EasyPeasy includes a collection of <strong><abbr title="An open-source web application that allows you to create and share documents that contain live code, equations, visualizations, and narrative text.">Jupyter Notebook</abbr> examples</strong> that
 demonstrate key functionality. These tutorials serve as <strong>step-by-step guides</strong>
-to help users understand the data analysis workflow.</p>
-<p>They are available as <strong>static HTML pages</strong> in the
-<a href="../tutorials/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg></span> Tutorials</a> section. You can also run
-them interactively in two ways:</p>
-<ul>
-<li><strong>Run Locally</strong> – Download the notebook via the <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span>
-  <strong>Download</strong> button and run it on your computer.</li>
-<li><strong>Run Online</strong> – Use the <span class="twemoji"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-  <path d="M4.54,9.46,2.19,7.1a6.93,6.93,0,0,0,0,9.79l2.36-2.36A3.59,3.59,0,0,1,4.54,9.46Z" style="" fill="#E8710A"></path>
-  <path d="M2.19,7.1,4.54,9.46a3.59,3.59,0,0,1,5.08,0l1.71-2.93h0l-.1-.08h0A6.93,6.93,0,0,0,2.19,7.1Z" style="" fill="#F9AB00"></path>
-  <path d="M11.34,17.46h0L9.62,14.54a3.59,3.59,0,0,1-5.08,0L2.19,16.9a6.93,6.93,0,0,0,9,.65l.11-.09" style="" fill="#F9AB00"></path>
-  <path d="M12,7.1a6.93,6.93,0,0,0,0,9.79l2.36-2.36a3.59,3.59,0,1,1,5.08-5.08L21.81,7.1A6.93,6.93,0,0,0,12,7.1Z" style="" fill="#F9AB00"></path>
-  <path d="M21.81,7.1,19.46,9.46a3.59,3.59,0,0,1-5.08,5.08L12,16.9A6.93,6.93,0,0,0,21.81,7.1Z" style="" fill="#E8710A"></path>
-</svg>
-</span> <strong>Open in <abbr title="Cloud service that allows you to run Jupyter Notebooks in the cloud.">Google Colab</abbr></strong> button to run
-  the tutorial directly in your browser (no setup required).</li>
-</ul>
-<h3 id="run-tutorials-locally">Run Tutorials Locally</h3>
-<p>To run tutorials locally, install <strong><abbr title="An open-source web application that allows you to create and share documents that contain live code, equations, visualizations, and narrative text.">Jupyter Notebook</abbr></strong> or <strong><abbr title="Web-based interactive development environment for notebooks, code, and data.">JupyterLab</abbr></strong>.</p>
-<p>Below, we outline the steps to run the tutorials using either <strong>Pixi</strong> (recommended)
-or the classical method (advanced users).</p>
-<h4 id="running-with-pixi">Running with Pixi <small>recommended</small></h4>
+to help users understand the data analysis workflow. They are available as
+<strong>static HTML pages</strong> in the
+<a href="../tutorials/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg></span> Tutorials</a> section.</p>
+<p>You can either download tutorials individually via the <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span>
+<strong>Download</strong> button available on each tutorial page, or download all
+tutorials at once using the command line, as described below.</p>
+<p>In the next sections, we explain how to set up Jupyter and run the tutorials
+interactively in two different ways: locally or online via <abbr title="Cloud service that allows you to run Jupyter Notebooks in the cloud.">Google Colab</abbr>.</p>
+<h3 id="running-with-pixi">Run Tutorials Locally with Pixi <small>recommended</small></h3>
 <p>Here are the steps to follow using <strong><abbr title="Web-based interactive development environment for notebooks, code, and data.">JupyterLab</abbr></strong> with Pixi:</p>
 <ul>
 <li>Navigate to your existing Pixi project, as described in the
@@ -958,7 +956,7 @@ or the classical method (advanced users).</p>
 <li>Your web browser should open automatically. Click on one of the <code>*.ipynb</code>
   files and select the <code>Python (Pixi)</code> kernel to get started.</li>
 </ul>
-<h4 id="classical-approach">Classical Approach <small>advanced</small></h4>
+<h3 id="classical-approach-to-run-locally">Classical Approach to Run Locally</h3>
 <p>Here are the steps to follow in the case of <strong><abbr title="An open-source web application that allows you to create and share documents that contain live code, equations, visualizations, and narrative text.">Jupyter Notebook</abbr></strong>:</p>
 <ul>
 <li>Install <abbr title="An open-source web application that allows you to create and share documents that contain live code, equations, visualizations, and narrative text.">Jupyter Notebook</abbr> and IPython kernel:
