@@ -196,7 +196,7 @@ interactively in two different ways: locally or online via Google Colab.
 
 Here are the steps to follow using **JupyterLab** with Pixi:
 
-- Navigate to your existing Pixi project, as described in the
+- Navigate to your existing Pixi project, created as described in the
   [Installing with Pixi](#installing-with-pixi) section.
 - Add JupyterLab and the Pixi kernel for Jupyter:
   ```txt
@@ -213,7 +213,7 @@ Here are the steps to follow using **JupyterLab** with Pixi:
 - Your web browser should open automatically. Click on one of the `*.ipynb`
   files and select the `Python (Pixi)` kernel to get started.
 
-### Classical Approach to Run Locally
+### Classical Run Tutorials Locally
 
 Here are the steps to follow in the case of **Jupyter Notebook**:
 
