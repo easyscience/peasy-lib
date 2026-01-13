@@ -182,7 +182,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: site-local_easypeasy-lib-${{ env.RELEASE_VERSION }}
-          path: site/
+          path: docs/site/
           if-no-files-found: 'error'
           compression-level: 0
 
@@ -207,9 +207,9 @@ jobs:
       - name: Rebuild and deploy docs with mike
         run: |
           if [[ "${IS_RELEASE_TAG}" == "true" ]]; then
-            pixi run docs-deploy "${RELEASE_VERSION#v}" latest
+            pixi run docs-deploy-pre "${RELEASE_VERSION#v}" latest
           else
-            pixi run docs-deploy dev
+            pixi run docs-deploy-pre dev
           fi
-          pixi run docs-set-default latest
+          pixi run docs-set-default-pre latest
           echo "🔗 deployment url [${{ env.DEPLOYMENT_URL }}](${{ env.DEPLOYMENT_URL }})" >> $GITHUB_STEP_SUMMARY
