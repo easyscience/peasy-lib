@@ -4,11 +4,12 @@ icon: material/cog-box
 
 # :material-cog-box: Installation & Setup
 
-EasyPeasy is a cross-platform Python library compatible with
+**EasyPeasy** is a cross-platform Python library compatible with
 **Python 3.11 through 3.13**.
 
 To install and set up EasyPeasy, we recommend using
-[**Pixi**](https://prefix.dev), an advanced Python package and environment manager.
+[**Pixi**](https://prefix.dev), an advanced Python package and environment
+manager.
 
 Main benefits of using Pixi include:
 
@@ -227,12 +228,13 @@ to help users understand the data analysis workflow. They are available as
 **static HTML pages** in the
 [:material-school: Tutorials](../tutorials/index.md) section.
 
-You can either download tutorials individually via the :material-download:
-**Download** button available on each tutorial page, or download all
-tutorials at once using the command line, as described below.
-
 In the next sections, we explain how to set up Jupyter and run the tutorials
 interactively in two different ways: locally or online via Google Colab.
+
+If you decide to run the tutorials locally, you need to download them first.
+This can be done individually via the :material-download: **Download*** button
+available on each tutorial page, or all at once using the command line, as
+shown below.
 
 ### Run Tutorials Locally with Pixi <small>recommended</small> { #running-with-pixi data-toc-label="Run Tutorials Locally with Pixi" }
 
