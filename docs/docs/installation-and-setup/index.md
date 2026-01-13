@@ -4,10 +4,10 @@ icon: material/cog-box
 
 # :material-cog-box: Installation & Setup
 
- is a cross-platform Python library compatible with
+EasyPeasy is a cross-platform Python library compatible with
 **Python 3.11 through 3.13**.
 
-To install and set up , we recommend to use
+To install and set up EasyPeasy, we recommend using
 [**Pixi**](https://prefix.dev), an advanced Python package and environment manager.
 
 Main benefits of using Pixi include:
@@ -27,7 +27,7 @@ is also provided for advanced users.
 
 ## Installing with Pixi <small>recommended</small> { #installing-with-pixi data-toc-label="Installing with Pixi" }
 
-This section describes the most simple way to set up  using
+This section describes the simplest way to set up EasyPeasy using
 **Pixi**.
 
 #### Installing Pixi
@@ -35,7 +35,7 @@ This section describes the most simple way to set up  using
 - Install Pixi by following the instructions on the
   [official Pixi Installation Guide](https://pixi.prefix.dev/latest/installation).
 
-#### Setting up  with Pixi
+#### Setting up EasyPeasy with Pixi
 
 - Initialize a new Pixi project and navigate into it:
   ```txt
@@ -50,30 +50,27 @@ This section describes the most simple way to set up  using
   ```txt
   pixi add gsl
   ```
-- Add  with the `visualization` extras, which include
+- Add EasyPeasy with the `visualization` extras, which include
   optional dependencies used for simplified visualization of charts and tables.
   This can be especially useful for running the Jupyter Notebook examples:
-  ```commandline
+  ```txt
   pixi add --pypi "easypeasy[visualization]"
   ```
-- Add a Pixi task to run  commands easily:
-  ```commandline
+- Add a Pixi task to run EasyPeasy commands easily:
+  ```txt
   pixi task add easypeasy "python -m easypeasy"
   ```
 
-#### Updating Pixi and 
+#### Updating Pixi and EasyPeasy
 
-To update all packages in the Pixi environment, including :
-
-```txt
-pixi update
-```
-
-To update Pixi itself to the latest version:
-
-```commandline
-pixi self-update
-```
+- To update all packages in the Pixi environment, including EasyPeasy:
+  ```txt
+  pixi update
+  ```
+- To update Pixi itself to the latest version:
+  ```txt
+  pixi self-update
+  ```
 
 #### Uninstalling Pixi
 
@@ -82,7 +79,7 @@ pixi self-update
 
 ## Classical Installation
 
-This section describes how to install  using the
+This section describes how to install EasyPeasy using the
 traditional method with **pip**. This approach is more flexible and
 suitable for advanced users familiar with Python package management and
 virtual environments.
@@ -161,7 +158,7 @@ and recreate the environment.
 
 ### Installing from PyPI { #from-pypi }
 
- is available on **PyPI (Python Package Index)** and can be
+EasyPeasy is available on **PyPI (Python Package Index)** and can be
 installed using `pip`.
 
 We recommend installing the latest release of EasyPeasy with the
@@ -210,7 +207,7 @@ pip show easypeasy
 Installing unreleased versions is generally not recommended but may be useful
 for testing.
 
-To install EasyPeasy from, e.g., the `develop` branch of GitHub:
+To install EasyPeasy from the `develop` branch of GitHub, for example:
 
 ```txt
 pip install git+https://github.com/easyscience/peasy-lib@develop
@@ -239,8 +236,6 @@ interactively in two different ways: locally or online via Google Colab.
 
 ### Run Tutorials Locally with Pixi <small>recommended</small> { #running-with-pixi data-toc-label="Run Tutorials Locally with Pixi" }
 
-Here are the steps to follow using **JupyterLab** with Pixi:
-
 - Navigate to your existing Pixi project, created as described in the
   [Installing with Pixi](#installing-with-pixi) section.
 - Add JupyterLab and the Pixi kernel for Jupyter:
@@ -260,13 +255,11 @@ Here are the steps to follow using **JupyterLab** with Pixi:
 
 ### Classical Run Tutorials Locally
 
-Here are the steps to follow in the case of **Jupyter Notebook**:
-
 - Install Jupyter Notebook and IPython kernel:
   ```txt
   pip install notebook ipykernel
   ```
-- Add the virtual environment as a Jupyter kernel
+- Add the virtual environment as a Jupyter kernel:
   ```txt
   python -m ipykernel install --user --name=venv --display-name "EasyPeasy Python kernel"
   ```
@@ -274,13 +267,9 @@ Here are the steps to follow in the case of **Jupyter Notebook**:
   ```txt
   python -m easypeasy download-all-tutorials
   ```
-- Launch the Jupyter Notebook server in the `tutorials/` directory:
+- Launch the Jupyter Notebook server (opens browser automatically at `http://localhost:8888/`):
   ```txt
   jupyter notebook tutorials/
-  ```
-- In your web browser, go to:
-  ```txt
-  http://localhost:8888/
   ```
 - Open one of the `*.ipynb` files and select the `EasyPeasy Python kernel`
   to get started.
@@ -288,13 +277,8 @@ Here are the steps to follow in the case of **Jupyter Notebook**:
 ### Run Tutorials via Google Colab
 
 **Google Colab** lets you run Jupyter Notebooks in the cloud without any local
-installation.
-
-To use Google Colab:
+installation. This is the fastest way to start experimenting with EasyPeasy.
 
 - Ensure you have a **Google account**.
 - Go to the **[:material-school: Tutorials](../tutorials/index.md)** section.
 - Click the :google-colab: **Open in Google Colab** button on any tutorial.
-
-This is the fastest way to start experimenting with EasyPeasy, without
-setting up Python on your system.
