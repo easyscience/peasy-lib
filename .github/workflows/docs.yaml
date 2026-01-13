@@ -174,7 +174,7 @@ jobs:
       # Input: docs/ directory containing the Markdown files
       # Output: site/ directory containing the generated HTML files
       - name: Build site for local check
-        run: pixi run docs-local
+        run: pixi run docs-build-local
 
       # Upload the static files from the site/ directory to be used for
       # local check
