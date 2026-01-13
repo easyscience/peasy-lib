@@ -4,28 +4,38 @@ icon: material/cog-box
 
 # :material-cog-box: Installation & Setup
 
-## Requirements
-
-EasyPeasy is a cross-platform Python library compatible with
+ is a cross-platform Python library compatible with
 **Python 3.11 through 3.13**.
 
-Below, we outline two installation methods: using **Pixi** (recommended for
-ease of use) and the **classical approach** (for advanced users).
+To install and set up , we recommend to use
+[**Pixi**](https://prefix.dev), an advanced Python package and environment manager.
+
+Main benefits of using Pixi include:
+- **Ease of use**: Pixi simplifies the installation process, making it
+  accessible even for users with limited experience in Python package
+  management.
+- **Python version control**: Pixi allows specifying and managing different
+  Python versions for each project, ensuring compatibility.
+- **Isolated environments**: Pixi creates isolated environments for each
+  project, preventing conflicts between different package versions.
+- **PyPI and Conda support**: Pixi can install packages from both PyPI and
+  Conda repositories, providing access to a wide range of libraries.
+
+An alternative installation method using the traditional **pip** package manager
+is also provided for advanced users.
 
 ## Installing with Pixi <small>recommended</small> { #installing-with-pixi data-toc-label="Installing with Pixi" }
 
-This section describes the most simple way to set up EasyPeasy using
-[Pixi](https://pixi.sh), an advanced package and environment manager for Python
-and Conda-compatible packages.
+This section describes the most simple way to set up  using
+**Pixi**.
 
-It requires installing Pixi first, but then it automates the creation of an
-isolated environment with all dependencies, which is especially useful for
-non-expert Python users.
-
-<!-- prettier-ignore-start -->
+#### Installing Pixi
 
 - Install Pixi by following the instructions on the
-  [official Pixi Installation Guide](https://pixi.sh/latest/installation).
+  [official Pixi Installation Guide](https://pixi.prefix.dev/latest/installation).
+
+#### Setting up  with Pixi
+
 - Initialize a new Pixi project and navigate into it:
   ```txt
   pixi init easypeasy
@@ -42,20 +52,37 @@ non-expert Python users.
 - Add  with the `visualization` extras, which include
   optional dependencies used for simplified visualization of charts and tables.
   This can be especially useful for running the Jupyter Notebook examples:
-  ```txt
+  ```commandline
   pixi add --pypi "easypeasy[visualization]"
   ```
-- Add a Pixi task to run EasyPeasy commands easily:
-  ```txt
+- Add a Pixi task to run  commands easily:
+  ```commandline
   pixi task add easypeasy "python -m easypeasy"
   ```
 
-<!-- prettier-ignore-end -->
+#### Updating Pixi and 
+
+To update all packages in the Pixi environment, including :
+
+```txt
+pixi update
+```
+
+To update Pixi itself to the latest version:
+
+```commandline
+pixi self-update
+```
+
+#### Uninstalling Pixi
+
+- Follow the
+  [official Pixi Guide](https://pixi.prefix.dev/latest/installation/#uninstall).
 
 ## Classical Installation
 
 This section describes how to install  using the
-traditional method with `pip`. This approach is more flexible and
+traditional method with **pip**. This approach is more flexible and
 suitable for advanced users familiar with Python package management and
 virtual environments.
 
@@ -163,6 +190,7 @@ To upgrade to the latest version:
 ```txt
 pip install --upgrade easypeasy
 ```
+
 To upgrade to the latest version and force reinstallation of all
 dependencies (useful if files are corrupted):
 
