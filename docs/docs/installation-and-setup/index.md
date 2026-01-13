@@ -11,17 +11,17 @@ To install and set up EasyPeasy, we recommend using
 [**Pixi**](https://prefix.dev), an advanced Python package and environment
 manager.
 
-Main benefits of using Pixi include:
+!!! note "Main benefits of using Pixi"
 
-- **Ease of use**: Pixi simplifies the installation process, making it
-  accessible even for users with limited experience in Python package
-  management.
-- **Python version control**: Pixi allows specifying and managing different
-  Python versions for each project, ensuring compatibility.
-- **Isolated environments**: Pixi creates isolated environments for each
-  project, preventing conflicts between different package versions.
-- **PyPI and Conda support**: Pixi can install packages from both PyPI and
-  Conda repositories, providing access to a wide range of libraries.
+    - **Ease of use**: Pixi simplifies the installation process, making it
+      accessible even for users with limited experience in Python package
+      management.
+    - **Python version control**: Pixi allows specifying and managing different
+      Python versions for each project, ensuring compatibility.
+    - **Isolated environments**: Pixi creates isolated environments for each
+      project, preventing conflicts between different package versions.
+    - **PyPI and Conda support**: Pixi can install packages from both PyPI and
+      Conda repositories, providing access to a wide range of libraries.
 
 An alternative installation method using the traditional **pip** package manager
 is also provided for advanced users.
