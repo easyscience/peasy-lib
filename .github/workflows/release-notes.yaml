@@ -36,7 +36,7 @@ jobs:
         uses: enhantica/drafterino@v2
         with:
           config: |
-            title: 'easydiffraction $COMPUTED_VERSION'
+            title: 'easypeasy $COMPUTED_VERSION'
             tag: 'v$COMPUTED_VERSION'
             note-template: '- $PR_TITLE (#$PR_NUMBER)'
 
