@@ -218,8 +218,7 @@ Here are the steps to follow using **JupyterLab** with Pixi:
   pixi run jupyter lab tutorials/
   ```
 - Your web browser should open automatically. Click on one of the `*.ipynb`
-  files and select the `Python (Pixi)` kernel to get started and select the
-  tutorial you want to run.
+  files and select the `Python (Pixi)` kernel to get started.
 
 #### Classical Approach <small>advanced</small> { #classical-approach data-toc-label="Classical Approach" }
 
