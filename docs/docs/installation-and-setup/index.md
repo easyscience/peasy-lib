@@ -39,7 +39,9 @@ non-expert Python users.
   ```txt
   pixi add gsl
   ```
-- Add EasyPeasy with the `visualization` extras:
+- Add  with the `visualization` extras, which include
+  optional dependencies used for simplified visualization of charts and tables.
+  This can be especially useful for running the Jupyter Notebook examples:
   ```txt
   pixi add --pypi "easypeasy[visualization]"
   ```
@@ -50,7 +52,7 @@ non-expert Python users.
 
 <!-- prettier-ignore-end -->
 
-## Classical Installation <small>advanced</small> { #classical-installation data-toc-label="Classical Installation" }
+## Classical Installation
 
 ### Environment Setup <small>optional</small> { #environment-setup data-toc-label="Environment Setup" }
 
@@ -113,12 +115,10 @@ and recreate the environment.
 
 <!-- prettier-ignore-end -->
 
-### Installing from PyPI <small>recommended</small> { #from-pypi data-toc-label="Installing from PyPI" }
+### Installing from PyPI { #from-pypi }
 
-EasyPeasy is available on **PyPI (Python Package Index)** and can be
-installed using `pip`. We strongly recommend installing it within a virtual
-environment, as described in the [Environment Setup](#environment-setup)
-section.
+ is available on **PyPI (Python Package Index)** and can be
+installed using `pip`.
 
 We recommend installing the latest release of EasyPeasy with the
 `visualization` extras, which include optional dependencies used for simplified
@@ -181,25 +181,18 @@ pip install 'easypeasy[visualization] @ git+https://github.com/easyscience/peasy
 
 EasyPeasy includes a collection of **Jupyter Notebook examples** that
 demonstrate key functionality. These tutorials serve as **step-by-step guides**
-to help users understand the data analysis workflow.
+to help users understand the data analysis workflow. They are available as
+**static HTML pages** in the
+[:material-school: Tutorials](../tutorials/index.md) section.
 
-They are available as **static HTML pages** in the
-[:material-school: Tutorials](../tutorials/index.md) section. You can also run
-them interactively in two ways:
+You can either download tutorials individually via the :material-download:
+**Download** button available on each tutorial page, or download all
+tutorials at once using the command line, as described below.
 
-- **Run Locally** – Download the notebook via the :material-download:
-  **Download** button and run it on your computer.
-- **Run Online** – Use the :google-colab: **Open in Google Colab** button to run
-  the tutorial directly in your browser (no setup required).
+In the next sections, we explain how to set up Jupyter and run the tutorials
+interactively in two different ways: locally or online via Google Colab.
 
-### Run Tutorials Locally
-
-To run tutorials locally, install **Jupyter Notebook** or **JupyterLab**.
-
-Below, we outline the steps to run the tutorials using either **Pixi** (recommended)
-or the classical method (advanced users).
-
-#### Running with Pixi <small>recommended</small> { #running-with-pixi data-toc-label="Running with Pixi" }
+### Run Tutorials Locally with Pixi <small>recommended</small> { #running-with-pixi data-toc-label="Run Tutorials Locally with Pixi" }
 
 Here are the steps to follow using **JupyterLab** with Pixi:
 
@@ -220,7 +213,7 @@ Here are the steps to follow using **JupyterLab** with Pixi:
 - Your web browser should open automatically. Click on one of the `*.ipynb`
   files and select the `Python (Pixi)` kernel to get started.
 
-#### Classical Approach <small>advanced</small> { #classical-approach data-toc-label="Classical Approach" }
+### Classical Approach to Run Locally
 
 Here are the steps to follow in the case of **Jupyter Notebook**:
 
