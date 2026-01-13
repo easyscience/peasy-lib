@@ -63,8 +63,12 @@ virtual environments.
 
     Currently, classical installation doesn't allow installing the
     GNU Scientific Library (GSL) dependency automatically. As a result,
-    the calculation engine pdffit2 will not be available. To make it
+    the calculation engine **pdffit2** will not be available. To make it
     work, ensure that GSL is installed on your system.
+
+    Alternatively, consider using the **Pixi installation method** described
+    in the [Installing with Pixi](#installing-with-pixi) section, which
+    handles GSL installation automatically.
 
 ### Environment Setup <small>optional</small> { #environment-setup data-toc-label="Environment Setup" }
 
