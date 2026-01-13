@@ -83,7 +83,6 @@ jobs:
           fi
           echo "RELEASE_VERSION=${RELEASE_VERSION}" >> "$GITHUB_ENV"
           echo "DOCS_VERSION=${DOCS_VERSION}" >> "$GITHUB_ENV"
-          echo "DEPLOYMENT_URL=https://easyscience.github.io/${{ github.event.repository.name }}/${DOCS_VERSION}" >> "$GITHUB_ENV"
 
       # Check out the repository source code.
       # Note: The gh-pages branch is fetched separately later for mike deployment.
@@ -165,10 +164,21 @@ jobs:
       # Also sets 'latest' as the default version for the version selector.
       - name: Rebuild and deploy docs with mike
         run: |
+          # Exit on error (-e), undefined vars (-u), and pipeline failures (pipefail)
+          set -euo pipefail
+
+          REPO_NAME="${{ github.event.repository.name }}"
+          BASE_URL="https://easyscience.github.io/${REPO_NAME}"
+
           if [[ "${IS_RELEASE_TAG}" == "true" ]]; then
+            # Deploy the release version and update the "latest" alias
             pixi run docs-deploy-pre "${RELEASE_VERSION#v}" latest
             pixi run docs-set-default-pre latest
+            DEPLOYMENT_URL="${BASE_URL}/latest"
           else
+            # Deploy/update the "dev" alias (or whatever your convention is)
             pixi run docs-deploy-pre dev
+            DEPLOYMENT_URL="${BASE_URL}/dev"
           fi
-          echo "🔗 deployment url [${{ env.DEPLOYMENT_URL }}](${{ env.DEPLOYMENT_URL }})" >> $GITHUB_STEP_SUMMARY
+
+          echo "🔗 deployment url [${DEPLOYMENT_URL}](${DEPLOYMENT_URL})" >> "${GITHUB_STEP_SUMMARY}"
