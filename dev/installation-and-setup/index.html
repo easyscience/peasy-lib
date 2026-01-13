@@ -641,17 +641,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Requirements
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#installing-with-pixi" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -786,23 +775,34 @@
 
 
 <h1 id="installation-setup"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.25 12c0 .23-.02.46-.05.68l1.48 1.16c.13.11.17.29.08.45l-1.4 2.42c-.09.15-.27.21-.43.15l-1.74-.7c-.36.28-.76.51-1.19.69l-.25 1.85c-.03.17-.18.3-.35.3h-2.8c-.17 0-.32-.13-.35-.3L10 16.85c-.44-.18-.83-.41-1.19-.69l-1.74.7c-.16.06-.34 0-.43-.15l-1.4-2.42a.35.35 0 0 1 .08-.45l1.48-1.16c-.03-.22-.05-.45-.05-.68s.02-.46.05-.68l-1.48-1.16a.35.35 0 0 1-.08-.45l1.4-2.42c.09-.16.27-.22.43-.16l1.74.71c.36-.28.75-.52 1.19-.69l.25-1.86c.03-.16.18-.29.35-.29h2.8c.17 0 .32.13.35.29L14 7.15c.43.17.83.41 1.19.69l1.74-.71c.16-.06.34 0 .43.16l1.4 2.42c.09.15.05.34-.08.45l-1.48 1.16c.03.22.05.45.05.68M19 3H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-7 7c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2"/></svg></span> Installation &amp; Setup</h1>
-<h2 id="requirements">Requirements</h2>
 <p>EasyPeasy is a cross-platform Python library compatible with
 <strong>Python 3.11 through 3.13</strong>.</p>
-<p>Below, we outline two installation methods: using <strong>Pixi</strong> (recommended for
-ease of use) and the <strong>classical approach</strong> (for advanced users).</p>
+<p>To install and set up EasyPeasy, we recommend using
+<a href="https://prefix.dev"><strong>Pixi</strong></a>, an advanced Python package and environment manager.</p>
+<p>Main benefits of using Pixi include:</p>
+<ul>
+<li><strong>Ease of use</strong>: Pixi simplifies the installation process, making it
+  accessible even for users with limited experience in Python package
+  management.</li>
+<li><strong>Python version control</strong>: Pixi allows specifying and managing different
+  Python versions for each project, ensuring compatibility.</li>
+<li><strong>Isolated environments</strong>: Pixi creates isolated environments for each
+  project, preventing conflicts between different package versions.</li>
+<li><strong><abbr title="The Python Package Index is a repository of software for the Python programming language.">PyPI</abbr> and Conda support</strong>: Pixi can install packages from both <abbr title="The Python Package Index is a repository of software for the Python programming language.">PyPI</abbr> and
+  Conda repositories, providing access to a wide range of libraries.</li>
+</ul>
+<p>An alternative installation method using the traditional <strong><abbr title="Package installer for Python.">pip</abbr></strong> package manager
+is also provided for advanced users.</p>
 <h2 id="installing-with-pixi">Installing with Pixi <small>recommended</small></h2>
-<p>This section describes the most simple way to set up EasyPeasy using
-<a href="https://pixi.sh">Pixi</a>, an advanced package and environment manager for Python
-and Conda-compatible packages.</p>
-<p>It requires installing Pixi first, but then it automates the creation of an
-isolated environment with all dependencies, which is especially useful for
-non-expert Python users.</p>
-<!-- prettier-ignore-start -->
-
+<p>This section describes the simplest way to set up EasyPeasy using
+<strong>Pixi</strong>.</p>
+<h4 id="installing-pixi">Installing Pixi</h4>
 <ul>
 <li>Install Pixi by following the instructions on the
-  <a href="https://pixi.sh/latest/installation">official Pixi Installation Guide</a>.</li>
+  <a href="https://pixi.prefix.dev/latest/installation">official Pixi Installation Guide</a>.</li>
+</ul>
+<h4 id="setting-up-easypeasy-with-pixi">Setting up EasyPeasy with Pixi</h4>
+<ul>
 <li>Initialize a new Pixi project and navigate into it:
   <div class="language-text highlight"><pre><span></span><code>pixi init easypeasy
 cd easypeasy
@@ -813,7 +813,7 @@ cd easypeasy
 <li>Add the GNU Scientific Library (GSL) dependency:
   <div class="language-text highlight"><pre><span></span><code>pixi add gsl
 </code></pre></div></li>
-<li>Add  with the <code>visualization</code> extras, which include
+<li>Add EasyPeasy with the <code>visualization</code> extras, which include
   optional dependencies used for simplified visualization of charts and tables.
   This can be especially useful for running the <abbr title="An open-source web application that allows you to create and share documents that contain live code, equations, visualizations, and narrative text.">Jupyter Notebook</abbr> examples:
   <div class="language-text highlight"><pre><span></span><code>pixi add --pypi &quot;easypeasy[visualization]&quot;
@@ -822,11 +822,23 @@ cd easypeasy
   <div class="language-text highlight"><pre><span></span><code>pixi task add easypeasy &quot;python -m easypeasy&quot;
 </code></pre></div></li>
 </ul>
-<!-- prettier-ignore-end -->
-
+<h4 id="updating-pixi-and-easypeasy">Updating Pixi and EasyPeasy</h4>
+<ul>
+<li>To update all packages in the Pixi environment, including EasyPeasy:
+  <div class="language-text highlight"><pre><span></span><code>pixi update
+</code></pre></div></li>
+<li>To update Pixi itself to the latest version:
+  <div class="language-text highlight"><pre><span></span><code>pixi self-update
+</code></pre></div></li>
+</ul>
+<h4 id="uninstalling-pixi">Uninstalling Pixi</h4>
+<ul>
+<li>Follow the
+  <a href="https://pixi.prefix.dev/latest/installation/#uninstall">official Pixi Guide</a>.</li>
+</ul>
 <h2 id="classical-installation">Classical Installation</h2>
-<p>This section describes how to install  using the
-traditional method with <code>pip</code>. This approach is more flexible and
+<p>This section describes how to install EasyPeasy using the
+traditional method with <strong><abbr title="Package installer for Python.">pip</abbr></strong>. This approach is more flexible and
 suitable for advanced users familiar with Python package management and
 virtual environments.</p>
 <div class="admonition warning">
@@ -908,7 +920,7 @@ and recreate the environment.</p>
 <!-- prettier-ignore-end -->
 
 <h3 id="from-pypi">Installing from <abbr title="The Python Package Index is a repository of software for the Python programming language.">PyPI</abbr></h3>
-<p>is available on <strong><abbr title="The Python Package Index is a repository of software for the Python programming language.">PyPI</abbr> (Python Package Index)</strong> and can be
+<p>EasyPeasy is available on <strong><abbr title="The Python Package Index is a repository of software for the Python programming language.">PyPI</abbr> (Python Package Index)</strong> and can be
 installed using <code>pip</code>.</p>
 <p>We recommend installing the latest release of EasyPeasy with the
 <code>visualization</code> extras, which include optional dependencies used for simplified
@@ -924,9 +936,9 @@ with:</p>
 <div class="language-text highlight"><pre><span></span><code>pip install &#39;easypeasy==1.0.3&#39;
 </code></pre></div>
 <p>To upgrade to the latest version:</p>
-<p><div class="language-text highlight"><pre><span></span><code>pip install --upgrade easypeasy
+<div class="language-text highlight"><pre><span></span><code>pip install --upgrade easypeasy
 </code></pre></div>
-To upgrade to the latest version and force reinstallation of all
+<p>To upgrade to the latest version and force reinstallation of all
 dependencies (useful if files are corrupted):</p>
 <div class="language-text highlight"><pre><span></span><code>pip install --upgrade --force-reinstall easypeasy
 </code></pre></div>
@@ -936,7 +948,7 @@ dependencies (useful if files are corrupted):</p>
 <h3 id="from-github">Installing from <abbr title="A web-based platform for version control and collaboration.">GitHub</abbr> <small>alternative</small></h3>
 <p>Installing unreleased versions is generally not recommended but may be useful
 for testing.</p>
-<p>To install EasyPeasy from, e.g., the <code>develop</code> branch of <abbr title="A web-based platform for version control and collaboration.">GitHub</abbr>:</p>
+<p>To install EasyPeasy from the <code>develop</code> branch of <abbr title="A web-based platform for version control and collaboration.">GitHub</abbr>, for example:</p>
 <div class="language-text highlight"><pre><span></span><code>pip install git+https://github.com/easyscience/peasy-lib@develop
 </code></pre></div>
 <p>To include extra dependencies (e.g., visualization):</p>
@@ -954,7 +966,6 @@ tutorials at once using the command line, as described below.</p>
 <p>In the next sections, we explain how to set up Jupyter and run the tutorials
 interactively in two different ways: locally or online via <abbr title="Cloud service that allows you to run Jupyter Notebooks in the cloud.">Google Colab</abbr>.</p>
 <h3 id="running-with-pixi">Run Tutorials Locally with Pixi <small>recommended</small></h3>
-<p>Here are the steps to follow using <strong><abbr title="Web-based interactive development environment for notebooks, code, and data.">JupyterLab</abbr></strong> with Pixi:</p>
 <ul>
 <li>Navigate to your existing Pixi project, created as described in the
   <a href="#installing-with-pixi">Installing with Pixi</a> section.</li>
@@ -971,30 +982,25 @@ interactively in two different ways: locally or online via <abbr title="Cloud se
   files and select the <code>Python (Pixi)</code> kernel to get started.</li>
 </ul>
 <h3 id="classical-run-tutorials-locally">Classical Run Tutorials Locally</h3>
-<p>Here are the steps to follow in the case of <strong><abbr title="An open-source web application that allows you to create and share documents that contain live code, equations, visualizations, and narrative text.">Jupyter Notebook</abbr></strong>:</p>
 <ul>
 <li>Install <abbr title="An open-source web application that allows you to create and share documents that contain live code, equations, visualizations, and narrative text.">Jupyter Notebook</abbr> and IPython kernel:
   <div class="language-text highlight"><pre><span></span><code>pip install notebook ipykernel
 </code></pre></div></li>
-<li>Add the virtual environment as a Jupyter kernel
+<li>Add the virtual environment as a Jupyter kernel:
   <div class="language-text highlight"><pre><span></span><code>python -m ipykernel install --user --name=venv --display-name &quot;EasyPeasy Python kernel&quot;
 </code></pre></div></li>
 <li>Download all the EasyPeasy tutorials to the <code>tutorials/</code> directory:
   <div class="language-text highlight"><pre><span></span><code>python -m easypeasy download-all-tutorials
 </code></pre></div></li>
-<li>Launch the <abbr title="An open-source web application that allows you to create and share documents that contain live code, equations, visualizations, and narrative text.">Jupyter Notebook</abbr> server in the <code>tutorials/</code> directory:
+<li>Launch the <abbr title="An open-source web application that allows you to create and share documents that contain live code, equations, visualizations, and narrative text.">Jupyter Notebook</abbr> server (opens browser automatically at <code>http://localhost:8888/</code>):
   <div class="language-text highlight"><pre><span></span><code>jupyter notebook tutorials/
-</code></pre></div></li>
-<li>In your web browser, go to:
-  <div class="language-text highlight"><pre><span></span><code>http://localhost:8888/
 </code></pre></div></li>
 <li>Open one of the <code>*.ipynb</code> files and select the <code>EasyPeasy Python kernel</code>
   to get started.</li>
 </ul>
 <h3 id="run-tutorials-via-google-colab">Run Tutorials via <abbr title="Cloud service that allows you to run Jupyter Notebooks in the cloud.">Google Colab</abbr></h3>
 <p><strong><abbr title="Cloud service that allows you to run Jupyter Notebooks in the cloud.">Google Colab</abbr></strong> lets you run Jupyter Notebooks in the cloud without any local
-installation.</p>
-<p>To use <abbr title="Cloud service that allows you to run Jupyter Notebooks in the cloud.">Google Colab</abbr>:</p>
+installation. This is the fastest way to start experimenting with EasyPeasy.</p>
 <ul>
 <li>Ensure you have a <strong>Google account</strong>.</li>
 <li>Go to the <strong><a href="../tutorials/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg></span> Tutorials</a></strong> section.</li>
@@ -1007,8 +1013,6 @@ installation.</p>
 </svg>
 </span> <strong>Open in <abbr title="Cloud service that allows you to run Jupyter Notebooks in the cloud.">Google Colab</abbr></strong> button on any tutorial.</li>
 </ul>
-<p>This is the fastest way to start experimenting with EasyPeasy, without
-setting up Python on your system.</p>
 
 
 
