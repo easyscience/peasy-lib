@@ -54,6 +54,18 @@ non-expert Python users.
 
 ## Classical Installation
 
+This section describes how to install  using the
+traditional method with `pip`. This approach is more flexible and
+suitable for advanced users familiar with Python package management and
+virtual environments.
+
+!!! warning
+
+    Currently, classical installation doesn't allow installing the
+    GNU Scientific Library (GSL) dependency automatically. As a result,
+    the calculation engine pdffit2 will not be available. To make it
+    work, ensure that GSL is installed on your system.
+
 ### Environment Setup <small>optional</small> { #environment-setup data-toc-label="Environment Setup" }
 
 We recommend using a **virtual environment** to isolate dependencies and avoid
