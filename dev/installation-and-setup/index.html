@@ -825,6 +825,17 @@ cd easypeasy
 <!-- prettier-ignore-end -->
 
 <h2 id="classical-installation">Classical Installation</h2>
+<p>This section describes how to install  using the
+traditional method with <code>pip</code>. This approach is more flexible and
+suitable for advanced users familiar with Python package management and
+virtual environments.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Currently, classical installation doesn't allow installing the
+GNU Scientific Library (GSL) dependency automatically. As a result,
+the calculation engine pdffit2 will not be available. To make it
+work, ensure that GSL is installed on your system.</p>
+</div>
 <h3 id="environment-setup">Environment Setup <small>optional</small></h3>
 <p>We recommend using a <strong>virtual environment</strong> to isolate dependencies and avoid
 conflicts with system-wide packages. If any issues arise, you can simply delete
