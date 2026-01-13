@@ -11,6 +11,7 @@ To install and set up , we recommend to use
 [**Pixi**](https://prefix.dev), an advanced Python package and environment manager.
 
 Main benefits of using Pixi include:
+
 - **Ease of use**: Pixi simplifies the installation process, making it
   accessible even for users with limited experience in Python package
   management.
