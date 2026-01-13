@@ -85,6 +85,11 @@ jobs:
           echo "DOCS_VERSION=${DOCS_VERSION}" >> "$GITHUB_ENV"
           echo "DEPLOYMENT_URL=https://easyscience.github.io/${{ github.event.repository.name }}/${DOCS_VERSION}" >> "$GITHUB_ENV"
 
+      # Check out the repository source code.
+      # Note: The gh-pages branch is fetched separately later for mike deployment.
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
       # Create GitHub App token for pushing to gh-pages as easyscience[bot].
       - name: Setup easyscience[bot]
         id: bot
@@ -92,13 +97,6 @@ jobs:
         with:
           app-id: ${{ vars.EASYSCIENCE_APP_ID }}
           private-key: ${{ secrets.EASYSCIENCE_APP_KEY }}
-
-      # Check out the repository source code.
-      # Note: The gh-pages branch is fetched separately later for mike deployment.
-      - name: Checkout repository (with bot token)
-        uses: ./.github/actions/checkout-with-token
-        with:
-          token: ${{ steps.bot.outputs.token }}
 
       # Activate dark mode to create documentation with Plotly charts in dark mode
       # Need a better solution to automatically switch the chart colour theme based on the mkdocs material switcher
