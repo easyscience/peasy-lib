@@ -30,23 +30,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Create GitHub App installation token
-        id: app-token
-        uses: actions/create-github-app-token@v2
-        with:
-          app-id: ${{ vars.EASYSCIENCE_APP_ID }}
-          private-key: ${{ secrets.EASYSCIENCE_APP_KEY }}
-
       - name: Checkout repository
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
-          token: ${{ steps.app-token.outputs.token }}
 
-      - name: Configure git for pushing
-        run: |
-          git config user.name "easyscience[bot]"
-          git config user.email "${{ vars.EASYSCIENCE_APP_ID }}+easyscience[bot]@users.noreply.github.com"
+      - name: Setup easyscience[bot]
+        uses: ./.github/actions/setup-easyscience-bot
+        with:
+          app-id: ${{ vars.EASYSCIENCE_APP_ID }}
+          private-key: ${{ secrets.EASYSCIENCE_APP_KEY }}
 
       - name: Merge master into develop
         run: |
