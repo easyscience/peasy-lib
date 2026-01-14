@@ -109,30 +109,32 @@ jobs:
 
       # Set up the pixi package manager and install dependencies from pixi.toml.
       # Uses frozen lockfile to ensure reproducible builds.
-      - name: Set up pixi
-        uses: ./.github/actions/setup-pixi
+      - uses: ./.github/actions/setup-pixi
 
       # Install additional development dependencies (e.g., pre-commit hooks, dev tools).
       #- name: Install and setup development dependencies
       #  shell: bash
       #  run: pixi run dev
 
-      # Pre-import the main package to trigger Matplotlib font cache building.
-      # This avoids "Matplotlib is building the font cache" messages during notebook execution.
-      #- name: Pre-build site step
-      #  run: pixi run python -c "import easydiffraction"
+      # Pre-import the main package to exclude info messages from the docs
+      # E.g., Matplotlib may print messages to stdout/stderr when first
+      # imported. This step allows to avoid "Matplotlib is building the font
+      # cache" messages during notebook execution.
+      - name: Pre-build site step
+        run: pixi run python -c "import easypeasy"
 
-      # Convert Python scripts in the tutorials/ directory to Jupyter notebooks.
-      # This step also strips any existing output from the notebooks and prepares
-      # them for documentation.
-      #- name: Convert tutorial scripts to notebooks
-      #  run: pixi run notebook-prepare
+      # Convert Python scripts in the docs/docs/tutorials/ directory to Jupyter
+      # notebooks.
+      # This step also strips any existing output from the notebooks and
+      # prepares them for documentation.
+      - name: Convert tutorial scripts to notebooks
+        run: pixi run notebook-prepare
 
       # Execute all Jupyter notebooks to generate output cells (plots, tables, etc.).
       # Uses multiple cores for parallel execution to speed up the process.
-      #- name: Run notebooks
-      #  #  if: false # Temporarily disabled to speed up the docs build
-      #  run: pixi run notebook-exec
+      - name: Run notebooks
+        # if: false # Temporarily disabled to speed up the docs build
+        run: pixi run notebook-exec
 
       # Build the static files for the documentation site for local inspection
       # Input: docs/ directory containing the Markdown files

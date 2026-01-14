@@ -33,7 +33,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
         with:
-          fetch-depth: 0
+          fetch-depth: 0 # full history with tags
 
       - name: Setup easyscience[bot]
         uses: ./.github/actions/setup-easyscience-bot

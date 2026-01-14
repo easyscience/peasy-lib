@@ -33,7 +33,8 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - uses: prefix-dev/setup-pixi@v0.9.3
+    - name: Set up pixi
+      uses: prefix-dev/setup-pixi@v0.9.3
       with:
         environments: ${{ inputs.environments }}
         activate-environment: ${{ inputs.activate-environment }}
