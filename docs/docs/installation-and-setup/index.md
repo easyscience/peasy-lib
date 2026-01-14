@@ -231,9 +231,9 @@ In the next sections, we explain how to set up Jupyter and run the tutorials
 interactively in two different ways: locally or online via Google Colab.
 
 If you decide to run the tutorials locally, you need to download them first.
-This can be done individually via the :material-download: **Download*** button
-available on each tutorial page, or all at once using the command line, as
-shown below.
+This can be done individually via the :material-download: **Download Notebook**
+button available on each tutorial page, or all at once using the command line,
+as shown below.
 
 ### Run Tutorials Locally with Pixi <small>recommended</small> { #running-with-pixi data-toc-label="Run Tutorials Locally with Pixi" }
 
