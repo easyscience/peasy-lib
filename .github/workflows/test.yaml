@@ -79,7 +79,7 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     env:
-      PIXI_ENVS: 'default' '#'py311-dev py313-dev'
+      PIXI_ENVS: 'default' #'py311-dev py313-dev'
 
     steps:
       - name: Checkout repository
