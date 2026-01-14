@@ -8,14 +8,13 @@ icon: material/cog-box
 **Python 3.11 through 3.13**.
 
 To install and set up EasyPeasy, we recommend using
-[**Pixi**](https://prefix.dev), an advanced Python package and environment
-manager.
+[**Pixi**](https://prefix.dev), a modern package manager for Windows, macOS,
+and Linux
 
 !!! note "Main benefits of using Pixi"
 
     - **Ease of use**: Pixi simplifies the installation process, making it
-      accessible even for users with limited experience in Python package
-      management.
+      accessible even for users with limited experience in package management.
     - **Python version control**: Pixi allows specifying and managing different
       Python versions for each project, ensuring compatibility.
     - **Isolated environments**: Pixi creates isolated environments for each

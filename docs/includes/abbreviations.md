@@ -7,3 +7,5 @@
 *[JupyterLab]: Web-based interactive development environment for notebooks, code, and data.
 *[pip]: Package installer for Python.
 *[PyPI]: The Python Package Index is a repository of software for the Python programming language.
+*[Conda]: Conda is a cross-platform, language-agnostic binary package manager.
+*[Pixi]: A modern package manager for Windows, macOS, and Linux.
