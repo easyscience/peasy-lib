@@ -5,7 +5,7 @@ icon: material/cog-box
 # :material-cog-box: Installation & Setup
 
 **EasyPeasy** is a cross-platform Python library compatible with
-**Python 3.11 through 3.13**.
+**Python 3.11** through **3.13**.
 
 To install and set up EasyPeasy, we recommend using
 [**Pixi**](https://prefix.dev), a modern package manager for Windows, macOS,
@@ -23,7 +23,7 @@ and Linux
       Conda repositories, providing access to a wide range of libraries.
 
 An alternative installation method using the traditional **pip** package manager
-is also provided for advanced users.
+is also provided.
 
 ## Installing with Pixi <small>recommended</small> { #installing-with-pixi data-toc-label="Installing with Pixi" }
 
@@ -81,7 +81,7 @@ This section describes the simplest way to set up EasyPeasy using
 
 This section describes how to install EasyPeasy using the
 traditional method with **pip**. This approach is more flexible and
-suitable for advanced users familiar with Python package management and
+suitable for users familiar with Python package management and
 virtual environments.
 
 !!! warning
