@@ -778,39 +778,38 @@
 <p><strong>EasyPeasy</strong> is a cross-platform Python library compatible with
 <strong>Python 3.11 through 3.13</strong>.</p>
 <p>To install and set up EasyPeasy, we recommend using
-<a href="https://prefix.dev"><strong>Pixi</strong></a>, an advanced Python package and environment
-manager.</p>
+<a href="https://prefix.dev"><strong><abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr></strong></a>, a modern package manager for Windows, macOS,
+and Linux</p>
 <div class="admonition note">
-<p class="admonition-title">Main benefits of using Pixi</p>
+<p class="admonition-title">Main benefits of using <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr></p>
 <ul>
-<li><strong>Ease of use</strong>: Pixi simplifies the installation process, making it
-  accessible even for users with limited experience in Python package
-  management.</li>
-<li><strong>Python version control</strong>: Pixi allows specifying and managing different
+<li><strong>Ease of use</strong>: <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> simplifies the installation process, making it
+  accessible even for users with limited experience in package management.</li>
+<li><strong>Python version control</strong>: <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> allows specifying and managing different
   Python versions for each project, ensuring compatibility.</li>
-<li><strong>Isolated environments</strong>: Pixi creates isolated environments for each
+<li><strong>Isolated environments</strong>: <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> creates isolated environments for each
   project, preventing conflicts between different package versions.</li>
-<li><strong><abbr title="The Python Package Index is a repository of software for the Python programming language.">PyPI</abbr> and Conda support</strong>: Pixi can install packages from both <abbr title="The Python Package Index is a repository of software for the Python programming language.">PyPI</abbr> and
-  Conda repositories, providing access to a wide range of libraries.</li>
+<li><strong><abbr title="The Python Package Index is a repository of software for the Python programming language.">PyPI</abbr> and <abbr title="Conda is a cross-platform, language-agnostic binary package manager.">Conda</abbr> support</strong>: <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> can install packages from both <abbr title="The Python Package Index is a repository of software for the Python programming language.">PyPI</abbr> and
+  <abbr title="Conda is a cross-platform, language-agnostic binary package manager.">Conda</abbr> repositories, providing access to a wide range of libraries.</li>
 </ul>
 </div>
 <p>An alternative installation method using the traditional <strong><abbr title="Package installer for Python.">pip</abbr></strong> package manager
 is also provided for advanced users.</p>
-<h2 id="installing-with-pixi">Installing with Pixi <small>recommended</small></h2>
+<h2 id="installing-with-pixi">Installing with <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> <small>recommended</small></h2>
 <p>This section describes the simplest way to set up EasyPeasy using
-<strong>Pixi</strong>.</p>
-<h4 id="installing-pixi">Installing Pixi</h4>
+<strong><abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr></strong>.</p>
+<h4 id="installing-pixi">Installing <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr></h4>
 <ul>
-<li>Install Pixi by following the instructions on the
-  <a href="https://pixi.prefix.dev/latest/installation">official Pixi Installation Guide</a>.</li>
+<li>Install <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> by following the instructions on the
+  <a href="https://pixi.prefix.dev/latest/installation">official <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> Installation Guide</a>.</li>
 </ul>
-<h4 id="setting-up-easypeasy-with-pixi">Setting up EasyPeasy with Pixi</h4>
+<h4 id="setting-up-easypeasy-with-pixi">Setting up EasyPeasy with <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr></h4>
 <ul>
-<li>Initialize a new Pixi project and navigate into it:
+<li>Initialize a new <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> project and navigate into it:
   <div class="language-text highlight"><pre><span></span><code>pixi init easypeasy
 cd easypeasy
 </code></pre></div></li>
-<li>Set the Python version for the Pixi environment (e.g., 3.13):
+<li>Set the Python version for the <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> environment (e.g., 3.13):
   <div class="language-text highlight"><pre><span></span><code>pixi add python=3.13
 </code></pre></div></li>
 <li>Add the GNU Scientific Library (GSL) dependency:
@@ -821,23 +820,23 @@ cd easypeasy
   This can be especially useful for running the <abbr title="An open-source web application that allows you to create and share documents that contain live code, equations, visualizations, and narrative text.">Jupyter Notebook</abbr> examples:
   <div class="language-text highlight"><pre><span></span><code>pixi add --pypi &quot;easypeasy[visualization]&quot;
 </code></pre></div></li>
-<li>Add a Pixi task to run EasyPeasy commands easily:
+<li>Add a <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> task to run EasyPeasy commands easily:
   <div class="language-text highlight"><pre><span></span><code>pixi task add easypeasy &quot;python -m easypeasy&quot;
 </code></pre></div></li>
 </ul>
-<h4 id="updating-pixi-and-easypeasy">Updating Pixi and EasyPeasy</h4>
+<h4 id="updating-pixi-and-easypeasy">Updating <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> and EasyPeasy</h4>
 <ul>
-<li>To update all packages in the Pixi environment, including EasyPeasy:
+<li>To update all packages in the <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> environment, including EasyPeasy:
   <div class="language-text highlight"><pre><span></span><code>pixi update
 </code></pre></div></li>
-<li>To update Pixi itself to the latest version:
+<li>To update <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> itself to the latest version:
   <div class="language-text highlight"><pre><span></span><code>pixi self-update
 </code></pre></div></li>
 </ul>
-<h4 id="uninstalling-pixi">Uninstalling Pixi</h4>
+<h4 id="uninstalling-pixi">Uninstalling <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr></h4>
 <ul>
 <li>Follow the
-  <a href="https://pixi.prefix.dev/latest/installation/#uninstall">official Pixi Guide</a>.</li>
+  <a href="https://pixi.prefix.dev/latest/installation/#uninstall">official <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> Guide</a>.</li>
 </ul>
 <h2 id="classical-installation">Classical Installation</h2>
 <p>This section describes how to install EasyPeasy using the
@@ -850,8 +849,8 @@ virtual environments.</p>
 GNU Scientific Library (GSL) dependency automatically. As a result,
 the calculation engine <strong>pdffit2</strong> will not be available. To make it
 work, ensure that GSL is installed on your system.</p>
-<p>Alternatively, consider using the <strong>Pixi installation method</strong> described
-in the <a href="#installing-with-pixi">Installing with Pixi</a> section, which
+<p>Alternatively, consider using the <strong><abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> installation method</strong> described
+in the <a href="#installing-with-pixi">Installing with <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr></a> section, which
 handles GSL installation automatically.</p>
 </div>
 <h3 id="environment-setup">Environment Setup <small>optional</small></h3>
@@ -969,11 +968,11 @@ interactively in two different ways: locally or online via <abbr title="Cloud se
 This can be done individually via the <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> <strong>Download</strong>* button
 available on each tutorial page, or all at once using the command line, as
 shown below.</p>
-<h3 id="running-with-pixi">Run Tutorials Locally with Pixi <small>recommended</small></h3>
+<h3 id="running-with-pixi">Run Tutorials Locally with <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> <small>recommended</small></h3>
 <ul>
-<li>Navigate to your existing Pixi project, created as described in the
-  <a href="#installing-with-pixi">Installing with Pixi</a> section.</li>
-<li>Add <abbr title="Web-based interactive development environment for notebooks, code, and data.">JupyterLab</abbr> and the Pixi kernel for Jupyter:
+<li>Navigate to your existing <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> project, created as described in the
+  <a href="#installing-with-pixi">Installing with <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr></a> section.</li>
+<li>Add <abbr title="Web-based interactive development environment for notebooks, code, and data.">JupyterLab</abbr> and the <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> kernel for Jupyter:
   <div class="language-text highlight"><pre><span></span><code>pixi add --pypi jupyterlab pixi-kernel
 </code></pre></div></li>
 <li>Download all the EasyPeasy tutorials to the <code>tutorials/</code> directory:
