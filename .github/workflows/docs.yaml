@@ -109,7 +109,8 @@ jobs:
 
       # Set up the pixi package manager and install dependencies from pixi.toml.
       # Uses frozen lockfile to ensure reproducible builds.
-      - uses: ./.github/actions/setup-pixi
+      - name: Set up pixi
+        uses: ./.github/actions/setup-pixi
 
       # Install additional development dependencies (e.g., pre-commit hooks, dev tools).
       #- name: Install and setup development dependencies
