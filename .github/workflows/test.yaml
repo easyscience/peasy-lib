@@ -161,6 +161,7 @@ jobs:
         with:
           name: easypeasy_${{ matrix.os }}_${{ runner.arch }}
           path: |
+            .github/
             dist/
             tests/
             pytest.ini
