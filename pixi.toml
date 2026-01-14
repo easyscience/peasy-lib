@@ -89,7 +89,7 @@ py313-dev = { features = ['py313', 'nodejs'] }
 ## 🧪 Testing Tasks
 unit-tests = 'python -m pytest tests/unit/ --color=yes -v'
 integration-tests = 'python -m pytest tests/integration/ --color=yes -n auto -v'
-notebook-tests = 'python -m pytest --nbmake tutorials/ --nbmake-timeout=600 --color=yes -n auto -v'
+notebook-tests = 'python -m pytest --nbmake docs/docs/tutorials/ --nbmake-timeout=600 --color=yes -n auto -v'
 script-tests = 'python -m pytest tools/test_scripts.py --color=yes -n auto -v'
 extra = 'python -m pytest tests/unit/extra.py -q --tb=no --disable-warnings --color=yes'
 
@@ -154,16 +154,16 @@ docstring-coverage = 'interrogate -c pyproject.toml src/'
 cov = { depends-on = ['docstring-coverage', 'integration-tests-coverage'] }
 
 ## 📓 Notebook Management
-notebook-convert = 'jupytext tutorials/*.py --from py:percent --to ipynb'
-notebook-strip = 'nbstripout tutorials/*.ipynb'
+notebook-convert = 'jupytext docs/docs/tutorials/*.py --from py:percent --to ipynb'
+notebook-strip = 'nbstripout docs/docs/tutorials/*.ipynb'
 notebook-tweak = 'python tools/tweak_notebooks.py tutorials/'
-notebook-clean = 'rm -f tutorials/*.ipynb'
-notebook-exec = 'python -m pytest --nbmake tutorials/ --nbmake-timeout=600 --overwrite --color=yes -n auto -v'
+notebook-clean = 'rm -f docs/docs/tutorials/*.ipynb'
+notebook-exec = 'python -m pytest --nbmake docs/docs/tutorials/ --nbmake-timeout=600 --overwrite --color=yes -n auto -v'
 
 notebook-prepare = { depends-on = [
   'notebook-convert',
   'notebook-strip',
-  'notebook-tweak',
+  ###'notebook-tweak',
 ] }
 
 ## 📚 Documentation Tasks
