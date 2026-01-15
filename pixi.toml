@@ -71,8 +71,8 @@ python = '3.13.*'
 # The `default` environment is always created and includes the `default` feature.
 # It does not need to be specified explicitly unless non-default features are included.
 
-py-min-env = { features = ['default', 'py-min'] }
-py-max-env = { features = ['default', 'py-max'] }
+py-311-env = { features = ['default', 'py-min'] }
+py-313-env = { features = ['default', 'py-max'] }
 
 # Default environment uses the maximum supported Python version
 
