@@ -57,7 +57,7 @@ jobs:
 
   # Job 2: Trigger dashboard build
   dashboard-build-trigger:
-    needs: tutorial-tests
+    needs: tutorial-tests # depend on previous job
 
     runs-on: ubuntu-latest
 

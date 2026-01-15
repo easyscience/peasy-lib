@@ -278,21 +278,9 @@ jobs:
       - name: Check-out repository
         uses: actions/checkout@v5
 
-      - name: Setup easyscience[bot]
-        id: bot
-        uses: ./.github/actions/setup-easyscience-bot
+      - name: Trigger dashboard build
+        uses: ./.github/actions/trigger-dashboard
         with:
+          ref: ${{ env.CI_BRANCH }}
           app-id: ${{ vars.EASYSCIENCE_APP_ID }}
           private-key: ${{ secrets.EASYSCIENCE_APP_KEY }}
-
-      - name: Trigger dashboard build
-        uses: ./.github/actions/github-script
-        with:
-          github-token: ${{ steps.bot.outputs.token }}
-          script: |
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: "dashboard.yaml",
-              ref: "${{ env.CI_BRANCH }}"
-            });
