@@ -23,9 +23,9 @@ jobs:
       - name: Set up pixi
         uses: ./.github/actions/setup-pixi
 
-      - name: Install and setup development dependencies
-        shell: bash
-        run: pixi run dev
+      #- name: Install and setup development dependencies
+      #  shell: bash
+      #  run: pixi run dev
 
       - name: Create Python package
         run: pixi run python -m build
