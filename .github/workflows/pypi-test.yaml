@@ -48,25 +48,32 @@ jobs:
         run: pixi init easydiffraction
 
       - name: Add Python 3.13 from Conda
+        working-directory: easydiffraction
         run: pixi add "python=3.13"
 
       - name: Add other Conda dependencies
+        working-directory: easydiffraction
         run: pixi add gsl
 
       - name: Add easydiffraction from PyPI
+        working-directory: easydiffraction
         run: pixi add --pypi "easydiffraction[dev]"
 
       - name: Add Pixi task as a shortcut
+        working-directory: easydiffraction
         run: pixi task add easydiffraction "python -m easydiffraction"
 
       - name: Run unit tests to verify the installation
+        working-directory: easydiffraction
         run: pixi run python -m pytest ../tests/unit/ --color=yes -v
 
       - name: Run integration tests to verify the installation
+        working-directory: easydiffraction
         run: pixi run python -m pytest ../tests/integration/ --color=yes -n auto
 
       # Github token to avoid hitting the unauthenticated API rate limit
       - name: List and fetch the easydiffraction tutorials
+        working-directory: easydiffraction
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -75,6 +82,7 @@ jobs:
           pixi run easydiffraction download-all-tutorials
 
       - name: Test tutorials as notebooks
+        working-directory: easydiffraction
         run: pixi run notebook-tests
 
   # Job 2: Trigger dashboard build
