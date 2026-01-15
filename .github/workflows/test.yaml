@@ -79,32 +79,23 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     env:
-      PIXI_ENVS: 'default' #'py311-dev py313-dev'
+      PIXI_ENVS: 'py-min py-max'
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
-        with:
-          fetch-depth: 0 # full history with tags to get the version number by versioningit
 
       - name: Set up pixi
         uses: ./.github/actions/setup-pixi
+        with:
+          environments: ${{ env.PIXI_ENVS }}
 
-      #- name: Set up pixi
-      #  uses: prefix-dev/setup-pixi@v0.9.3
-      #  with:
-      #    environments: ${{ env.PIXI_ENVS }}
-      #    run-install: true
-      #    frozen: true
-      #    cache: false
-      #    post-cleanup: false
-
-      - name: Install and setup development dependencies
+      - name: Show debug info for pixi envs
         shell: bash
         run: |
           for env in ${{ env.PIXI_ENVS }}; do
             echo "🔹🔸🔹🔸🔹   Current env: $env   🔹🔸🔹🔸🔹"
-            pixi run --environment $env dev
+            pixi run python --version
             echo "PYTHONPATH:"
             pixi run printenv PYTHONPATH || true
           done
@@ -140,10 +131,9 @@ jobs:
           for env in ${{ env.PIXI_ENVS }}; do
             echo "🔹🔸🔹🔸🔹   Current env: $env   🔹🔸🔹🔸🔹"
             pixi run -e $env dist-build
-            env_prefix="${env%%-*}"
-            echo "📦 Moving built wheel to dist/$env_prefix/"
-            pixi run mkdir -p dist/$env_prefix
-            pixi run mv dist/*.whl dist/$env_prefix/
+            echo "📦 Moving built wheel to dist/$env/"
+            pixi run mkdir -p dist/$env
+            pixi run mv dist/*.whl dist/$env/
           done
 
       #- name: Remove local easydiffraction from pixi.toml
@@ -156,7 +146,7 @@ jobs:
 
       # More than one file/dir need to be specified in 'path', to preserve the
       # structure of the dist/ directory, not only its contents.
-      - name: Upload Python package for the next job
+      - name: Upload Python package, etc. for the next job
         uses: actions/upload-artifact@v4
         with:
           name: easypeasy_${{ matrix.os }}_${{ runner.arch }}
@@ -165,8 +155,8 @@ jobs:
             dist/
             tests/
             pytest.ini
-            pixi.toml
-            pixi.lock
+          #  pixi.toml
+          #  pixi.lock
           include-hidden-files: true
           if-no-files-found: error
           compression-level: 0
@@ -183,7 +173,8 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     env:
-      PIXI_ENVS: 'default' # 'py311-dev py313-dev'
+      PIXI_ENVS: 'py-min py-max'
+      #PIXI_ENVS: 'default' # 'py311-dev py313-dev'
 
     steps:
       - name:
@@ -195,6 +186,9 @@ jobs:
 
       - name: Set up pixi
         uses: ./.github/actions/setup-pixi
+        with:
+          run-install: false
+          frozen: false
 
       #- name: Set up pixi
       #  uses: prefix-dev/setup-pixi@v0.9.3
@@ -213,25 +207,27 @@ jobs:
       #      pixi run --environment $env wheel
       #    done
 
-      #- name: Install easydiffraction package from the built wheel
-      #  shell: bash
-      #  run: |
-      #    for env in ${{ env.PIXI_ENVS }}; do
-      #      echo "🔹🔸🔹🔸🔹   Current env: $env   🔹🔸🔹🔸🔹"
-      #      env_prefix="${env%%-*}"
-      #      echo "📦 Looking for wheel in dist/$env_prefix/"
-      #      whl_path="$(find dist/${env_prefix} -name '*.whl' | head -1)"
-      #      echo "📦 Installing easydiffraction from: $whl_path"
-      #      pixi run --environment $env python -m uv pip install "${whl_path}[all]" --reinstall-package easydiffraction
-      #      pixi run --environment $env easydiffraction --version
-      #    done
+      - name: Clean install from the built wheel
+        shell: bash
+        run: |
+          for env in ${{ env.PIXI_ENVS }}; do
+            echo "🔹🔸🔹🔸🔹   Current env: $env   🔹🔸🔹🔸🔹"
+            pixi init easypeasy
+            cd easypeasy
+            pixi add python=3.13
+            pixi add gsl
+            echo "Looking for wheel in dist/$env/"
+            whl_path="$(find ../dist/$env -name '*.whl' | head -1)"
+            echo "Installing easypeasy from: $whl_path"
+            pixi add --pypi 'easypeasy @ ${whl_path}'
+          done
 
       - name: Run unit tests
         shell: bash
         run: |
           for env in ${{ env.PIXI_ENVS }}; do
             echo "🔹🔸🔹🔸🔹   Current env: $env   🔹🔸🔹🔸🔹"
-            pixi run --environment $env unit-tests
+            pixi run --environment $env python -m pytest ../tests/unit/ --color=yes -v
           done
 
       - name:
@@ -240,7 +236,7 @@ jobs:
         run: |
           for env in ${{ env.PIXI_ENVS }}; do
             echo "🔹🔸🔹🔸🔹   Current env: $env   🔹🔸🔹🔸🔹"
-            pixi run --environment $env integration-tests ${{ needs.env-prepare.outputs.pytest-marks }}
+            pixi run --environment $env python -m pytest ../tests/integration/ --color=yes -n auto -v ${{ needs.env-prepare.outputs.pytest-marks }}
           done
 
   # Job 4: Trigger dashboard build
