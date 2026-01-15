@@ -50,8 +50,8 @@ env:
   PIXI_ENVS: "py-311-env py-313-env"
 
 jobs:
-  # Job 1: Prepare environment
-  env-prepare:
+  # Job 1: Set up pytest marks
+  pytest-mark-setup:
     runs-on: [ubuntu-latest]
 
     outputs:
