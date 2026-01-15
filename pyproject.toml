@@ -3,7 +3,7 @@
 ###############################
 
 [project]
-name = 'easypeasy'
+name = 'easydiffraction'
 dynamic = ['version'] # Use versioningit to manage the version
 description = 'Imaginary data analysis'
 authors = [{ name = 'EasyPeasy contributors' }]
@@ -65,9 +65,9 @@ visualization = [
   'py3Dmol',    # Visualisation of crystal structures
 ]
 all = [
-  'easypeasy[dev]',
-  'easypeasy[docs]',
-  'easypeasy[visualization]',
+  'easydiffraction[dev]',
+  'easydiffraction[docs]',
+  'easydiffraction[visualization]',
 ]
 
 [project.urls]
@@ -95,7 +95,7 @@ requires = ['hatchling', 'versioningit']
 #############################
 
 [tool.hatch.build.targets.wheel]
-packages = ['src/easypeasy']
+packages = ['src/easydiffraction']
 
 [tool.hatch.metadata]
 allow-direct-references = true

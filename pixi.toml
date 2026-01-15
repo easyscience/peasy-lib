@@ -48,7 +48,7 @@ pip = '*'         # Native package installer
 uv = '*'          # Package manager
 jupyterlab = '*'  # Jupyter notebooks
 pixi-kernel = '*' # Pixi Jupyter kernel
-easypeasy = { path = ".", editable = true, extras = ['all'] } # Main package
+easydiffraction = { path = ".", editable = true, extras = ['all'] } # Main package
 
 # Specific features: Set specific Python versions
 
@@ -218,7 +218,7 @@ post-install = { depends-on = [
 wheel = { depends-on = ['npm-config', 'prettier-install'] }
 
 ## 🔗 Main Package Shortcut
-easypeasy = 'python -m easypeasy'
+easydiffraction = 'python -m easydiffraction'
 
 
 copier_update = "pixi run python tools/copier_wrapper.py update --vcs-ref master --gh-data gh:easyscience/peasy@master/project.yaml"
