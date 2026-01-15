@@ -92,6 +92,8 @@ jobs:
       - name: Run unit tests
         shell: bash
         run: |
+          set -euo pipefail
+
           for py_ver in $PY_VERSIONS; do
             echo
             echo "🔹🔸🔹🔸🔹 Python: $py_ver 🔹🔸🔹🔸🔹"
@@ -106,6 +108,8 @@ jobs:
           Run integration tests ${{ needs.env-prepare.outputs.pytest-marks }}
         shell: bash
         run: |
+          set -euo pipefail
+
           for py_ver in $PY_VERSIONS; do
             echo
             echo "🔹🔸🔹🔸🔹 Python: $py_ver 🔹🔸🔹🔸🔹"
@@ -127,6 +131,8 @@ jobs:
       - name: Build package wheels for all Python versions
         shell: bash
         run: |
+          set -euo pipefail
+
           for py_ver in $PY_VERSIONS; do
             echo
             echo "🔹🔸🔹🔸🔹 Python: $py_ver 🔹🔸🔹🔸🔹"
@@ -140,10 +146,6 @@ jobs:
             pixi run mkdir -p dist/py$py_ver
             pixi run mv dist/*.whl dist/py$py_ver/
           done
-
-      #- name: Remove local easydiffraction from pixi.toml
-      #  shell: bash
-      #  run: pixi remove --pypi easydiffraction
 
       - name: Remove Python cache files before uploading
         shell: bash
@@ -206,10 +208,10 @@ jobs:
             echo "Adding Python $py_ver"
             pixi add "python=$py_ver"
 
-            echo "Adding common non-Python dependencies"
+            echo "Adding common Conda dependencies"
             pixi add gsl
 
-            echo "Adding common Python dependencies"
+            echo "Adding common PyPI dependencies"
             pixi add --pypi pytest pytest-xdist
 
             echo "Looking for wheel in ../dist/py$py_ver/"
