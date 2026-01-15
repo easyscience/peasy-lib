@@ -57,7 +57,7 @@ jobs:
 
       - name: Add easydiffraction from PyPI
         working-directory: easydiffraction
-        run: pixi add --pypi "easydiffraction[dev]"
+        run: pixi add --pypi "easydiffraction[all]"
 
       - name: Add Pixi task as a shortcut
         working-directory: easydiffraction
