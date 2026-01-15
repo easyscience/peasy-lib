@@ -8,7 +8,7 @@
 # ## Import Library
 
 # %%
-import easypeasy as ep
+import easydiffraction
 
 # %% [markdown]
 # ## Step 1: Blah Blah Blah
