@@ -153,8 +153,7 @@ jobs:
 
       # More than one file/dir need to be specified in 'path', to preserve the
       # structure of the dist/ directory, not only its contents.
-      - name: Upload package (incl. extras) for next job
-        uses: actions/upload-artifact@v4
+      - uses: ./.github/actions/upload-artifact
         with:
           name: easypeasy_${{ matrix.os }}_${{ runner.arch }}
           path: |
@@ -162,9 +161,6 @@ jobs:
             dist/
             tests/
             pytest.ini
-          include-hidden-files: true
-          if-no-files-found: error
-          compression-level: 0
 
   # Job 3: Test the package
   package-test:
