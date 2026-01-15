@@ -122,7 +122,7 @@ jobs:
       # imported. This step allows to avoid "Matplotlib is building the font
       # cache" messages during notebook execution.
       - name: Pre-build site step
-        run: pixi run python -c "import easypeasy"
+        run: pixi run python -c "import easydiffraction"
 
       # Convert Python scripts in the docs/docs/tutorials/ directory to Jupyter
       # notebooks.

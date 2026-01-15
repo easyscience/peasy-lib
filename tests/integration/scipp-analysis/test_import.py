@@ -1,4 +1,4 @@
-def test_import_easypeasy():
-    import easypeasy
+def test_import_easydiffraction():
+    import easydiffraction
 
-    assert easypeasy is not None
+    assert easydiffraction is not None

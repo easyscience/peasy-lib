@@ -189,7 +189,7 @@ jobs:
           run-install: false
           frozen: false
 
-      - name: Install easypeasy from the built wheel
+      - name: Install easydiffraction from the built wheel
         shell: bash
         run: |
           set -euo pipefail
@@ -199,8 +199,8 @@ jobs:
             echo "🔹🔸🔹🔸🔹 Python: $py_ver 🔹🔸🔹🔸🔹"
 
             echo "Initializing pixi project"
-            pixi init easypeasy_py$py_ver
-            cd easypeasy_py$py_ver
+            pixi init easydiffraction_py$py_ver
+            cd easydiffraction_py$py_ver
 
             echo "Adding Python $py_ver"
             pixi add "python=$py_ver"
@@ -222,8 +222,8 @@ jobs:
 
             whl_url="file://$(python -c 'import os,sys; print(os.path.abspath(sys.argv[1]))' "${whl_path[0]}")"
 
-            echo "Adding easypeasy from: $whl_url"
-            pixi add --pypi "easypeasy[dev] @ ${whl_url}"
+            echo "Adding easydiffraction from: $whl_url"
+            pixi add --pypi "easydiffraction[dev] @ ${whl_url}"
 
             echo "Exiting pixi project directory"
             cd ..
@@ -238,8 +238,8 @@ jobs:
             echo
             echo "🔹🔸🔹🔸🔹 Python: $py_ver 🔹🔸🔹🔸🔹"
 
-            echo "Entering pixi project directory easypeasy_py$py_ver"
-            cd easypeasy_py$py_ver
+            echo "Entering pixi project directory easydiffraction_py$py_ver"
+            cd easydiffraction_py$py_ver
 
             echo "Running tests"
             pixi run python -m pytest ../tests/unit/ --color=yes -v
@@ -258,8 +258,8 @@ jobs:
             echo
             echo "🔹🔸🔹🔸🔹 Python: $py_ver 🔹🔸🔹🔸🔹"
 
-            echo "Entering pixi project directory easypeasy_py$py_ver"
-            cd easypeasy_py$py_ver
+            echo "Entering pixi project directory easydiffraction_py$py_ver"
+            cd easydiffraction_py$py_ver
 
             echo "Running tests"
             pixi run python -m pytest ../tests/integration/ --color=yes -n auto -v ${{ needs.env-prepare.outputs.pytest-marks }}
