@@ -45,19 +45,19 @@ jobs:
           frozen: false
 
       - name: Init pixi project
-        run: pixi init {{ lib_package_name }}
+        run: pixi init easydiffraction
 
-      - name: Add Python {{ lib_python_max }} from Conda
-        run: pixi add "python={{ lib_python_max }}"
+      - name: Add Python 3.13 from Conda
+        run: pixi add "python=3.13"
 
       - name: Add other Conda dependencies
         run: pixi add gsl
 
-      - name: Add {{ lib_package_name }} from PyPI
-        run: pixi add --pypi "{{ lib_package_name }}[dev]"
+      - name: Add easydiffraction from PyPI
+        run: pixi add --pypi "easydiffraction[dev]"
 
       - name: Add Pixi task as a shortcut
-        run: pixi task add {{ lib_package_name }} "python -m {{ lib_package_name }}"
+        run: pixi task add easydiffraction "python -m easydiffraction"
 
       - name: Run unit tests to verify the installation
         run: pixi run python -m pytest ../tests/unit/ --color=yes -v
@@ -66,13 +66,13 @@ jobs:
         run: pixi run python -m pytest ../tests/integration/ --color=yes -n auto
 
       # Github token to avoid hitting the unauthenticated API rate limit
-      - name: List and fetch the {{ lib_package_name }} tutorials
+      - name: List and fetch the easydiffraction tutorials
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          pixi run {{ lib_package_name }} --version
-          pixi run {{ lib_package_name }} list-tutorials
-          pixi run {{ lib_package_name }} download-all-tutorials
+          pixi run easydiffraction --version
+          pixi run easydiffraction list-tutorials
+          pixi run easydiffraction download-all-tutorials
 
       - name: Test tutorials as notebooks
         run: pixi run notebook-tests
