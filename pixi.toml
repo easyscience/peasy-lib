@@ -40,6 +40,7 @@ channels = ['conda-forge']
 # Default feature configuration
 
 [dependencies]
+nodejs = '*' # Required for Prettier (non-Python formatting)
 gsl = '*' # GNU Scientific Library; required for pdffit2.
 
 [pypi-dependencies] # == [feature.default.pypi-dependencies]
@@ -49,20 +50,14 @@ jupyterlab = '*'  # Jupyter notebooks
 pixi-kernel = '*' # Pixi Jupyter kernel
 easypeasy = { path = ".", editable = true, extras = ['all'] } # Main package
 
-# Specific features
+# Specific features: Set specific Python versions
 
-# Each feature sets a specific Python version for the environment.
-
-[feature.py311.dependencies]
+[feature.py-min.dependencies]
 python = '3.11.*'
 
-[feature.py313.dependencies]
+[feature.py-max.dependencies]
 python = '3.13.*'
 
-# This feature installs Node.js for formatting non-Python files with Prettier.
-
-[feature.nodejs.dependencies]
-nodejs = '*'
 
 ##############
 # ENVIRONMENTS
@@ -76,9 +71,12 @@ nodejs = '*'
 # The `default` environment is always created and includes the `default` feature.
 # It does not need to be specified explicitly unless non-default features are included.
 
-default = { features = ['py313', 'nodejs'] }
-py311-dev = { features = ['py311', 'nodejs'] }
-py313-dev = { features = ['py313', 'nodejs'] }
+py-min-env = { features = ['default', 'py-min'] }
+py-max-env = { features = ['default', 'py-max'] }
+
+# Default environment uses the maximum supported Python version
+
+default = { features = ['default', 'py-max'] }
 
 #######
 # TASKS
@@ -205,6 +203,13 @@ clean-pycache = "find . -type d -name '__pycache__' -prune -exec rm -rf '{}' +"
 
 dev = { depends-on = [
   'dev-install',
+  'npm-config',
+  'prettier-install',
+  'pre-commit-setup',
+] }
+
+
+post-install = { depends-on = [
   'npm-config',
   'prettier-install',
   'pre-commit-setup',
