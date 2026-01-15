@@ -219,7 +219,7 @@ jobs:
           set -euo pipefail
 
           for py_ver in $PY_VERSIONS; do
-            echo "🔹🔸🔹🔸🔹 Python: $py_ver (env: $env) 🔹🔸🔹🔸🔹"
+            echo "🔹🔸🔹🔸🔹 Python: $py_ver 🔹🔸🔹🔸🔹"
 
             echo "Entering pixi project directory easypeasy_py$py_ver"
             cd easypeasy_py$py_ver
