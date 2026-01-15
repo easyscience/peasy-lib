@@ -50,8 +50,8 @@ env:
   PIXI_ENVS: "py-311-env py-313-env"
 
 jobs:
-  # Job 1: Set up pytest marks
-  pytest-mark-setup:
+  # Job 1: Set up environment variables
+  env-prepare:
     runs-on: [ubuntu-latest]
 
     outputs:
@@ -71,7 +71,7 @@ jobs:
 
   # Job 2: Test code
   source-test:
-    needs: pytest-mark-setup # depend on previous job
+    needs: env-prepare # depend on previous job
 
     strategy:
       fail-fast: false
@@ -116,16 +116,20 @@ jobs:
         if: startsWith(github.ref , 'refs/tags/v') != true
         run: git tag --delete $(git tag)
 
-      - name: Create Python package
+      - name: Build package wheels for all Python versions
         shell: bash
         run: |
           for py_ver in $PY_VERSIONS; do
+            echo "🔹🔸🔹🔸🔹 Python: $py_ver 🔹🔸🔹🔸🔹"
+
             env="py-$(echo $py_ver | tr -d .)-env" # Converts 3.11 -> py-311-env
-            echo "🔹🔸🔹🔸🔹 Python: $py_ver (env: $env) 🔹🔸🔹🔸🔹"
+
+            echo "Building wheel in environment: $env"
             pixi run --environment $env dist-build
-            echo "Moving built wheel to dist/$env/"
-            pixi run mkdir -p dist/$env
-            pixi run mv dist/*.whl dist/$env/
+
+            echo "Moving built wheel to dist/py$py_ver/"
+            pixi run mkdir -p dist/py$py_ver
+            pixi run mv dist/*.whl dist/py$py_ver/
           done
 
       #- name: Remove local easydiffraction from pixi.toml
@@ -195,12 +199,12 @@ jobs:
             echo "Adding common dependencies"
             pixi add gsl
 
-            echo "Looking for wheel in ../dist/$env/"
-            ls -l "../dist/$env/"
+            echo "Looking for wheel in ../dist/py$py_ver/"
+            ls -l "../dist/py$py_ver/"
 
-            whl_path=(../dist/"$env"/*.whl)
+            whl_path=(../dist/"py$py_ver"/*.whl)
             if [[ ! -f "${whl_path[0]}" ]]; then
-              echo "❌ No wheel found in ../dist/$env"
+              echo "❌ No wheel found in ../dist/py$py_ver/"
               exit 1
             fi
 
