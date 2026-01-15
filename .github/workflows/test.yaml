@@ -175,10 +175,10 @@ jobs:
 
     steps:
       - name: Download package (incl. extras) from previous job
-        uses: actions/download-artifact@v4
-        with: # name should be taken from the upload step of the previous job
+      - uses: ./.github/actions/download-artifact
+        with:
+          # name should be taken from the upload step of the previous job
           name: easypeasy_${{ matrix.os }}_${{ runner.arch }}
-          path: . # directory to extract downloaded zipped artifacts
 
       - name: Set up pixi
         uses: ./.github/actions/setup-pixi
