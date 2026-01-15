@@ -79,7 +79,7 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     env:
-      PIXI_ENVS: 'py-min py-max'
+      PIXI_ENVS: 'py-min-env py-max-env'
 
     steps:
       - name: Checkout repository
