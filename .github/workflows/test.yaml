@@ -205,11 +205,11 @@ jobs:
             echo "Adding Python $py_ver"
             pixi add "python=$py_ver"
 
-            echo "Adding common Conda dependencies"
+            echo "Adding Conda dependencies"
             pixi add gsl
 
-            echo "Adding common PyPI dependencies"
-            pixi add --pypi pytest pytest-xdist
+            #echo "Adding PyPI dependencies"
+            #pixi add --pypi pytest pytest-xdist
 
             echo "Looking for wheel in ../dist/py$py_ver/"
             ls -l "../dist/py$py_ver/"
@@ -223,7 +223,7 @@ jobs:
             whl_url="file://$(python -c 'import os,sys; print(os.path.abspath(sys.argv[1]))' "${whl_path[0]}")"
 
             echo "Adding easypeasy from: $whl_url"
-            pixi add --pypi "easypeasy @ ${whl_url}"
+            pixi add --pypi "easypeasy[dev] @ ${whl_url}"
 
             echo "Exiting pixi project directory"
             cd ..
