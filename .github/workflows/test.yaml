@@ -71,7 +71,7 @@ jobs:
 
   # Job 2: Test code
   source-test:
-    needs: env-prepare # depend on previous job
+    needs: pytest-mark-setup # depend on previous job
 
     strategy:
       fail-fast: false
