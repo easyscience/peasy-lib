@@ -163,10 +163,9 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-      - name:
-          Download package (incl. extras) from previous job
+      - name: Download package (incl. extras) from previous job
         uses: actions/download-artifact@v4
-        with: # name or path are taken from the upload step of the previous job
+        with: # name should be taken from the upload step of the previous job
           name: easypeasy_${{ matrix.os }}_${{ runner.arch }}
           path: . # directory to extract downloaded zipped artifacts
 
@@ -211,7 +210,7 @@ jobs:
             whl_url="file://$(python -c 'import os,sys; print(os.path.abspath(sys.argv[1]))' "${whl_path[0]}")"
 
             echo "Installing easypeasy from: $whl_url"
-            pixi add --environment "$env" --pypi "easypeasy @ ${whl_url}"
+            pixi add --feature "$feature" --pypi "easypeasy @ ${whl_url}"
           done
 
       - name: Run unit tests
