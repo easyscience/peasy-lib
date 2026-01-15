@@ -147,8 +147,6 @@ jobs:
             dist/
             tests/
             pytest.ini
-          #  pixi.toml
-          #  pixi.lock
           include-hidden-files: true
           if-no-files-found: error
           compression-level: 0
@@ -180,23 +178,6 @@ jobs:
           run-install: false
           frozen: false
 
-      #- name: Set up pixi
-      #  uses: prefix-dev/setup-pixi@v0.9.3
-      #  with:
-      #    environments: ${{ env.PIXI_ENVS }}
-      #    run-install: true
-      #    frozen: true
-      #    cache: false
-      #    post-cleanup: false
-
-      #- name: Install and setup development dependencies
-      #  shell: bash
-      #  run: |
-      #    for env in ${{ env.PIXI_ENVS }}; do
-      #      echo "🔹🔸🔹🔸🔹  Current env: $env  🔹🔸🔹🔸🔹"
-      #      pixi run --environment $env wheel
-      #    done
-
       - name: Install easypeasy from the built wheel
         shell: bash
         run: |
@@ -206,16 +187,17 @@ jobs:
           pixi init easypeasy
           cd easypeasy
 
+          echo "Adding common dependencies"
+          pixi add gsl
+
           for py_ver in $PY_VERSIONS; do
-            env="py-$(echo "$py_ver" | tr -d .)-env"  # 3.11 -> py-311-env
+            feature="py-$(echo "$py_ver" | tr -d .)"  # 3.11 -> py-311
+            env="$feature-env"
             echo "🔹🔸🔹🔸🔹 Python: $py_ver (env: $env) 🔹🔸🔹🔸🔹"
 
-            echo "Creating pixi environment: $env"
-            pixi env create "$env"
-
-            echo "Adding dependencies to $env"
-            pixi add -e "$env" "python=$py_ver"
-            pixi add -e "$env" gsl
+            echo "Adding environment with specific dependencies"
+            pixi add --feature "$feature" "python=$py_ver"
+            pixi workspace environment add "$env" --feature "$feature"
 
             echo "Looking for wheel in ../dist/$env/"
             ls -l "../dist/$env/"
@@ -229,7 +211,7 @@ jobs:
             whl_url="file://$(python -c 'import os,sys; print(os.path.abspath(sys.argv[1]))' "${whl_path[0]}")"
 
             echo "Installing easypeasy from: $whl_url"
-            pixi add -e "$env" --pypi "easypeasy @ ${whl_url}"
+            pixi add --environment "$env" --pypi "easypeasy @ ${whl_url}"
           done
 
       - name: Run unit tests
