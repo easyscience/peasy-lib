@@ -55,13 +55,11 @@ jobs:
 
       - name: Upload unit tests coverage to Codecov
         if: ${{ !cancelled() }}
-        uses: codecov/codecov-action@v5
+        uses: ./.github/actions/upload-codecov
         with:
           name: unit-tests-job
           flags: unittests
           files: ./coverage-unit.xml
-          fail_ci_if_error: true
-          verbose: true
           token: ${{ secrets.CODECOV_TOKEN }}
 
   # Job 2: Run integration tests with coverage and upload to Codecov
@@ -82,13 +80,11 @@ jobs:
 
       - name: Upload integration tests coverage to Codecov
         if: ${{ !cancelled() }}
-        uses: codecov/codecov-action@v5
+        uses: ./.github/actions/upload-codecov
         with:
           name: integration-tests-job
           flags: integration
           files: ./coverage-integration.xml
-          fail_ci_if_error: true
-          verbose: true
           token: ${{ secrets.CODECOV_TOKEN }}
 
   # Job 4: Trigger dashboard build
