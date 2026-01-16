@@ -85,19 +85,8 @@ jobs:
         working-directory: easydiffraction
         run: pixi run python -m pytest --nbmake tutorials/ --nbmake-timeout=600 --color=yes -n auto -v
 
-  # Job 2: Trigger dashboard build
-  dashboard-build-trigger:
+  # Job 2: Build and publish dashboard (reusable workflow)
+  run-reusable-workflows:
     needs: pypi-package-tests # depend on previous job
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check-out repository
-        uses: actions/checkout@v5
-
-      - name: Trigger dashboard build
-        uses: ./.github/actions/trigger-dashboard
-        with:
-          ref: ${{ env.CI_BRANCH }}
-          app-id: ${{ vars.EASYSCIENCE_APP_ID }}
-          private-key: ${{ secrets.EASYSCIENCE_APP_KEY }}
+    uses: ./.github/workflows/dashboard.yaml
+    secrets: inherit

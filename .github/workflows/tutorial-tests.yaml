@@ -56,7 +56,7 @@ jobs:
         run: pixi run notebook-tests
 
   # Job 2: Build and publish dashboard (reusable workflow)
-  dashboard-build:
+  run-reusable-workflows:
     needs: tutorial-tests # depend on previous job
     uses: ./.github/workflows/dashboard.yaml
     secrets: inherit
