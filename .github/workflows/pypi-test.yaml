@@ -86,23 +86,18 @@ jobs:
         run: pixi run python -m pytest --nbmake tutorials/ --nbmake-timeout=600 --color=yes -n auto -v
 
   # Job 2: Trigger dashboard build
-  #dashboard-build-trigger:
-  #  needs: pypi-package-tests
+  dashboard-build-trigger:
+    needs: pypi-package-tests # depend on previous job
 
-  #  runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-  #  steps:
-  #    - name: Check-out repository
-  #      uses: actions/checkout@v5
+    steps:
+      - name: Check-out repository
+        uses: actions/checkout@v5
 
-  #    - name: Trigger dashboard build
-  #      uses: actions/github-script@v7
-  #      with:
-  #        github-token: ${{ secrets.GITHUB_TOKEN }}
-  #        script: |
-  #          await github.rest.actions.createWorkflowDispatch({
-  #            owner: context.repo.owner,
-  #            repo: context.repo.repo,
-  #            workflow_id: "dashboard.yaml",
-  #            ref: "${{ env.CI_BRANCH }}"
-  #          });
+      - name: Trigger dashboard build
+        uses: ./.github/actions/trigger-dashboard
+        with:
+          ref: ${{ env.CI_BRANCH }}
+          app-id: ${{ vars.EASYSCIENCE_APP_ID }}
+          private-key: ${{ secrets.EASYSCIENCE_APP_KEY }}

@@ -47,9 +47,9 @@ jobs:
             --base ${{ env.DEFAULT_BRANCH }} \
             --head develop \
             --title "Release: merge develop into ${{ env.DEFAULT_BRANCH }}" \
-            --label "[maintainer] auto-pull-request" \
+            --label "[bot] pull request" \
             --body "This PR is created automatically to trigger the release pipeline. It merges the accumulated changes from \`develop\` into \`${{ env.DEFAULT_BRANCH }}\`.
 
-            ⚠️ It is labeled \`[maintainer] auto-pull-request\` and is excluded from release notes and version bump logic."
+            ⚠️ It is labeled \`[bot] pull request\` and is excluded from release notes and version bump logic."
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
