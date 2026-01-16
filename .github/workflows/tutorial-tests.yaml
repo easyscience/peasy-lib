@@ -55,31 +55,8 @@ jobs:
         shell: bash
         run: pixi run notebook-tests
 
-  # Job 2: Trigger dashboard build
-  dashboard-build-trigger:
-    needs: tutorial-tests
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check-out repository
-        uses: actions/checkout@v5
-
-      - name: Setup easyscience[bot]
-        id: bot
-        uses: ./.github/actions/setup-easyscience-bot
-        with:
-          app-id: ${{ vars.EASYSCIENCE_APP_ID }}
-          private-key: ${{ secrets.EASYSCIENCE_APP_KEY }}
-
-      - name: Trigger dashboard build
-        uses: ./.github/actions/github-script
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: "dashboard.yaml",
-              ref: "${{ env.CI_BRANCH }}"
-            });
+  # Job 2: Build and publish dashboard (reusable workflow)
+  run-reusable-workflows:
+    needs: tutorial-tests # depend on previous job
+    uses: ./.github/workflows/dashboard.yaml
+    secrets: inherit

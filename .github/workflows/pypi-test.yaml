@@ -79,30 +79,14 @@ jobs:
         run: |
           pixi run easydiffraction --version
           pixi run easydiffraction list-tutorials
-          pixi run easydiffraction download-all-tutorials
+          pixi run easydiffraction download-tutorial 1
 
       - name: Test tutorials as notebooks
         working-directory: easydiffraction
         run: pixi run python -m pytest --nbmake tutorials/ --nbmake-timeout=600 --color=yes -n auto -v
 
-  # Job 2: Trigger dashboard build
-  #dashboard-build-trigger:
-  #  needs: pypi-package-tests
-
-  #  runs-on: ubuntu-latest
-
-  #  steps:
-  #    - name: Check-out repository
-  #      uses: actions/checkout@v5
-
-  #    - name: Trigger dashboard build
-  #      uses: actions/github-script@v7
-  #      with:
-  #        github-token: ${{ secrets.GITHUB_TOKEN }}
-  #        script: |
-  #          await github.rest.actions.createWorkflowDispatch({
-  #            owner: context.repo.owner,
-  #            repo: context.repo.repo,
-  #            workflow_id: "dashboard.yaml",
-  #            ref: "${{ env.CI_BRANCH }}"
-  #          });
+  # Job 2: Build and publish dashboard (reusable workflow)
+  run-reusable-workflows:
+    needs: pypi-package-tests # depend on previous job
+    uses: ./.github/workflows/dashboard.yaml
+    secrets: inherit

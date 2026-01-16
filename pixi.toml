@@ -191,6 +191,7 @@ docs-setup = { depends-on = [
 ] }
 
 ## 🚀 Development & Build Tasks
+default-build = 'python -m build'
 dist-build = 'python -m build --wheel --outdir dist'
 spdx-update = 'python tools/update_spdx.py'
 #dev-install = 'uv pip install --requirements pyproject.toml --extra all'
