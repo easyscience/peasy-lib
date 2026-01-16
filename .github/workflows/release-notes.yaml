@@ -57,7 +57,6 @@ jobs:
                 labels: ['[scope] bug']
               - title: 'Changed'
                 labels: ['[scope] maintenance', '[scope] documentation']
-
         env:
           GITHUB_TOKEN: ${{ steps.bot.outputs.token }}
 

@@ -24,7 +24,7 @@ jobs:
         uses: ./.github/actions/setup-pixi
 
       - name: Create Python package
-        run: pixi run python -m build
+        run: pixi run default-build
 
       - name: Publish to PyPI
         uses: ./.github/actions/publish-to-pypi

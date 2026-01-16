@@ -36,6 +36,7 @@ jobs:
           ref: develop
 
       - name: Setup easyscience[bot]
+        id: bot
         uses: ./.github/actions/setup-easyscience-bot
         with:
           app-id: ${{ vars.EASYSCIENCE_APP_ID }}
@@ -52,4 +53,4 @@ jobs:
 
             ⚠️ It is labeled \`[bot] pull request\` and is excluded from release notes and version bump logic."
         env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GH_TOKEN: ${{ steps.bot.outputs.token }}
