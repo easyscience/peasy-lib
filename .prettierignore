@@ -6,8 +6,10 @@
 pixi.lock
 
 # MkDocs
+docs/overrides/
 docs/site/
 docs/docs/assets/
+
 
 # MyPy
 .mypy_cache
