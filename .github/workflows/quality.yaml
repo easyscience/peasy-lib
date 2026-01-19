@@ -41,6 +41,9 @@ jobs:
       - name: Set up pixi
         uses: ./.github/actions/setup-pixi
 
+      - name: Run post-install developer steps
+        run: pixi run post-install
+
       # Check the validity of pyproject.toml
       - name: Check validity of pyproject.toml
         id: check_pyproject
