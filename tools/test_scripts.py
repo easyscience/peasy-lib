@@ -16,10 +16,6 @@ from pathlib import Path
 
 import pytest
 
-# Mark this module as 'integration' so it's excluded by default
-# (see pytest.ini)
-pytestmark = pytest.mark.integration
-
 _repo_root = Path(__file__).resolve().parents[1]
 _src_root = _repo_root / 'src'
 
