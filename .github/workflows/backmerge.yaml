@@ -45,18 +45,20 @@ jobs:
           repositories: ${{ github.event.repository.name }}
 
       - name: Merge master into develop
+        env:
+          GH_TOKEN: ${{ steps.bot.outputs.token }}
         run: |
           set -euo pipefail
 
-          echo "Ensure local master and develop branches exist and are up-to-date with origin"
+          echo "Fetching latest master and develop branches"
           git fetch origin master develop
 
-          echo "Switched to develop branch"
+          echo "Switching to develop branch"
           git checkout develop
 
-          echo "Check if develop is already up-to-date with master"
+          echo "Checking if develop is already up-to-date with master"
           if git merge-base --is-ancestor origin/master develop; then
-            echo "Develop is already up-to-date with master"
+            echo "ℹ️ Develop is already up-to-date with master"
             exit 0
           fi
 
@@ -69,12 +71,17 @@ jobs:
           fi
           echo "Merge commit message: ${MESSAGE}"
 
-          # Merge master into develop (no fast-forward to preserve history)
-          # Use [skip ci] to avoid triggering CI - the code was already tested on master
+          echo "Creating merge commit"
           git merge origin/master --no-ff -m "${MESSAGE}"
 
-          # Push the merge commit to develop
-          # The easyscience app in bypass list allows this push
-          git push origin develop
+          echo "Getting new commit SHA"
+          NEW_SHA=$(git rev-parse HEAD)
+          echo "New commit SHA: ${NEW_SHA}"
 
-          echo "✅ Successfully merged master (${TAG}) into develop"
+          echo "Pushing via GitHub API (respects bypass list)"
+          gh api \
+            --method PATCH \
+            "/repos/${{ github.repository }}/git/refs/heads/develop" \
+            -f sha="${NEW_SHA}"
+
+          echo "✅ Successfully merged master into develop"
