@@ -1,14 +1,17 @@
 """
-Wrapper for copier CLI that supports GitHub path references for data files.
+Wrapper for copier CLI that supports GitHub path references for data
+files.
 
-This script extends the copier CLI to support fetching data files from GitHub
-using the gh:owner/repo@ref/filepath shorthand format. It transparently downloads
-the file and passes the local path to copier. Supports all copier commands:
-copy, update, and recopy.
+This script extends the copier CLI to support fetching data files from
+GitHub using the gh:owner/repo@ref/filepath shorthand format. It
+transparently downloads the file and passes the local path to copier.
+Supports all copier commands: copy, update, and recopy.
 
 Two independent version references:
-1. --vcs-ref: Controls which VERSION of the TEMPLATE to use (standard copier flag)
-2. @ref: Controls which VERSION of the DATA FILE to fetch (custom gh: syntax)
+1. --vcs-ref: Controls which VERSION of the TEMPLATE to use (standard
+    copier flag)
+2. @ref: Controls which VERSION of the DATA FILE to fetch (custom gh:
+    syntax)
 
 Usage Examples:
 
@@ -44,16 +47,18 @@ Usage Examples:
         --gh-data ../peasy/project.yaml
 
 Common Patterns:
-- Production: (no --vcs-ref) + gh:owner/repo/file (both use latest releases)
-- Development: --vcs-ref master + gh:owner/repo@master/file (both use master)
-- Mixed: (no --vcs-ref) + gh:owner/repo@master/file (stable template, dev data)
+- Production: (no --vcs-ref) + gh:owner/repo/file (both use latest
+    releases)
+- Development: --vcs-ref master + gh:owner/repo@master/file (both use
+    master)
+- Mixed: (no --vcs-ref) + gh:owner/repo@master/file (stable template,
+    dev data)
 """
 
 import re
+from pathlib import Path
 import subprocess
 import sys
-from pathlib import Path
-
 import pooch
 import requests
 
@@ -88,15 +93,17 @@ def parse_github_path(path: str) -> tuple[str, str, str, str]:
     Parse GitHub path reference in format gh:owner/repo@ref/filepath.
 
     Args:
-        path: GitHub path string (e.g., "gh:easyscience/peasy@master/project.yaml"
-              or "gh:easyscience/peasy/project.yaml" for latest release)
+        path: GitHub path string (e.g.,
+            "gh:easyscience/peasy@master/project.yaml" or
+            "gh:easyscience/peasy/project.yaml" for latest release)
 
     Returns:
         Tuple of (owner, repo, ref, filepath)
     """
     if not path.startswith('gh:'):
         raise ValueError(
-            f'Invalid GitHub path format: {path}. Expected: gh:owner/repo@ref/filepath'
+            f'Invalid GitHub path format: {path}. Expected: '
+            f'gh:owner/repo@ref/filepath'
         )
 
     # Remove "gh:" prefix
@@ -108,7 +115,8 @@ def parse_github_path(path: str) -> tuple[str, str, str, str]:
         parts = repo_part.split('/')
         if len(parts) != 2:
             raise ValueError(
-                f'Invalid GitHub path format: {path}. Expected: gh:owner/repo@ref/filepath'
+                f'Invalid GitHub path format: {path}. Expected: '
+                f'gh:owner/repo@ref/filepath'
             )
         owner, repo = parts
 
@@ -116,7 +124,8 @@ def parse_github_path(path: str) -> tuple[str, str, str, str]:
         ref_filepath_parts = rest.split('/', 1)
         if len(ref_filepath_parts) != 2:
             raise ValueError(
-                f'Invalid GitHub path format: {path}. Expected: gh:owner/repo@ref/filepath'
+                f'Invalid GitHub path format: {path}. Expected: '
+                f'gh:owner/repo@ref/filepath'
             )
         ref, filepath = ref_filepath_parts
     else:
@@ -124,7 +133,8 @@ def parse_github_path(path: str) -> tuple[str, str, str, str]:
         parts = path_without_prefix.split('/', 2)
         if len(parts) < 3:
             raise ValueError(
-                f'Invalid GitHub path format: {path}. Expected: gh:owner/repo/filepath'
+                f'Invalid GitHub path format: {path}. Expected: '
+                f'gh:owner/repo/filepath'
             )
         owner, repo, filepath = parts
         ref = get_stable_ref(owner, repo)
@@ -134,13 +144,15 @@ def parse_github_path(path: str) -> tuple[str, str, str, str]:
 
 def fetch_github_file(path: str, cache_dir: Path) -> Path:
     """
-    Fetch file from GitHub using gh:owner/repo@ref/filepath shorthand format.
+    Fetch file from GitHub using gh:owner/repo@ref/filepath shorthand
+    format.
 
     Always re-downloads for branches to ensure latest version.
     Uses cached version for release tags (immutable).
 
     Args:
-        path: GitHub path reference (e.g., "gh:easyscience/peasy@master/project.yaml")
+        path: GitHub path reference (e.g.,
+            "gh:easyscience/peasy@master/project.yaml")
         cache_dir: Directory to cache downloaded files
 
     Returns:
@@ -156,7 +168,8 @@ def fetch_github_file(path: str, cache_dir: Path) -> Path:
     cache_filename = f'{ref}_{filepath.replace("/", "_")}'
     cache_file_path = cache_dir / cache_filename
 
-    # Check if ref is a release tag (semantic version pattern like v1.0.0 or 1.0.0)
+    # Check if ref is a release tag (semantic version pattern like
+    # v1.0.0 or 1.0.0)
     is_release_tag = bool(re.match(r'^v?\d+\.\d+', ref))
 
     # Always re-download for branches, use cache for release tags
@@ -178,7 +191,8 @@ def fetch_github_file(path: str, cache_dir: Path) -> Path:
 
 
 def main():
-    """Main function to wrap copier CLI with GitHub path reference support."""
+    """Main function to wrap copier CLI with GitHub path reference
+    support."""
     # Separate custom args from copier args
     copier_args = []
     github_data = None
