@@ -1,10 +1,13 @@
+# Copier
+.copier-answers*.yml
+
 # Pixi
 .pixi
 pixi.lock
 
-# MyPy
-.mypy_cache
-
 # MkDocs
 docs/site/
 docs/docs/assets/
+
+# MyPy
+.mypy_cache
