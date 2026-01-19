@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 
-def test_import_easydiffraction():
-    import easydiffraction
+def test_import_easypeasy():
+    import easypeasy
 
-    assert easydiffraction is not None
+    assert easypeasy is not None

@@ -141,8 +141,8 @@ label.md-nav__title[for="__drawer"] {
   height: 0;
 }
 
-/* Hide site name next to the logo, but keep version selector */
-.md-header__topic {
+/* Hide site title (first topic) while keeping page title and version selector */
+.md-header__topic:first-child .md-ellipsis {
   display: none;
 }
 
