@@ -44,10 +44,10 @@ nodejs = '*' # Required for Prettier (non-Python formatting)
 gsl = '*'    # GNU Scientific Library; required for pdffit2.
 
 [pypi-dependencies] # == [feature.default.pypi-dependencies]
-pip = '*'        # Native package installer
-uv = '*'         # Package manager
-jupyterlab = '*' # Jupyter notebooks
-pixi-kernel = '*' # Pixi Jupyter kernel
+pip = '*'                                                     # Native package installer
+uv = '*'                                                      # Package manager
+jupyterlab = '*'                                              # Jupyter notebooks
+pixi-kernel = '*'                                             # Pixi Jupyter kernel
 easypeasy = { path = ".", editable = true, extras = ['all'] }
 
 # Specific features: Set specific Python versions
@@ -57,7 +57,6 @@ python = '3.11.*'
 
 [feature.py-max.dependencies]
 python = '3.13.*'
-
 
 ##############
 # ENVIRONMENTS
@@ -169,7 +168,6 @@ docs-assets = 'tools/add_assets_to_docs.sh'
 docs-notebooks = 'mv tutorials/*.* docs/tutorials/' # *.py, *.ipynb, index.json
 docs-config = 'python tools/create_mkdocs_yml.py'
 
-
 docs-vars = "JUPYTER_PLATFORM_DIRS=1 PYTHONWARNINGS='ignore::RuntimeWarning'"
 docs-pre = "pixi run docs-vars python -m mkdocs"
 docs-serve = "pixi run docs-pre serve -f docs/mkdocs.yml"
@@ -179,8 +177,6 @@ docs-build-local = "pixi run docs-build --no-directory-urls"
 
 docs-deploy-pre = 'mike deploy -F docs/mkdocs.yml --push --branch gh-pages --update-aliases --alias-type redirect'
 docs-set-default-pre = 'mike set-default -F docs/mkdocs.yml --push --branch gh-pages'
-
-
 
 docs-clean = 'tools/cleanup_docs.sh'
 docs-setup = { depends-on = [
@@ -209,7 +205,6 @@ dev = { depends-on = [
   'pre-commit-setup',
 ] }
 
-
 post-install = { depends-on = [
   'npm-config',
   'prettier-install',
@@ -220,7 +215,6 @@ wheel = { depends-on = ['npm-config', 'prettier-install'] }
 
 ## 🔗 Main Package Shortcut
 easypeasy = 'python -m easypeasy'
-
 
 copier_update = "pixi run python tools/copier_wrapper.py update --vcs-ref master --gh-data gh:easyscience/peasy@master/project.yaml"
 copier_shared_update = "pixi run copier_update --answers-file .copier-answers.shared.yml"
