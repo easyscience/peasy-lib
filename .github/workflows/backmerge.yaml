@@ -21,6 +21,7 @@ name: Backmerge (master -> develop)
 on:
   push:
     tags: ['v*']
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -41,31 +42,34 @@ jobs:
         with:
           app-id: ${{ vars.EASYSCIENCE_APP_ID }}
           private-key: ${{ secrets.EASYSCIENCE_APP_KEY }}
+          repositories: ${{ github.event.repository.name }}
 
       - name: Merge master into develop
         run: |
-          # Exit on error (-e), undefined vars (-u), and pipeline failures (pipefail)
           set -euo pipefail
 
-          # Configure git with bot's identity 
-          git config user.name "easyscience[bot]"
-          git config user.email "${{ vars.EASYSCIENCE_APP_ID }}+easyscience[bot]@users.noreply.github.com"
-          git remote set-url origin "https://x-access-token:${{ steps.bot.outputs.token }}@github.com/${{ github.repository }}.git"
-
-          # Get the tag name variable to be used in the commit message
-          TAG="${{ github.ref_name }}"
-
           # Ensure local master and develop branches exist and are up-to-date with origin
-          git fetch origin master:master develop:develop
+          git fetch origin master develop
 
           # Switch to develop branch
           git checkout develop
 
+          # Get the tag name variable to be used in the commit message
+          TAG="${{ github.ref_name }}"
+
+          # Determine if this is a tag push or manual trigger
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            MESSAGE="Backmerge: master into develop (manual) [skip ci]"
+          else
+            MESSAGE="Backmerge: ${TAG} from master into develop [skip ci]"
+          fi
+
           # Merge master into develop (no fast-forward to preserve history)
           # Use [skip ci] to avoid triggering CI - the code was already tested on master
-          git merge master --no-ff -m "Backmerge: ${TAG} from master into develop [skip ci]"
+          git merge origin/master --no-ff -m "${MESSAGE}"
 
           # Push the merge commit to develop
+          # The easyscience app in bypass list allows this push
           git push origin develop
 
           echo "✅ Successfully merged master (${TAG}) into develop"
