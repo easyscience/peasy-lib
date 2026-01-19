@@ -28,6 +28,7 @@ theme:
     - search.share
     - search.suggest
     - toc.follow
+    - navigation.instant # Instant loading (SPA-like)
   palette:
     # Palette toggle for light mode
     - media: '(prefers-color-scheme: light)'
