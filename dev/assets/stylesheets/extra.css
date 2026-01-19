@@ -142,7 +142,7 @@ label.md-nav__title[for="__drawer"] {
 }
 
 /* Hide site name next to the logo, but keep version selector */
-.md-header__topic:first-child {
+.md-header__topic {
   display: none;
 }
 
