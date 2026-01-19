@@ -1,2 +1,1 @@
-"""EasyPeasy library <https://easyscience.github.io/peasy-lib>.
-"""
+"""EasyPeasy library <https://easyscience.github.io/peasy-lib>."""
