@@ -10,10 +10,9 @@ icon: material/information-slab-circle
 for performing imaginary calculations based on a theoretical model and refining its parameters against experimental data.
 
 **EasyPeasy** is available both as a Python library and as a
-cross-platform desktop application. Here, we focus on the Python 
+cross-platform desktop application. Here, we focus on the Python
 library. For the graphical user interface (GUI), please see the
-corresponding
-[GUI resources](https://github.com/easyscience/peasy-app).
+corresponding [GUI resources](https://github.com/easyscience/peasy-app).
 
 **EasyPeasy** is developed using the
 [EasyScience framework](https://easyscience.org).
