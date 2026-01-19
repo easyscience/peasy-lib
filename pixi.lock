@@ -4040,8 +4040,8 @@ packages:
   requires_python: '>=3.5'
 - pypi: ./
   name: easypeasy
-  version: 1.0.0+dev10
-  sha256: 6c1a389b0bc2af01380269d2a7fb32e59c88605419809b1e3acb1a4bbd27c517
+  version: 1.1.1+devdirty1
+  sha256: c59cd24bb67b558e5498cd1b6e508e907edc9007674f175b6ccb798734eb287c
   requires_dist:
   - easyscience
   - pooch

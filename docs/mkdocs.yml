@@ -62,7 +62,7 @@ extra:
       link: https://easyscience.org
       name: EasyScience Framework Webpage
     - icon: easypeasy # File: overrides/.icons/easypeasy.svg
-      link: https://easyscience.github.io/peasy
+      link: https://easyscience.github.io/
       name: EasyPeasy Main Webpage
     - icon: app # File: overrides/.icons/app.svg
       link: https://easyscience.github.io/peasy-app

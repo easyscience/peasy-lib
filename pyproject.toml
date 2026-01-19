@@ -71,7 +71,7 @@ all = [
 ]
 
 [project.urls]
-homepage = 'https://easyscience.github.io/peasy'
+homepage = ''
 documentation = 'https://easyscience.github.io/peasy-lib'
 source = 'https://github.com/easyscience/peasy-lib'
 tracker = 'https://github.com/easyscience/peasy-lib/issues'
