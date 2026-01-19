@@ -4,12 +4,6 @@ on:
   workflow_dispatch:
   workflow_call:
 
-# Allow only one concurrent workflow across ALL callers pushing to dashboard
-# This prevents race conditions when multiple workflows call this reusable workflow
-concurrency:
-  group: dashboard-publish-${{ github.repository }}
-  cancel-in-progress: false
-
 # Set the environment variables to be used in all jobs defined in this workflow
 env:
   CI_BRANCH: ${{ github.head_ref || github.ref_name }}
