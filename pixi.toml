@@ -83,18 +83,15 @@ default = { features = ['default', 'py-max'] }
 
 [tasks]
 
-## 🧪 Testing Tasks
+# 🧪 Testing Tasks
 unit-tests = 'python -m pytest tests/unit/ --color=yes -v'
 integration-tests = 'python -m pytest tests/integration/ --color=yes -n auto -v'
 notebook-tests = 'python -m pytest --nbmake docs/docs/tutorials/ --nbmake-timeout=600 --color=yes -n auto -v'
 script-tests = 'python -m pytest tools/test_scripts.py --color=yes -n auto -v'
-extra = 'python -m pytest tests/unit/extra.py -q --tb=no --disable-warnings --color=yes'
 
 test = { depends-on = ['unit-tests'] }
 
-# 🧹 Code Quality
-
-### ✔️ Checks
+# ✔️ Checks
 pyproject-check = 'python -m validate_pyproject pyproject.toml'
 py-lint-check-pre = "python -m ruff check"
 py-lint-check = 'pixi run py-lint-check-pre .'
@@ -119,7 +116,7 @@ check = { depends-on = [
   'nonpy-format-check-modified',
 ] }
 
-### 🛠️ Fixes
+# 🛠️ Fixes
 py-lint-fix = 'pixi run py-lint-check --fix'
 #py-format-fix = "python -m ruff format $(git diff --cached --name-only -- '*.py')"
 py-format-fix = "python -m ruff format"
@@ -135,7 +132,7 @@ fix = { depends-on = [
   'nonpy-format-fix',
 ] }
 
-## 🧮 Code Complexity
+# 🧮 Code Complexity
 complexity-check = 'radon cc -s src/'
 complexity-check-json = 'radon cc -s -j src/'
 maintainability-check = 'radon mi src/'
@@ -143,18 +140,17 @@ maintainability-check-json = 'radon mi -j src/'
 raw-metrics = 'radon raw -s src/'
 raw-metrics-json = 'radon raw -s -j src/'
 
-## 📊 Coverage
+# 📊 Coverage
 unit-tests-coverage = 'pixi run unit-tests --cov=src/easypeasy --cov-report=term-missing'
 integration-tests-coverage = 'pixi run integration-tests --cov=src/easypeasy --cov-report=term-missing'
 docstring-coverage = 'interrogate -c pyproject.toml src/easypeasy'
 
 cov = { depends-on = ['docstring-coverage', 'integration-tests-coverage'] }
 
-## 📓 Notebook Management
+# 📓 Notebook Management
 notebook-convert = 'jupytext docs/docs/tutorials/*.py --from py:percent --to ipynb'
 notebook-strip = 'nbstripout docs/docs/tutorials/*.ipynb'
 notebook-tweak = 'python tools/tweak_notebooks.py tutorials/'
-notebook-clean = 'rm -f docs/docs/tutorials/*.ipynb'
 notebook-exec = 'python -m pytest --nbmake docs/docs/tutorials/ --nbmake-timeout=600 --overwrite --color=yes -n auto -v'
 
 notebook-prepare = { depends-on = [
@@ -163,11 +159,7 @@ notebook-prepare = { depends-on = [
   ###'notebook-tweak',
 ] }
 
-## 📚 Documentation Tasks
-docs-assets = 'tools/add_assets_to_docs.sh'
-docs-notebooks = 'mv tutorials/*.* docs/tutorials/' # *.py, *.ipynb, index.json
-docs-config = 'python tools/create_mkdocs_yml.py'
-
+# 📚 Documentation Tasks
 docs-vars = "JUPYTER_PLATFORM_DIRS=1 PYTHONWARNINGS='ignore::RuntimeWarning'"
 docs-pre = "pixi run docs-vars python -m mkdocs"
 docs-serve = "pixi run docs-pre serve -f docs/mkdocs.yml"
@@ -178,32 +170,20 @@ docs-build-local = "pixi run docs-build --no-directory-urls"
 docs-deploy-pre = 'mike deploy -F docs/mkdocs.yml --push --branch gh-pages --update-aliases --alias-type redirect'
 docs-set-default-pre = 'mike set-default -F docs/mkdocs.yml --push --branch gh-pages'
 
-docs-clean = 'tools/cleanup_docs.sh'
-docs-setup = { depends-on = [
-  'docs-config',
-  'docs-assets',
-  'notebook-prepare',
-  'docs-notebooks',
-] }
+# 📦 Template Management Tasks
+copier_update = "pixi run python tools/copier_wrapper.py update --vcs-ref master --gh-data gh:easyscience/peasy@master/project.yaml"
+copier_shared_update = "pixi run copier_update --answers-file .copier-answers.shared.yml"
+copier_lib_update = "pixi run copier_update --answers-file .copier-answers.lib.yml"
 
-## 🚀 Development & Build Tasks
+# 🚀 Development & Build Tasks
 default-build = 'python -m build'
 dist-build = 'python -m build --wheel --outdir dist'
 spdx-update = 'python tools/update_spdx.py'
-#dev-install = 'uv pip install --requirements pyproject.toml --extra all'
-dev-install = "python -m uv pip install --force-reinstall --editable '.[all]'"
 npm-config = 'npm config set registry https://registry.npmjs.org/'
 prettier-install = 'npm install --no-save --no-audit --no-fund prettier prettier-plugin-toml'
 pre-commit-setup = 'pre-commit clean && pre-commit uninstall && pre-commit install --hook-type pre-commit --hook-type pre-push --overwrite'
 pre-commit-update = 'pre-commit autoupdate'
 clean-pycache = "find . -type d -name '__pycache__' -prune -exec rm -rf '{}' +"
-
-dev = { depends-on = [
-  'dev-install',
-  'npm-config',
-  'prettier-install',
-  'pre-commit-setup',
-] }
 
 post-install = { depends-on = [
   'npm-config',
@@ -211,11 +191,5 @@ post-install = { depends-on = [
   'pre-commit-setup',
 ] }
 
-wheel = { depends-on = ['npm-config', 'prettier-install'] }
-
-## 🔗 Main Package Shortcut
+# 🔗 Main Package Shortcut
 easypeasy = 'python -m easypeasy'
-
-copier_update = "pixi run python tools/copier_wrapper.py update --vcs-ref master --gh-data gh:easyscience/peasy@master/project.yaml"
-copier_shared_update = "pixi run copier_update --answers-file .copier-answers.shared.yml"
-copier_lib_update = "pixi run copier_update --answers-file .copier-answers.lib.yml"
