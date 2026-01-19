@@ -147,7 +147,7 @@ close-quotes-on-newline = true
 # https://interrogate.readthedocs.io/en/latest/
 
 [tool.interrogate]
-fail-under = 0 # Minimum docstring coverage percentage to pass
+fail-under = 0                   # Minimum docstring coverage percentage to pass
 verbose = 1
 exclude = ['src/**/__init__.py']
 
@@ -175,7 +175,7 @@ fail_under = 0       # Minimum coverage percentage to pass
 exclude = ['tmp']
 indent-width = 4
 line-length = 99
-preview = true # Enable new rules that are not yet stable, like DOC
+preview = true    # Enable new rules that are not yet stable, like DOC
 
 [tool.ruff.format]
 docstring-code-format = true    # Whether to format code snippets in docstrings
