@@ -147,7 +147,7 @@ raw-metrics-json = 'radon raw -s -j src/'
 ## 📊 Coverage
 unit-tests-coverage = 'pixi run unit-tests --cov=src/easydiffraction --cov-report=term-missing'
 integration-tests-coverage = 'pixi run integration-tests --cov=src/easydiffraction --cov-report=term-missing'
-docstring-coverage = 'interrogate -c pyproject.toml src/'
+docstring-coverage = 'interrogate -c pyproject.toml src/easydiffraction'
 
 cov = { depends-on = ['docstring-coverage', 'integration-tests-coverage'] }
 
