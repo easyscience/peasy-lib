@@ -57,16 +57,16 @@ theme:
 extra:
   generator: false # Disable `Made with Material for MkDocs` (bottom left)
   social: # Extra icons in the bottom right corner
-    - icon: easyscience  # File: overrides/.icons/easyscience.svg
+    - icon: easyscience # File: overrides/.icons/easyscience.svg
       link: https://easyscience.org
       name: EasyScience Framework Webpage
-    - icon: easypeasy  # File: overrides/.icons/easypeasy.svg
+    - icon: easypeasy # File: overrides/.icons/easypeasy.svg
       link: https://easyscience.github.io/peasy
       name: EasyPeasy Main Webpage
     - icon: app # File: overrides/.icons/app.svg
       link: https://easyscience.github.io/peasy-app
       name: EasyDiffraction Application Docs
-    - icon: fontawesome/brands/github  # Name as in Font Awesome
+    - icon: fontawesome/brands/github # Name as in Font Awesome
       link: https://github.com/easyscience/peasy-lib
       name: EasyPeasy Library Source Code on GitHub
   # Set custom variables to be used in Markdown and HTML files
@@ -126,7 +126,7 @@ plugins:
   - markdownextradata # Plugin that injects the mkdocs.yml extra variables into the Markdown template
   - mike # Plugin that makes it easy to deploy multiple versions of the docs
   - mkdocs-jupyter:
-      include: ['*.ipynb']  # Default: ['*.py', '*.ipynb']
+      include: ['*.ipynb'] # Default: ['*.py', '*.ipynb']
       execute: false # Do not execute notebooks during build. They are expected to be pre-executed.
       allow_errors: false
       include_source: true
@@ -139,7 +139,7 @@ plugins:
   - mkdocstrings:
       handlers:
         python:
-          paths: ["src"] # Change "src" to your actual sources directory
+          paths: ['src'] # Change 'src' to your actual sources directory
           options:
             docstring_style: google
             group_by_category: false

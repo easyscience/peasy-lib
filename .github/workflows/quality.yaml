@@ -23,8 +23,7 @@ on:
 # Allow only one concurrent workflow, skipping runs queued between the run
 # in-progress and latest queued. And cancel in-progress runs.
 concurrency:
-  group:
-    ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 # Set the environment variables to be used in all jobs defined in this workflow
@@ -41,6 +40,9 @@ jobs:
 
       - name: Set up pixi
         uses: ./.github/actions/setup-pixi
+
+      - name: Run post-install developer steps
+        run: pixi run post-install
 
       # Check the validity of pyproject.toml
       - name: Check validity of pyproject.toml
@@ -105,8 +107,14 @@ jobs:
             echo "| notebooks format | ${{ steps.check_notebooks_formatting.outcome == 'success' && '✅' || '❌' }} |"
           } >> "$GITHUB_STEP_SUMMARY"
 
-      # Fail job requirement
+      # Fail job if any check failed
       - name: Fail job if any check failed
-        if: failure()
+        if: |
+          steps.check_pyproject.outcome == 'failure' ||
+          steps.check_code_linting.outcome == 'failure' ||
+          steps.check_code_formatting.outcome == 'failure' ||
+          steps.check_docs_formatting.outcome == 'failure' ||
+          steps.check_others_formatting.outcome == 'failure' ||
+          steps.check_notebooks_formatting.outcome == 'failure'
         shell: bash
         run: exit 1
