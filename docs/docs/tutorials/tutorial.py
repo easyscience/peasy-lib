@@ -17,3 +17,4 @@ import easydiffraction
 # %%
 # This is a placeholder for tutorial content.
 print('This is a dummy tutorial.')
+print('Imported library:', easydiffraction)
