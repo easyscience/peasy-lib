@@ -21,6 +21,7 @@ name: Backmerge (master -> develop)
 on:
   push:
     tags: ['v*']
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -47,18 +48,25 @@ jobs:
         run: |
           set -euo pipefail
 
-          # Get the tag name variable to be used in the commit message
-          TAG="${{ github.ref_name }}"
-
           # Ensure local master and develop branches exist and are up-to-date with origin
-          git fetch origin master:master develop:develop
+          git fetch origin master develop
 
           # Switch to develop branch
           git checkout develop
 
+          # Get the tag name variable to be used in the commit message
+          TAG="${{ github.ref_name }}"
+
+          # Determine if this is a tag push or manual trigger
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            MESSAGE="Backmerge: master into develop (manual) [skip ci]"
+          else
+            MESSAGE="Backmerge: ${TAG} from master into develop [skip ci]"
+          fi
+
           # Merge master into develop (no fast-forward to preserve history)
           # Use [skip ci] to avoid triggering CI - the code was already tested on master
-          git merge master --no-ff -m "Backmerge: ${TAG} from master into develop [skip ci]"
+          git merge origin/master --no-ff -m "${MESSAGE}"
 
           # Push the merge commit to develop
           # The easyscience app in bypass list allows this push
