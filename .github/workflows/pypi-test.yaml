@@ -54,13 +54,9 @@ jobs:
         working-directory: easypeasy
         run: pixi add --pypi "easypeasy"
 
-      - name: Add dev deps from PyPI
-        working-directory: easypeasy
-        run: pixi add --pypi pytest pytest-xdist
-
       - name: Add dev dependencies from PyPI
         working-directory: easypeasy
-        run: pixi add pytest pytest-xdist
+        run: pixi add --pypi pytest pytest-xdist
 
       - name: Add Pixi task as a shortcut
         working-directory: easypeasy
