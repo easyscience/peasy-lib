@@ -72,11 +72,11 @@ extra:
       name: EasyPeasy Library Source Code on GitHub
   # Set custom variables to be used in Markdown and HTML files
   vars:
-    ci_branch: !ENV ${CI_BRANCH}
-    github_repository: !ENV ${GITHUB_REPOSITORY}
-    release_version: !ENV ${RELEASE_VERSION}
-    docs_version: !ENV ${DOCS_VERSION}
-    notebooks_dir: !ENV ${NOTEBOOKS_DIR}
+    ci_branch: !ENV CI_BRANCH
+    github_repository: !ENV GITHUB_REPOSITORY
+    release_version: !ENV RELEASE_VERSION
+    docs_version: !ENV DOCS_VERSION
+    notebooks_dir: !ENV NOTEBOOKS_DIR
   # Renders a version selector in the header
   version:
     provider: mike
