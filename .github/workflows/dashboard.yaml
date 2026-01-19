@@ -84,14 +84,22 @@ jobs:
             ${{ github.event.repository.name }}
             dashboard
 
+      # Publish to external dashboard repository with retry logic.
+      # Retry is needed to handle transient GitHub API/authentication issues
+      # that occasionally cause 403 errors when multiple workflows push concurrently.
+      # Uses personal_token (not github_token) as GITHUB_TOKEN cannot access external repos.
       - name: Publish to main branch of ${{ github.repository }}
-        uses: peaceiris/actions-gh-pages@v3
+        uses: Wandalen/wretry.action@v3.8.0
         with:
-          external_repository: ${{ env.REPO_OWNER }}/dashboard
-          publish_branch: ${{ env.DEFAULT_BRANCH }}
-          personal_token: ${{ steps.bot.outputs.token }}
-          publish_dir: ./_dashboard_publish
-          keep_files: true
+          attempt_limit: 3
+          attempt_delay: 15000 # 15 seconds between retries
+          action: peaceiris/actions-gh-pages@v4
+          with: |
+            publish_dir: ./_dashboard_publish
+            keep_files: true
+            external_repository: ${{ env.REPO_OWNER }}/dashboard
+            publish_branch: master
+            personal_token: ${{ steps.bot.outputs.token }}
 
       - name: Add dashboard link to summary
         run: |
