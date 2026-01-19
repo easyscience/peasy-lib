@@ -64,11 +64,7 @@ visualization = [
   'plotly',     # Interactive plots
   'py3Dmol',    # Visualisation of crystal structures
 ]
-all = [
-  'easypeasy[dev]',
-  'easypeasy[docs]',
-  'easypeasy[visualization]',
-]
+all = ['easypeasy[dev]', 'easypeasy[docs]', 'easypeasy[visualization]']
 
 [project.urls]
 homepage = 'https://easyscience.github.io/peasy'
@@ -147,7 +143,7 @@ close-quotes-on-newline = true
 # https://interrogate.readthedocs.io/en/latest/
 
 [tool.interrogate]
-fail-under = 0                   # Minimum docstring coverage percentage to pass
+fail-under = 0 # Minimum docstring coverage percentage to pass
 verbose = 1
 #exclude = ['src/**/__init__.py']
 

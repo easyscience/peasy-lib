@@ -21,7 +21,7 @@ corresponding [GUI resources](https://github.com/easyscience/peasy-app).
 ## License
 
 **EasyPeasy** is released under the
-[BSD 3-Clause License](https://raw.githubusercontent.com/easyscience/diffraction-lib/master/LICENSE).
+[BSD 3-Clause License](https://raw.githubusercontent.com/easyscience/peasy-lib/master/LICENSE).
 
 ## Releases
 
@@ -59,7 +59,8 @@ on GitHub.
 
 ## Get in Touch
 
-For general questions or feedback, contact us at [](mailto:).
+For general questions or feedback, contact us at
+[support@easydiffraction.org](mailto:support@easydiffraction.org).
 
 To report bugs or request features, please use the
 [GitHub Issue Tracker](https://github.com/easyscience/peasy-lib/issues)
