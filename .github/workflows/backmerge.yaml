@@ -48,6 +48,11 @@ jobs:
           fetch-depth: 0
           token: ${{ steps.bot.outputs.token }}
 
+      - name: Configure git identity
+        run: |
+          git config user.name "easyscience[bot]"
+          git config user.email "${{ vars.EASYSCIENCE_APP_ID }}+easyscience[bot]@users.noreply.github.com"
+
       - name: Merge master into develop
         run: |
           set -euo pipefail
