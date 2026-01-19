@@ -9,5 +9,5 @@ def test_dummy_function():
 
     result = dummy_function()
 
-    assert result == "Hello from easydiffraction"
+    assert result == 'Hello from easydiffraction'
     assert isinstance(result, str)
