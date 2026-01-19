@@ -53,11 +53,7 @@ jobs:
   # Single job that builds and deploys documentation.
   # Uses macOS runner for consistent Plotly chart rendering.
   build-deploy-docs:
-    strategy:
-      matrix:
-        os: [macos-latest]
-
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest # macos-latest
 
     permissions:
       contents: write # Required for pushing to the gh-pages branch
@@ -110,7 +106,7 @@ jobs:
       # imported. This step allows to avoid "Matplotlib is building the font
       # cache" messages during notebook execution.
       - name: Pre-build site step
-        run: pixi run python -c "import easydiffraction"
+        run: pixi run python -c "import easypeasy"
 
       # Convert Python scripts in the docs/docs/tutorials/ directory to Jupyter
       # notebooks.

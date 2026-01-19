@@ -40,47 +40,35 @@ jobs:
           frozen: false
 
       - name: Init pixi project
-        run: pixi init easydiffraction
+        run: pixi init easypeasy
 
       - name: Add Python 3.13 from Conda
-        working-directory: easydiffraction
+        working-directory: easypeasy
         run: pixi add "python=3.13"
 
       - name: Add other Conda dependencies
-        working-directory: easydiffraction
+        working-directory: easypeasy
         run: pixi add gsl
 
-      - name: Add easydiffraction from PyPI
-        working-directory: easydiffraction
-        run: pixi add --pypi "easydiffraction[all]"
+      - name: Add easypeasy from PyPI
+        working-directory: easypeasy
+        run: pixi add --pypi "easypeasy"
+
+      - name: Add dev dependencies from PyPI
+        working-directory: easypeasy
+        run: pixi add --pypi pytest pytest-xdist
 
       - name: Add Pixi task as a shortcut
-        working-directory: easydiffraction
-        run: pixi task add easydiffraction "python -m easydiffraction"
+        working-directory: easypeasy
+        run: pixi task add easypeasy "python -m easypeasy"
 
       - name: Run unit tests to verify the installation
-        working-directory: easydiffraction
+        working-directory: easypeasy
         run: pixi run python -m pytest ../tests/unit/ --color=yes -v
 
       - name: Run integration tests to verify the installation
-        working-directory: easydiffraction
+        working-directory: easypeasy
         run: pixi run python -m pytest ../tests/integration/ --color=yes -n auto
-
-      # Github token to avoid hitting the unauthenticated API rate limit
-      - name: List and fetch the easydiffraction tutorials
-        working-directory: easydiffraction
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          pixi run easydiffraction --version
-          pixi run easydiffraction list-tutorials
-          pixi run easydiffraction download-tutorial 1
-
-      - name: Test tutorials as notebooks
-        working-directory: easydiffraction
-        run: >
-          pixi run python -m pytest --nbmake tutorials/ --nbmake-timeout=600 --color=yes
-          -n auto -v
 
   # Job 2: Build and publish dashboard (reusable workflow)
   run-reusable-workflows:

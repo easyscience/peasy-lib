@@ -4039,9 +4039,9 @@ packages:
   - packaging>=20.9
   requires_python: '>=3.5'
 - pypi: ./
-  name: easydiffraction
-  version: 999.0.0+dev187
-  sha256: fd6db6cf6bebbdadef33690c7eb6192f1113ab876bea60be9795303dc7b9f95c
+  name: easypeasy
+  version: 1.0.0+dev10
+  sha256: 6c1a389b0bc2af01380269d2a7fb32e59c88605419809b1e3acb1a4bbd27c517
   requires_dist:
   - easyscience
   - pooch
