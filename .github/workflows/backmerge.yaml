@@ -34,7 +34,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
         with:
-          fetch-depth: 0 # full history with tags
+          fetch-depth: 0
 
       - name: Setup easyscience[bot]
         id: bot
@@ -45,43 +45,36 @@ jobs:
           repositories: ${{ github.event.repository.name }}
 
       - name: Merge master into develop
-        env:
-          GH_TOKEN: ${{ steps.bot.outputs.token }}
         run: |
           set -euo pipefail
 
-          echo "Fetching latest master and develop branches"
-          git fetch origin master develop
+          echo "Reconfiguring remote with app token"
+          git remote set-url origin "https://x-access-token:${{ steps.bot.outputs.token }}@github.com/${{ github.repository }}.git"
+
+          echo "Fetching develop branch"
+          git fetch origin develop:develop
 
           echo "Switching to develop branch"
           git checkout develop
 
-          echo "Checking if develop is already up-to-date with master"
+          echo "Checking if already up-to-date"
           if git merge-base --is-ancestor origin/master develop; then
             echo "ℹ️ Develop is already up-to-date with master"
             exit 0
           fi
 
-          echo "Preparing merge commit message"
+          echo "Preparing merge message"
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             MESSAGE="Backmerge: master into develop (manual) [skip ci]"
           else
             TAG="${{ github.ref_name }}"
             MESSAGE="Backmerge: ${TAG} from master into develop [skip ci]"
           fi
-          echo "Merge commit message: ${MESSAGE}"
 
-          echo "Creating merge commit"
+          echo "Merging master into develop"
           git merge origin/master --no-ff -m "${MESSAGE}"
 
-          echo "Getting new commit SHA"
-          NEW_SHA=$(git rev-parse HEAD)
-          echo "New commit SHA: ${NEW_SHA}"
-
-          echo "Pushing via GitHub API (respects bypass list)"
-          gh api \
-            --method PATCH \
-            "/repos/${{ github.repository }}/git/refs/heads/develop" \
-            -f sha="${NEW_SHA}"
+          echo "Pushing to develop"
+          git push origin develop
 
           echo "✅ Successfully merged master into develop"
