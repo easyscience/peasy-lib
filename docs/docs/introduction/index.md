@@ -6,9 +6,8 @@ icon: material/information-slab-circle
 
 ## Description
 
-**EasyPeasy** is a scientific software for performing imaginary
-calculations based on a theoretical model and refining its parameters
-against experimental data.
+**EasyPeasy** is a scientific software 
+for performing imaginary calculations based on a theoretical model and refining its parameters against experimental data.
 
 **EasyPeasy** is available both as a Python library and as a
 cross-platform desktop application. Here, we focus on the Python
@@ -26,19 +25,19 @@ corresponding [GUI resources](https://github.com/easyscience/peasy-app).
 ## Releases
 
 The latest version of the **EasyPeasy** Python library is
-[${{ vars.release_version }}](https://github.com/easyscience/diffraction-lib/releases/latest).
+[{{ vars.release_version }}](https://github.com/easyscience/peasy-lib/releases/latest).
 
 For a complete list of new features, bug fixes, and improvements, see
 the
-[GitHub Releases page](https://github.com/easyscience/diffraction-lib/releases).
+[GitHub Releases page](https://github.com/easyscience/peasy-lib/releases).
 
 ## Citation
 
-If you use **EasyPeasy** in your work, please cite the specific version
-you used.
+If you use **EasyPeasy** in your work, please cite the specific
+version you used.
 
-All official releases of the **EasyPeasy** library are archived on
-Zenodo, each with a version-specific Digital Object Identifier (DOI).
+All official releases of the **EasyPeasy** library are archived
+on Zenodo, each with a version-specific Digital Object Identifier (DOI).
 
 Citation details in various styles (e.g., APA, MLA) and formats (e.g.,
 BibTeX, JSON) are available on the
@@ -46,15 +45,15 @@ BibTeX, JSON) are available on the
 
 ## Contributing
 
-We welcome contributions from the community! **EasyPeasy** is intended
-to be a community-driven, open-source project supported by a diverse
-group of contributors.
+We welcome contributions from the community! **EasyPeasy** is
+intended to be a community-driven, open-source project supported by a
+diverse group of contributors.
 
 The project is maintained by the
 [European Spallation Source (ESS)](https://ess.eu).
 
 To contribute, see our
-[:material-account-plus: Contributing Guidelines](https://github.com/easyscience/diffraction-lib/blob/master/CONTRIBUTING.md)
+[:material-account-plus: Contributing Guidelines](https://github.com/easyscience/peasy-lib/blob/master/CONTRIBUTING.md)
 on GitHub.
 
 ## Get in Touch
@@ -63,5 +62,5 @@ For general questions or feedback, contact us at
 [support@easydiffraction.org](mailto:support@easydiffraction.org).
 
 To report bugs or request features, please use the
-[GitHub Issue Tracker](https://github.com/easyscience/diffraction-lib/issues)
+[GitHub Issue Tracker](https://github.com/easyscience/peasy-lib/issues)
 (free registration required).
