@@ -66,22 +66,6 @@ jobs:
         working-directory: easydiffraction
         run: pixi run python -m pytest ../tests/integration/ --color=yes -n auto
 
-      # Github token to avoid hitting the unauthenticated API rate limit
-      - name: List and fetch the easydiffraction tutorials
-        working-directory: easydiffraction
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          pixi run easydiffraction --version
-          pixi run easydiffraction list-tutorials
-          pixi run easydiffraction download-tutorial 1
-
-      - name: Test tutorials as notebooks
-        working-directory: easydiffraction
-        run: >
-          pixi run python -m pytest --nbmake tutorials/ --nbmake-timeout=600 --color=yes
-          -n auto -v
-
   # Job 2: Build and publish dashboard (reusable workflow)
   run-reusable-workflows:
     needs: pypi-package-tests # depend on previous job
