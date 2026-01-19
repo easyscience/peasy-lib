@@ -26,11 +26,11 @@ corresponding [GUI resources](https://github.com/easyscience/peasy-app).
 ## Releases
 
 The latest version of the **EasyPeasy** Python library is
-[${{ vars.release_version }}](https://github.com/easyscience/diffraction-lib/releases/latest).
+[{{ vars.release_version }}](https://github.com/easyscience/peasy-lib/releases/latest).
 
 For a complete list of new features, bug fixes, and improvements, see
 the
-[GitHub Releases page](https://github.com/easyscience/diffraction-lib/releases).
+[GitHub Releases page](https://github.com/easyscience/peasy-lib/releases).
 
 ## Citation
 
@@ -54,14 +54,13 @@ The project is maintained by the
 [European Spallation Source (ESS)](https://ess.eu).
 
 To contribute, see our
-[:material-account-plus: Contributing Guidelines](https://github.com/easyscience/diffraction-lib/blob/master/CONTRIBUTING.md)
+[:material-account-plus: Contributing Guidelines](https://github.com/easyscience/peasy-lib/blob/master/CONTRIBUTING.md)
 on GitHub.
 
 ## Get in Touch
 
-For general questions or feedback, contact us at
-[support@easydiffraction.org](mailto:support@easydiffraction.org).
+For general questions or feedback, contact us at [](mailto:).
 
 To report bugs or request features, please use the
-[GitHub Issue Tracker](https://github.com/easyscience/diffraction-lib/issues)
+[GitHub Issue Tracker](https://github.com/easyscience/peasy-lib/issues)
 (free registration required).
