@@ -149,7 +149,7 @@ close-quotes-on-newline = true
 [tool.interrogate]
 fail-under = 0                   # Minimum docstring coverage percentage to pass
 verbose = 1
-exclude = ['src/**/__init__.py']
+#exclude = ['src/**/__init__.py']
 
 #######################################
 # Configuration for coverage/pytest-cov
