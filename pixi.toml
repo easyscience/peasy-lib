@@ -48,7 +48,7 @@ pip = '*'        # Native package installer
 uv = '*'         # Package manager
 jupyterlab = '*' # Jupyter notebooks
 pixi-kernel = '*' # Pixi Jupyter kernel
-easydiffraction = { path = ".", editable = true, extras = ['all'] }
+easypeasy = { path = ".", editable = true, extras = ['all'] }
 
 # Specific features: Set specific Python versions
 
@@ -145,9 +145,9 @@ raw-metrics = 'radon raw -s src/'
 raw-metrics-json = 'radon raw -s -j src/'
 
 ## 📊 Coverage
-unit-tests-coverage = 'pixi run unit-tests --cov=src/easydiffraction --cov-report=term-missing'
-integration-tests-coverage = 'pixi run integration-tests --cov=src/easydiffraction --cov-report=term-missing'
-docstring-coverage = 'interrogate -c pyproject.toml src/easydiffraction'
+unit-tests-coverage = 'pixi run unit-tests --cov=src/easypeasy --cov-report=term-missing'
+integration-tests-coverage = 'pixi run integration-tests --cov=src/easypeasy --cov-report=term-missing'
+docstring-coverage = 'interrogate -c pyproject.toml src/easypeasy'
 
 cov = { depends-on = ['docstring-coverage', 'integration-tests-coverage'] }
 
@@ -219,7 +219,7 @@ post-install = { depends-on = [
 wheel = { depends-on = ['npm-config', 'prettier-install'] }
 
 ## 🔗 Main Package Shortcut
-easydiffraction = 'python -m easydiffraction'
+easypeasy = 'python -m easypeasy'
 
 
 copier_update = "pixi run python tools/copier_wrapper.py update --vcs-ref master --gh-data gh:easyscience/peasy@master/project.yaml"

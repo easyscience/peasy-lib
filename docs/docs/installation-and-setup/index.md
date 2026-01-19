@@ -39,8 +39,8 @@ This section describes the simplest way to set up EasyPeasy using
 
 - Initialize a new Pixi project and navigate into it:
   ```txt
-  pixi init easydiffraction
-  cd easydiffraction
+  pixi init easypeasy
+  cd easypeasy
   ```
 - Set the Python version for the Pixi environment (e.g., 3.13):
   ```txt
@@ -55,11 +55,11 @@ This section describes the simplest way to set up EasyPeasy using
   This can be especially useful for running the Jupyter Notebook
   examples:
   ```txt
-  pixi add --pypi "easydiffraction[visualization]"
+  pixi add --pypi "easypeasy[visualization]"
   ```
 - Add a Pixi task to run EasyPeasy commands easily:
   ```txt
-  pixi task add easydiffraction "python -m easydiffraction"
+  pixi task add easypeasy "python -m easypeasy"
   ```
 
 #### Updating Pixi and EasyPeasy
@@ -168,39 +168,39 @@ useful for running the Jupyter Notebook examples. To do so, use the
 following command:
 
 ```txt
-pip install 'easydiffraction[visualization]'
+pip install 'easypeasy[visualization]'
 ```
 
 If only the core functionality is needed, the library can be installed
 simply with:
 
 ```txt
-pip install easydiffraction
+pip install easypeasy
 ```
 
 To install a specific version of EasyPeasy, e.g., 1.0.3:
 
 ```txt
-pip install 'easydiffraction==1.0.3'
+pip install 'easypeasy==1.0.3'
 ```
 
 To upgrade to the latest version:
 
 ```txt
-pip install --upgrade easydiffraction
+pip install --upgrade easypeasy
 ```
 
 To upgrade to the latest version and force reinstallation of all
 dependencies (useful if files are corrupted):
 
 ```txt
-pip install --upgrade --force-reinstall easydiffraction
+pip install --upgrade --force-reinstall easypeasy
 ```
 
 To check the installed version:
 
 ```txt
-pip show easydiffraction
+pip show easypeasy
 ```
 
 ### Installing from GitHub <small>alternative</small> { #from-github data-toc-label="Installing from GitHub" }
@@ -217,7 +217,7 @@ pip install git+https://github.com/easyscience/peasy-lib@develop
 To include extra dependencies (e.g., visualization):
 
 ```txt
-pip install 'easydiffraction[visualization] @ git+https://github.com/easyscience/peasy-lib@develop'
+pip install 'easypeasy[visualization] @ git+https://github.com/easyscience/peasy-lib@develop'
 ```
 
 ## How to Run Tutorials
@@ -247,7 +247,7 @@ once using the command line, as shown below.
   ```
 - Download all the EasyPeasy tutorials to the `tutorials/` directory:
   ```txt
-  pixi run easydiffraction download-all-tutorials
+  pixi run easypeasy download-all-tutorials
   ```
 - Start JupyterLab in the `tutorials/` directory to access the
   notebooks:
@@ -269,7 +269,7 @@ once using the command line, as shown below.
   ```
 - Download all the EasyPeasy tutorials to the `tutorials/` directory:
   ```txt
-  python -m easydiffraction download-all-tutorials
+  python -m easypeasy download-all-tutorials
   ```
 - Launch the Jupyter Notebook server (opens browser automatically at
   `http://localhost:8888/`):
