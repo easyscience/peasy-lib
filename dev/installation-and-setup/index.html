@@ -900,8 +900,8 @@ manager is also provided.</p>
 <h4 id="setting-up-easypeasy-with-pixi">Setting up EasyPeasy with <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr></h4>
 <ul>
 <li>Initialize a new <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> project and navigate into it:
-  <div class="language-text highlight"><pre><span></span><code>pixi init easydiffraction
-cd easydiffraction
+  <div class="language-text highlight"><pre><span></span><code>pixi init easypeasy
+cd easypeasy
 </code></pre></div></li>
 <li>Set the Python version for the <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> environment (e.g., 3.13):
   <div class="language-text highlight"><pre><span></span><code>pixi add python=3.13
@@ -913,10 +913,10 @@ cd easydiffraction
   dependencies used for simplified visualization of charts and tables.
   This can be especially useful for running the <abbr title="An open-source web application that allows you to create and share documents that contain live code, equations, visualizations, and narrative text.">Jupyter Notebook</abbr>
   examples:
-  <div class="language-text highlight"><pre><span></span><code>pixi add --pypi &quot;easydiffraction[visualization]&quot;
+  <div class="language-text highlight"><pre><span></span><code>pixi add --pypi &quot;easypeasy[visualization]&quot;
 </code></pre></div></li>
 <li>Add a <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> task to run EasyPeasy commands easily:
-  <div class="language-text highlight"><pre><span></span><code>pixi task add easydiffraction &quot;python -m easydiffraction&quot;
+  <div class="language-text highlight"><pre><span></span><code>pixi task add easypeasy &quot;python -m easypeasy&quot;
 </code></pre></div></li>
 </ul>
 <h4 id="updating-pixi-and-easypeasy">Updating <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> and EasyPeasy</h4>
@@ -1023,24 +1023,24 @@ installed using <code>pip</code>.</p>
 simplified visualization of charts and tables. This can be especially
 useful for running the <abbr title="An open-source web application that allows you to create and share documents that contain live code, equations, visualizations, and narrative text.">Jupyter Notebook</abbr> examples. To do so, use the
 following command:</p>
-<div class="language-text highlight"><pre><span></span><code>pip install &#39;easydiffraction[visualization]&#39;
+<div class="language-text highlight"><pre><span></span><code>pip install &#39;easypeasy[visualization]&#39;
 </code></pre></div>
 <p>If only the core functionality is needed, the library can be installed
 simply with:</p>
-<div class="language-text highlight"><pre><span></span><code>pip install easydiffraction
+<div class="language-text highlight"><pre><span></span><code>pip install easypeasy
 </code></pre></div>
 <p>To install a specific version of EasyPeasy, e.g., 1.0.3:</p>
-<div class="language-text highlight"><pre><span></span><code>pip install &#39;easydiffraction==1.0.3&#39;
+<div class="language-text highlight"><pre><span></span><code>pip install &#39;easypeasy==1.0.3&#39;
 </code></pre></div>
 <p>To upgrade to the latest version:</p>
-<div class="language-text highlight"><pre><span></span><code>pip install --upgrade easydiffraction
+<div class="language-text highlight"><pre><span></span><code>pip install --upgrade easypeasy
 </code></pre></div>
 <p>To upgrade to the latest version and force reinstallation of all
 dependencies (useful if files are corrupted):</p>
-<div class="language-text highlight"><pre><span></span><code>pip install --upgrade --force-reinstall easydiffraction
+<div class="language-text highlight"><pre><span></span><code>pip install --upgrade --force-reinstall easypeasy
 </code></pre></div>
 <p>To check the installed version:</p>
-<div class="language-text highlight"><pre><span></span><code>pip show easydiffraction
+<div class="language-text highlight"><pre><span></span><code>pip show easypeasy
 </code></pre></div>
 <h3 id="from-github">Installing from <abbr title="A web-based platform for version control and collaboration.">GitHub</abbr> <small>alternative</small></h3>
 <p>Installing unreleased versions is generally not recommended but may be
@@ -1049,7 +1049,7 @@ useful for testing.</p>
 <div class="language-text highlight"><pre><span></span><code>pip install git+https://github.com/easyscience/peasy-lib@develop
 </code></pre></div>
 <p>To include extra dependencies (e.g., visualization):</p>
-<div class="language-text highlight"><pre><span></span><code>pip install &#39;easydiffraction[visualization] @ git+https://github.com/easyscience/peasy-lib@develop&#39;
+<div class="language-text highlight"><pre><span></span><code>pip install &#39;easypeasy[visualization] @ git+https://github.com/easyscience/peasy-lib@develop&#39;
 </code></pre></div>
 <h2 id="how-to-run-tutorials">How to Run Tutorials</h2>
 <p>EasyPeasy includes a collection of <strong><abbr title="An open-source web application that allows you to create and share documents that contain live code, equations, visualizations, and narrative text.">Jupyter Notebook</abbr> examples</strong> that
@@ -1072,7 +1072,7 @@ once using the command line, as shown below.</p>
   <div class="language-text highlight"><pre><span></span><code>pixi add --pypi jupyterlab pixi-kernel
 </code></pre></div></li>
 <li>Download all the EasyPeasy tutorials to the <code>tutorials/</code> directory:
-  <div class="language-text highlight"><pre><span></span><code>pixi run easydiffraction download-all-tutorials
+  <div class="language-text highlight"><pre><span></span><code>pixi run easypeasy download-all-tutorials
 </code></pre></div></li>
 <li>Start <abbr title="Web-based interactive development environment for notebooks, code, and data.">JupyterLab</abbr> in the <code>tutorials/</code> directory to access the
   notebooks:
@@ -1090,7 +1090,7 @@ once using the command line, as shown below.</p>
   <div class="language-text highlight"><pre><span></span><code>python -m ipykernel install --user --name=venv --display-name &quot;EasyPeasy Python kernel&quot;
 </code></pre></div></li>
 <li>Download all the EasyPeasy tutorials to the <code>tutorials/</code> directory:
-  <div class="language-text highlight"><pre><span></span><code>python -m easydiffraction download-all-tutorials
+  <div class="language-text highlight"><pre><span></span><code>python -m easypeasy download-all-tutorials
 </code></pre></div></li>
 <li>Launch the <abbr title="An open-source web application that allows you to create and share documents that contain live code, equations, visualizations, and narrative text.">Jupyter Notebook</abbr> server (opens browser automatically at
   <code>http://localhost:8888/</code>):
@@ -1279,7 +1279,7 @@ EasyPeasy.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
