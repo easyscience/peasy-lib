@@ -31,10 +31,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repository (for local actions)
         uses: actions/checkout@v5
-        with:
-          fetch-depth: 0
 
       - name: Setup easyscience[bot]
         id: bot
@@ -44,12 +42,15 @@ jobs:
           private-key: ${{ secrets.EASYSCIENCE_APP_KEY }}
           repositories: ${{ github.event.repository.name }}
 
+      - name: Checkout repository (with bot token)
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          token: ${{ steps.bot.outputs.token }}
+
       - name: Merge master into develop
         run: |
           set -euo pipefail
-
-          echo "Reconfiguring remote with app token"
-          git remote set-url origin "https://x-access-token:${{ steps.bot.outputs.token }}@github.com/${{ github.repository }}.git"
 
           echo "Fetching develop branch"
           git fetch origin develop:develop
