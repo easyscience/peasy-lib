@@ -4040,8 +4040,8 @@ packages:
   requires_python: '>=3.5'
 - pypi: ./
   name: easydiffraction
-  version: 999.0.0+dev176
-  sha256: dbb0aba837d6e1248024fb788766a6457652f9e6d77a6ecac697c33f65d18c78
+  version: 999.0.0+dev187
+  sha256: fd6db6cf6bebbdadef33690c7eb6192f1113ab876bea60be9795303dc7b9f95c
   requires_dist:
   - easyscience
   - pooch
