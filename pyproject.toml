@@ -160,6 +160,15 @@ show_missing = true  # Show missing lines
 skip_covered = false # Skip files with 100% coverage in the report
 fail_under = 0       # Minimum coverage percentage to pass
 
+##########################
+# Configuration for pytest
+##########################
+
+[tool.pytest.ini_options]
+addopts = '--import-mode=importlib'
+markers = ['fast: mark test as fast (should be run on every push)']
+testpaths = ['tests']
+
 ########################
 # Configuration for ruff
 ########################
