@@ -9,6 +9,7 @@
 # ## Import Library
 
 # %%
+import easydiffraction
 
 # %% [markdown]
 # ## Step 1: Blah Blah Blah

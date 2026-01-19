@@ -149,7 +149,7 @@ close-quotes-on-newline = true
 [tool.interrogate]
 fail-under = 0 # Minimum docstring coverage percentage to pass
 verbose = 1
-exclude = ["src/**/__init__.py"]
+exclude = ['src/**/__init__.py']
 
 #######################################
 # Configuration for coverage/pytest-cov
@@ -197,6 +197,9 @@ select = [
   'S',   # Security-related issues (e.g., use of insecure functions or libraries)
   'W',   # General PEP 8 warnings (e.g., lines too long, trailing whitespace)
 ]
+
+[tool.ruff.lint.per-file-ignores]
+'tests/**/*.py' = ['S101'] # Allow assert statements in tests
 
 [tool.ruff.lint.flake8-tidy-imports]
 ban-relative-imports = 'all'
