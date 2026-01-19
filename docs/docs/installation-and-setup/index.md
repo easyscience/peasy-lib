@@ -8,8 +8,8 @@ icon: material/cog-box
 **Python 3.11** through **3.13**.
 
 To install and set up EasyPeasy, we recommend using
-[**Pixi**](https://prefix.dev), a modern package manager for Windows, macOS,
-and Linux
+[**Pixi**](https://prefix.dev), a modern package manager for Windows,
+macOS, and Linux.
 
 !!! note "Main benefits of using Pixi"
 
@@ -22,8 +22,8 @@ and Linux
     - **PyPI and Conda support**: Pixi can install packages from both PyPI and
       Conda repositories, providing access to a wide range of libraries.
 
-An alternative installation method using the traditional **pip** package manager
-is also provided.
+An alternative installation method using the traditional **pip** package
+manager is also provided.
 
 ## Installing with Pixi <small>recommended</small> { #installing-with-pixi data-toc-label="Installing with Pixi" }
 
@@ -50,9 +50,10 @@ This section describes the simplest way to set up EasyPeasy using
   ```txt
   pixi add gsl
   ```
-- Add EasyPeasy with the `visualization` extras, which include
-  optional dependencies used for simplified visualization of charts and tables.
-  This can be especially useful for running the Jupyter Notebook examples:
+- Add EasyPeasy with the `visualization` extras, which include optional
+  dependencies used for simplified visualization of charts and tables.
+  This can be especially useful for running the Jupyter Notebook
+  examples:
   ```txt
   pixi add --pypi "easydiffraction[visualization]"
   ```
@@ -79,10 +80,9 @@ This section describes the simplest way to set up EasyPeasy using
 
 ## Classical Installation
 
-This section describes how to install EasyPeasy using the
-traditional method with **pip**. This approach is more flexible and
-suitable for users familiar with Python package management and
-virtual environments.
+This section describes how to install EasyPeasy using the traditional
+method with **pip**. This approach is more flexible and suitable for
+users familiar with Python package management and virtual environments.
 
 !!! warning
 
@@ -97,9 +97,9 @@ virtual environments.
 
 ### Environment Setup <small>optional</small> { #environment-setup data-toc-label="Environment Setup" }
 
-We recommend using a **virtual environment** to isolate dependencies and avoid
-conflicts with system-wide packages. If any issues arise, you can simply delete
-and recreate the environment.
+We recommend using a **virtual environment** to isolate dependencies and
+avoid conflicts with system-wide packages. If any issues arise, you can
+simply delete and recreate the environment.
 
 #### Creating and Activating a Virtual Environment:
 
@@ -162,16 +162,17 @@ EasyPeasy is available on **PyPI (Python Package Index)** and can be
 installed using `pip`.
 
 We recommend installing the latest release of EasyPeasy with the
-`visualization` extras, which include optional dependencies used for simplified
-visualization of charts and tables. This can be especially useful for running
-the Jupyter Notebook examples. To do so, use the following command:
+`visualization` extras, which include optional dependencies used for
+simplified visualization of charts and tables. This can be especially
+useful for running the Jupyter Notebook examples. To do so, use the
+following command:
 
 ```txt
 pip install 'easydiffraction[visualization]'
 ```
 
-If only the core functionality is needed, the library can be installed simply
-with:
+If only the core functionality is needed, the library can be installed
+simply with:
 
 ```txt
 pip install easydiffraction
@@ -204,8 +205,8 @@ pip show easydiffraction
 
 ### Installing from GitHub <small>alternative</small> { #from-github data-toc-label="Installing from GitHub" }
 
-Installing unreleased versions is generally not recommended but may be useful
-for testing.
+Installing unreleased versions is generally not recommended but may be
+useful for testing.
 
 To install EasyPeasy from the `develop` branch of GitHub, for example:
 
@@ -222,18 +223,19 @@ pip install 'easydiffraction[visualization] @ git+https://github.com/easyscience
 ## How to Run Tutorials
 
 EasyPeasy includes a collection of **Jupyter Notebook examples** that
-demonstrate key functionality. These tutorials serve as **step-by-step guides**
-to help users understand the data analysis workflow. They are available as
-**static HTML pages** in the
+demonstrate key functionality. These tutorials serve as **step-by-step
+guides** to help users understand the data analysis workflow. They are
+available as **static HTML pages** in the
 [:material-school: Tutorials](../tutorials/index.md) section.
 
-In the next sections, we explain how to set up Jupyter and run the tutorials
-interactively in two different ways: locally or online via Google Colab.
+In the next sections, we explain how to set up Jupyter and run the
+tutorials interactively in two different ways: locally or online via
+Google Colab.
 
-If you decide to run the tutorials locally, you need to download them first.
-This can be done individually via the :material-download: **Download Notebook**
-button available on each tutorial page, or all at once using the command line,
-as shown below.
+If you decide to run the tutorials locally, you need to download them
+first. This can be done individually via the :material-download:
+**Download Notebook** button available on each tutorial page, or all at
+once using the command line, as shown below.
 
 ### Run Tutorials Locally with Pixi <small>recommended</small> { #running-with-pixi data-toc-label="Run Tutorials Locally with Pixi" }
 
@@ -247,12 +249,13 @@ as shown below.
   ```txt
   pixi run easydiffraction download-all-tutorials
   ```
-- Start JupyterLab in the `tutorials/` directory to access the notebooks:
+- Start JupyterLab in the `tutorials/` directory to access the
+  notebooks:
   ```txt
   pixi run jupyter lab tutorials/
   ```
-- Your web browser should open automatically. Click on one of the `*.ipynb`
-  files and select the `Python (Pixi)` kernel to get started.
+- Your web browser should open automatically. Click on one of the
+  `*.ipynb` files and select the `Python (Pixi)` kernel to get started.
 
 ### Classical Run Tutorials Locally
 
@@ -268,18 +271,22 @@ as shown below.
   ```txt
   python -m easydiffraction download-all-tutorials
   ```
-- Launch the Jupyter Notebook server (opens browser automatically at `http://localhost:8888/`):
+- Launch the Jupyter Notebook server (opens browser automatically at
+  `http://localhost:8888/`):
   ```txt
   jupyter notebook tutorials/
   ```
-- Open one of the `*.ipynb` files and select the `EasyPeasy Python kernel`
-  to get started.
+- Open one of the `*.ipynb` files and select the
+  `EasyPeasy Python kernel` to get started.
 
 ### Run Tutorials via Google Colab
 
-**Google Colab** lets you run Jupyter Notebooks in the cloud without any local
-installation. This is the fastest way to start experimenting with EasyPeasy.
+**Google Colab** lets you run Jupyter Notebooks in the cloud without any
+local installation. This is the fastest way to start experimenting with
+EasyPeasy.
 
 - Ensure you have a **Google account**.
-- Go to the **[:material-school: Tutorials](../tutorials/index.md)** section.
-- Click the :google-colab: **Open in Google Colab** button on any tutorial.
+- Go to the **[:material-school: Tutorials](../tutorials/index.md)**
+  section.
+- Click the :google-colab: **Open in Google Colab** button on any
+  tutorial.

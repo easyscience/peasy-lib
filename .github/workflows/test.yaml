@@ -39,15 +39,14 @@ permissions:
 # Allow only one concurrent workflow, skipping runs queued between the run
 # in-progress and latest queued. And cancel in-progress runs.
 concurrency:
-  group:
-    ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 # Set the environment variables to be used in all jobs defined in this workflow
 env:
   CI_BRANCH: ${{ github.head_ref || github.ref_name }}
   PY_VERSIONS: '3.11 3.13'
-  PIXI_ENVS: "py-311-env py-313-env"
+  PIXI_ENVS: 'py-311-env py-313-env'
 
 jobs:
   # Job 1: Set up environment variables
@@ -104,8 +103,7 @@ jobs:
             pixi run --environment $env unit-tests
           done
 
-      - name:
-          Run integration tests ${{ needs.env-prepare.outputs.pytest-marks }}
+      - name: Run integration tests ${{ needs.env-prepare.outputs.pytest-marks }}
         shell: bash
         run: |
           set -euo pipefail
@@ -248,8 +246,7 @@ jobs:
             cd ..
           done
 
-      - name:
-          Run integration tests ${{ needs.env-prepare.outputs.pytest-marks }}
+      - name: Run integration tests ${{ needs.env-prepare.outputs.pytest-marks }}
         shell: bash
         run: |
           set -euo pipefail
