@@ -8,9 +8,9 @@
   {% set filename = parts[-1] %}
 
   {# Inputs #}
-  {% set docs_version = {{ config.extra.vars.docs_version }} %}
+  {% set docs_version = config.extra.vars.docs_version %}
   {% set base_colab_url = "https://colab.research.google.com/github/" %}
-  {% set repo = {{ config.extra.vars.github_repository }} %}
+  {% set repo = config.extra.vars.github_repository %}
 
   {# Colab url #}
   {% set colab_url =
