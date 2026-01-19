@@ -48,21 +48,26 @@ jobs:
         run: |
           set -euo pipefail
 
-          # Ensure local master and develop branches exist and are up-to-date with origin
+          echo "Ensure local master and develop branches exist and are up-to-date with origin"
           git fetch origin master develop
 
-          # Switch to develop branch
+          echo "Switched to develop branch"
           git checkout develop
 
-          # Get the tag name variable to be used in the commit message
-          TAG="${{ github.ref_name }}"
+          echo "Check if develop is already up-to-date with master"
+          if git merge-base --is-ancestor origin/master develop; then
+            echo "Develop is already up-to-date with master"
+            exit 0
+          fi
 
-          # Determine if this is a tag push or manual trigger
+          echo "Preparing merge commit message"
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             MESSAGE="Backmerge: master into develop (manual) [skip ci]"
           else
+            TAG="${{ github.ref_name }}"
             MESSAGE="Backmerge: ${TAG} from master into develop [skip ci]"
           fi
+          echo "Merge commit message: ${MESSAGE}"
 
           # Merge master into develop (no fast-forward to preserve history)
           # Use [skip ci] to avoid triggering CI - the code was already tested on master
