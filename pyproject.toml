@@ -64,11 +64,7 @@ visualization = [
   'plotly',     # Interactive plots
   'py3Dmol',    # Visualisation of crystal structures
 ]
-all = [
-  'easypeasy[dev]',
-  'easypeasy[docs]',
-  'easypeasy[visualization]',
-]
+all = ['easypeasy[dev]', 'easypeasy[docs]', 'easypeasy[visualization]']
 
 [project.urls]
 homepage = 'https://easyscience.github.io/peasy'
@@ -147,7 +143,7 @@ close-quotes-on-newline = true
 # https://interrogate.readthedocs.io/en/latest/
 
 [tool.interrogate]
-fail-under = 0                   # Minimum docstring coverage percentage to pass
+fail-under = 0 # Minimum docstring coverage percentage to pass
 verbose = 1
 #exclude = ['src/**/__init__.py']
 
@@ -163,6 +159,15 @@ source = ['src/easydiffraction'] # Limit coverage to the source code directory
 show_missing = true  # Show missing lines
 skip_covered = false # Skip files with 100% coverage in the report
 fail_under = 0       # Minimum coverage percentage to pass
+
+##########################
+# Configuration for pytest
+##########################
+
+[tool.pytest.ini_options]
+addopts = '--import-mode=importlib'
+markers = ['fast: mark test as fast (should be run on every push)']
+testpaths = ['tests']
 
 ########################
 # Configuration for ruff

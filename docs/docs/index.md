@@ -5,8 +5,8 @@
 Here is a brief overview of the main documentation sections:
 
 - [:material-information-slab-circle: Introduction](introduction/index.md)
-  – Provides an overview of EasyPeasy, including its purpose, licensing,
-  latest release details, and contact information.
+  – Provides a description of EasyPeasy, including its purpose,
+  licensing, latest release details, and contact information.
 - [:material-cog-box: Installation & Setup](installation-and-setup/index.md)
   – Guides users through system requirements, environment configuration,
   and the installation process.

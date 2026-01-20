@@ -16,15 +16,13 @@ from pathlib import Path
 
 import pytest
 
-# Mark this module as 'integration' so it's excluded by default
-# (see pytest.ini)
-pytestmark = pytest.mark.integration
-
 _repo_root = Path(__file__).resolve().parents[1]
 _src_root = _repo_root / 'src'
 
 # Discover tutorial scripts, excluding temporary checkpoint files
-TUTORIALS = [p for p in Path('tutorials').rglob('*.py') if '.ipynb_checkpoints' not in p.parts]
+TUTORIALS = [
+    p for p in Path('docs/docs/tutorials').rglob('*.py') if '.ipynb_checkpoints' not in p.parts
+]
 
 
 @pytest.mark.parametrize('script_path', TUTORIALS)
