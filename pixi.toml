@@ -171,16 +171,14 @@ docs-deploy-pre = 'mike deploy -F docs/mkdocs.yml --push --branch gh-pages --upd
 docs-set-default-pre = 'mike set-default -F docs/mkdocs.yml --push --branch gh-pages'
 
 # 📦 Template Management Tasks
-copier-pre = "pixi run python tools/copier_wrapper.py --gh-data gh:easyscience/peasy/project.yaml"
+copier-copy-shared = "pixi run copier copy gh:easyscience/templates-shared . --data-file ../peasy/.project.yaml"
+copier-copy-lib = "pixi run copier copy gh:easyscience/templates-lib . --data-file ../peasy/.project.yaml"
 
-copier-copy-shared = "pixi run copier-pre copy gh:easyscience/templates-shared ."
-copier-copy-lib = "pixi run copier-pre copy gh:easyscience/templates-lib ."
+copier-recopy-shared = "pixi run copier recopy --answers-file .copier-answers.shared.yml --data-file ../peasy/.project.yaml"
+copier-recopy-lib = "pixi run copier recopy --answers-file .copier-answers.lib.yml --data-file ../peasy/.project.yaml"
 
-copier-recopy-shared = "pixi run copier-pre recopy --answers-file .copier-answers.shared.yml"
-copier-recopy-lib = "pixi run copier-pre recopy --answers-file .copier-answers.lib.yml"
-
-copier-update-shared = "pixi run copier-pre update --answers-file .copier-answers.shared.yml"
-copier-lib-update = "pixi run copier-pre update --answers-file .copier-answers.lib.yml"
+copier-update-shared = "pixi run copier update --answers-file .copier-answers.shared.yml --data-file ../peasy/.project.yaml"
+copier-lib-update = "pixi run copier update --answers-file .copier-answers.lib.yml --data-file ../peasy/.project.yaml"
 
 # 🚀 Development & Build Tasks
 default-build = 'python -m build'
