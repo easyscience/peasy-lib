@@ -158,9 +158,6 @@ def fetch_github_file(path: str, cache_dir: Path) -> Path:
     # Parse GitHub path reference
     owner, repo, ref, filepath = parse_github_path(path)
 
-    # Construct raw GitHub URL
-    url = f'https://raw.githubusercontent.com/{owner}/{repo}/refs/heads/{ref}/{filepath}'
-
     # Create a unique cache filename including ref
     cache_filename = f'{ref}_{filepath.replace("/", "_")}'
     cache_file_path = cache_dir / cache_filename
@@ -175,6 +172,12 @@ def fetch_github_file(path: str, cache_dir: Path) -> Path:
         cache_file_path.unlink()
     elif is_release_tag and cache_file_path.exists():
         print(f'Using cached {filepath} from {owner}/{repo} (release tag: {ref})')
+
+    # Construct raw GitHub URL
+    if is_release_tag:
+        url = f'https://raw.githubusercontent.com/{owner}/{repo}/refs/tags/{ref}/{filepath}'
+    else:
+        url = f'https://raw.githubusercontent.com/{owner}/{repo}/refs/heads/{ref}/{filepath}'
 
     # Download file using pooch
     file_path = pooch.retrieve(
