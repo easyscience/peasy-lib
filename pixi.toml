@@ -175,8 +175,8 @@ copier-shared-copy = "pixi run python tools/copier_wrapper.py copy gh:easyscienc
 copier-lib-copy = "pixi run python tools/copier_wrapper.py copy gh:easyscience/templates-lib . --gh-data gh:easyscience/easypeasy/project.yaml"
 
 copier-update-pre = "pixi run python tools/copier_wrapper.py update --vcs-ref master --gh-data gh:easyscience/easypeasy/project.yaml"
-copier-shared-update = "pixi run copier_update --answers-file .copier-answers.shared.yml"
-copier-lib-update = "pixi run copier_update --answers-file .copier-answers.lib.yml"
+copier-shared-update = "pixi run copier-update-pre --answers-file .copier-answers.shared.yml"
+copier-lib-update = "pixi run copier-update-pre --answers-file .copier-answers.lib.yml"
 
 # 🚀 Development & Build Tasks
 default-build = 'python -m build'
