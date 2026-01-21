@@ -42,7 +42,7 @@ Zenodo, each with a version-specific Digital Object Identifier (DOI).
 
 Citation details in various styles (e.g., APA, MLA) and formats (e.g.,
 BibTeX, JSON) are available on the
-[Zenodo archive page](https://doi.org/10.5281/zenodo.16806521).
+[Zenodo archive page](https://doi.org/10.5281/zenodo.18163581).
 
 ## Contributing
 
@@ -60,7 +60,7 @@ on GitHub.
 ## Get in Touch
 
 For general questions or feedback, contact us at
-[support@easydiffraction.org](mailto:support@easydiffraction.org).
+[support@easypeasy.org](mailto:support@easypeasy.org).
 
 To report bugs or request features, please use the
 [GitHub Issue Tracker](https://github.com/easyscience/peasy-lib/issues)

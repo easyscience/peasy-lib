@@ -20,9 +20,6 @@ PROJECT_NAME = 'easypeasy'
 # Mapping of source files to destination paths
 # Format: "source_path_in_repo": "destination_path_in_project"
 ASSETS_MAP = {
-    # Hero images
-    f'{PROJECT_NAME}/hero/dark.png': 'docs/docs/assets/images/hero_dark.png',
-    f'{PROJECT_NAME}/hero/light.png': 'docs/docs/assets/images/hero_light.png',
     # Logos
     f'{PROJECT_NAME}/logos/dark.svg': 'docs/docs/assets/images/logo_dark.svg',
     f'{PROJECT_NAME}/logos/light.svg': 'docs/docs/assets/images/logo_light.svg',
