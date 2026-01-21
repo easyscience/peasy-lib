@@ -170,10 +170,17 @@ docs-build-local = "pixi run docs-build --no-directory-urls"
 docs-deploy-pre = 'mike deploy -F docs/mkdocs.yml --push --branch gh-pages --update-aliases --alias-type redirect'
 docs-set-default-pre = 'mike set-default -F docs/mkdocs.yml --push --branch gh-pages'
 
+docs-update-assets = 'pixi run python tools/update_docs_assets.py'
+
 # 📦 Template Management Tasks
-copier_update = "pixi run python tools/copier_wrapper.py update --vcs-ref master --gh-data gh:easyscience/peasy@master/project.yaml"
-copier_shared_update = "pixi run copier_update --answers-file .copier-answers.shared.yml"
-copier_lib_update = "pixi run copier_update --answers-file .copier-answers.lib.yml"
+copier-copy-shared = "pixi run copier copy gh:easyscience/templates-shared . --data-file ../peasy/.project.yaml"
+copier-copy-lib = "pixi run copier copy gh:easyscience/templates-lib . --data-file ../peasy/.project.yaml"
+
+copier-recopy-shared = "pixi run copier recopy --answers-file .copier-answers.shared.yml --data-file ../peasy/.project.yaml"
+copier-recopy-lib = "pixi run copier recopy --answers-file .copier-answers.lib.yml --data-file ../peasy/.project.yaml"
+
+copier-update-shared = "pixi run copier update --answers-file .copier-answers.shared.yml --data-file ../peasy/.project.yaml"
+copier-update-lib = "pixi run copier update --answers-file .copier-answers.lib.yml --data-file ../peasy/.project.yaml"
 
 # 🚀 Development & Build Tasks
 default-build = 'python -m build'
