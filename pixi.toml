@@ -178,7 +178,7 @@ copier-recopy-shared = "pixi run copier recopy --answers-file .copier-answers.sh
 copier-recopy-lib = "pixi run copier recopy --answers-file .copier-answers.lib.yml --data-file ../peasy/.project.yaml"
 
 copier-update-shared = "pixi run copier update --answers-file .copier-answers.shared.yml --data-file ../peasy/.project.yaml"
-copier-lib-update = "pixi run copier update --answers-file .copier-answers.lib.yml --data-file ../peasy/.project.yaml"
+copier-update-lib = "pixi run copier update --answers-file .copier-answers.lib.yml --data-file ../peasy/.project.yaml"
 
 # 🚀 Development & Build Tasks
 default-build = 'python -m build'
