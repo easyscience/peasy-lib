@@ -170,6 +170,8 @@ docs-build-local = "pixi run docs-build --no-directory-urls"
 docs-deploy-pre = 'mike deploy -F docs/mkdocs.yml --push --branch gh-pages --update-aliases --alias-type redirect'
 docs-set-default-pre = 'mike set-default -F docs/mkdocs.yml --push --branch gh-pages'
 
+docs-update-assets = 'pixi run python tools/update_docs_assets.py'
+
 # 📦 Template Management Tasks
 copier-copy-shared = "pixi run copier copy gh:easyscience/templates-shared . --data-file ../peasy/.project.yaml"
 copier-copy-lib = "pixi run copier copy gh:easyscience/templates-lib . --data-file ../peasy/.project.yaml"
