@@ -2,7 +2,7 @@
 # Any changes will be overwritten by Copier.
 _commit: v0.3.0
 _src_path: gh:easyscience/templates-shared
-project_contact_email: support@easydiffraction.org
+project_contact_email: support@easypeasy.org
 project_copyright_years: 2021-2026
 project_extended_description: For performing imaginary calculations based on a theoretical
     model and refining its parameters against experimental data
