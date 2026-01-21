@@ -171,9 +171,12 @@ docs-deploy-pre = 'mike deploy -F docs/mkdocs.yml --push --branch gh-pages --upd
 docs-set-default-pre = 'mike set-default -F docs/mkdocs.yml --push --branch gh-pages'
 
 # 📦 Template Management Tasks
-copier_update = "pixi run python tools/copier_wrapper.py update --vcs-ref master --gh-data gh:easyscience/peasy@master/project.yaml"
-copier_shared_update = "pixi run copier_update --answers-file .copier-answers.shared.yml"
-copier_lib_update = "pixi run copier_update --answers-file .copier-answers.lib.yml"
+copier-shared-copy = "pixi run python tools/copier_wrapper.py copy gh:easyscience/templates-shared . --gh-data gh:easyscience/easypeasy/project.yaml"
+copier-lib-copy = "pixi run python tools/copier_wrapper.py copy gh:easyscience/templates-lib . --gh-data gh:easyscience/easypeasy/project.yaml"
+
+copier-update-pre = "pixi run python tools/copier_wrapper.py update --vcs-ref master --gh-data gh:easyscience/easypeasy/project.yaml"
+copier-shared-update = "pixi run copier_update --answers-file .copier-answers.shared.yml"
+copier-lib-update = "pixi run copier_update --answers-file .copier-answers.lib.yml"
 
 # 🚀 Development & Build Tasks
 default-build = 'python -m build'
