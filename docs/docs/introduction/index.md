@@ -11,21 +11,23 @@ calculations based on a theoretical model and refining its parameters
 against experimental data.
 
 **EasyPeasy** is available both as a Python library and as a
-cross-platform desktop application. Here, we focus on the Python
-library. For the graphical user interface (GUI), please see the
-corresponding [GUI resources](https://github.com/easyscience/peasy-app).
+cross-platform desktop application.
+
+Here, we focus on the Python library. For the graphical user interface
+(GUI), please see the corresponding
+[GUI resources](https://easyscience.github.io/peasy-app).
 
 **EasyPeasy** is developed using the
 [EasyScience framework](https://easyscience.org).
 
 ## License
 
-**EasyPeasy** is released under the
+**EasyPeasy** library is released under the
 [BSD 3-Clause License](https://raw.githubusercontent.com/easyscience/peasy-lib/master/LICENSE).
 
 ## Releases
 
-The latest version of the **EasyPeasy** Python library is
+The latest version of the **EasyPeasy** library is
 [{{ vars.release_version }}](https://github.com/easyscience/peasy-lib/releases/latest).
 
 For a complete list of new features, bug fixes, and improvements, see
@@ -34,8 +36,8 @@ the
 
 ## Citation
 
-If you use **EasyPeasy** in your work, please cite the specific version
-you used.
+If you use **EasyPeasy** library in your work, please cite the specific
+version you used.
 
 All official releases of the **EasyPeasy** library are archived on
 Zenodo, each with a version-specific Digital Object Identifier (DOI).
