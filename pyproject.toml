@@ -23,31 +23,35 @@ classifiers = [
 requires-python = '>=3.11'
 dependencies = [
   #'easyscience', # The base library of the EasyScience framework
-  'pooch', # Data downloader
+  'pooch',       # Data downloader
+  'darkdetect',  # Detecting dark mode (system-level)
+  'pandas',      # Displaying tables in Jupyter notebooks
+  'plotly',      # Interactive plots
+  'py3Dmol',     # Visualisation of crystal structures
+  'jupyterlab',  # Jupyter notebooks
+  'pixi-kernel', # Pixi Jupyter kernel
 ]
 
 [project.optional-dependencies]
 dev = [
-  'build',                   # Building the package
-  'pre-commit',              # Pre-commit hooks
-  'jinja2',                  # Templating
-  'nbmake',                  # Building notebooks
-  'nbstripout',              # Strip output from notebooks
-  'nbqa',                    # Linting and formatting notebooks
-  'pytest',                  # Testing
-  'pytest-cov',              # Test coverage
-  'pytest-xdist',            # Enable parallel testing
-  'ruff',                    # Linting and formatting code
-  'radon',                   # Code complexity and maintainability
-  'validate-pyproject[all]', # Validate pyproject.toml
-  'versioningit',            # Automatic versioning from git tags
-  'jupytext',                # Jupyter notebook text format support
-  'jupyterquiz',             # Quizzes in Jupyter notebooks
-  'docformatter',            # Code formatter for docstrings
-  'interrogate',             # Check for missing docstrings
-  'copier',                  # Template management
-]
-docs = [
+  'build',                           # Building the package
+  'pre-commit',                      # Pre-commit hooks
+  'jinja2',                          # Templating
+  'nbmake',                          # Building notebooks
+  'nbstripout',                      # Strip output from notebooks
+  'nbqa',                            # Linting and formatting notebooks
+  'pytest',                          # Testing
+  'pytest-cov',                      # Test coverage
+  'pytest-xdist',                    # Enable parallel testing
+  'ruff',                            # Linting and formatting code
+  'radon',                           # Code complexity and maintainability
+  'validate-pyproject[all]',         # Validate pyproject.toml
+  'versioningit',                    # Automatic versioning from git tags
+  'jupytext',                        # Jupyter notebook text format support
+  'jupyterquiz',                     # Quizzes in Jupyter notebooks
+  'docformatter',                    # Code formatter for docstrings
+  'interrogate',                     # Check for missing docstrings
+  'copier',                          # Template management
   'mike',                            # MkDocs: Versioned documentation support
   'mkdocs',                          # Static site generator
   'mkdocs-material',                 # Documentation framework on top of MkDocs
@@ -58,13 +62,6 @@ docs = [
   'mkdocstrings-python',             # MkDocs: Python docstring support
   'pyyaml',                          # YAML parser
 ]
-visualization = [
-  'darkdetect', # Detecting dark mode (system-level)
-  'pandas',     # Displaying tables in Jupyter notebooks
-  'plotly',     # Interactive plots
-  'py3Dmol',    # Visualisation of crystal structures
-]
-all = ['easypeasy[dev]', 'easypeasy[docs]', 'easypeasy[visualization]']
 
 [project.urls]
 homepage = 'https://easyscience.github.io/peasy'

@@ -16,8 +16,9 @@ against experimental data.
 **EasyPeasy** is available both as a Python library and as a
 cross-platform desktop application.
 
-    Here, we focus on the Python library. For the graphical user interface
-    (GUI), please see the corresponding [GUI resources](https://github.com/easyscience/peasy-app).
+Here, we focus on the Python library. For the graphical user interface
+(GUI), please see the corresponding
+[GUI resources](https://github.com/easyscience/peasy-app).
 
 ## Useful Links
 
