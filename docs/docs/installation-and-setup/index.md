@@ -8,8 +8,8 @@ icon: material/cog-box
 **Python 3.11** through **3.13**.
 
 To install and set up EasyPeasy, we recommend using
-[**Pixi**](https://prefix.dev), a modern package manager for Windows,
-macOS, and Linux.
+[**Pixi**](https://pixi.prefix.dev), a modern package manager for
+Windows, macOS, and Linux.
 
 !!! note "Main benefits of using Pixi"
 
@@ -46,16 +46,9 @@ This section describes the simplest way to set up EasyPeasy using
   ```txt
   pixi add python=3.13
   ```
-- Add the GNU Scientific Library (GSL) dependency:
+- Add EasyPeasy to the Pixi environment from PyPI:
   ```txt
-  pixi add gsl
-  ```
-- Add EasyPeasy with the `visualization` extras, which include optional
-  dependencies used for simplified visualization of charts and tables.
-  This can be especially useful for running the Jupyter Notebook
-  examples:
-  ```txt
-  pixi add --pypi "easypeasy[visualization]"
+  pixi add --pypi easypeasy
   ```
 - Add a Pixi task to run EasyPeasy commands easily:
   ```txt
@@ -159,20 +152,7 @@ simply delete and recreate the environment.
 ### Installing from PyPI { #from-pypi }
 
 EasyPeasy is available on **PyPI (Python Package Index)** and can be
-installed using `pip`.
-
-We recommend installing the latest release of EasyPeasy with the
-`visualization` extras, which include optional dependencies used for
-simplified visualization of charts and tables. This can be especially
-useful for running the Jupyter Notebook examples. To do so, use the
-following command:
-
-```txt
-pip install 'easypeasy[visualization]'
-```
-
-If only the core functionality is needed, the library can be installed
-simply with:
+installed using `pip`. To do so, use the following command:
 
 ```txt
 pip install easypeasy
@@ -214,10 +194,10 @@ To install EasyPeasy from the `develop` branch of GitHub, for example:
 pip install git+https://github.com/easyscience/peasy-lib@develop
 ```
 
-To include extra dependencies (e.g., visualization):
+To include extra dependencies (e.g., dev):
 
 ```txt
-pip install 'easypeasy[visualization] @ git+https://github.com/easyscience/peasy-lib@develop'
+pip install 'easypeasy[dev] @ git+https://github.com/easyscience/peasy-lib@develop'
 ```
 
 ## How to Run Tutorials
