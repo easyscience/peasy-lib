@@ -13,6 +13,8 @@
 calculations based on a theoretical model and refining its parameters
 against experimental data.
 
+<!-- HOME REPOSITORY SECTION -->
+
 **EasyPeasy** is available both as a Python library and as a
 cross-platform desktop application.
 
