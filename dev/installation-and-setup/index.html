@@ -873,8 +873,8 @@
 <p><strong>EasyPeasy</strong> is a cross-platform Python library compatible with
 <strong>Python 3.11</strong> through <strong>3.13</strong>.</p>
 <p>To install and set up EasyPeasy, we recommend using
-<a href="https://prefix.dev"><strong><abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr></strong></a>, a modern package manager for Windows,
-macOS, and Linux.</p>
+<a href="https://pixi.prefix.dev"><strong><abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr></strong></a>, a modern package manager for
+Windows, macOS, and Linux.</p>
 <div class="admonition note">
 <p class="admonition-title">Main benefits of using <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr></p>
 <ul>
@@ -907,14 +907,8 @@ cd easypeasy
 <li>Set the Python version for the <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> environment (e.g., 3.13):
   <div class="language-text highlight"><pre><span></span><code>pixi add python=3.13
 </code></pre></div></li>
-<li>Add the GNU Scientific Library (GSL) dependency:
-  <div class="language-text highlight"><pre><span></span><code>pixi add gsl
-</code></pre></div></li>
-<li>Add EasyPeasy with the <code>visualization</code> extras, which include optional
-  dependencies used for simplified visualization of charts and tables.
-  This can be especially useful for running the <abbr title="An open-source web application that allows you to create and share documents that contain live code, equations, visualizations, and narrative text.">Jupyter Notebook</abbr>
-  examples:
-  <div class="language-text highlight"><pre><span></span><code>pixi add --pypi &quot;easypeasy[visualization]&quot;
+<li>Add EasyPeasy to the <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> environment from <abbr title="The Python Package Index is a repository of software for the Python programming language.">PyPI</abbr>:
+  <div class="language-text highlight"><pre><span></span><code>pixi add --pypi easypeasy
 </code></pre></div></li>
 <li>Add a <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> task to run EasyPeasy commands easily:
   <div class="language-text highlight"><pre><span></span><code>pixi task add easypeasy &quot;python -m easypeasy&quot;
@@ -1018,16 +1012,7 @@ simply delete and recreate the environment.</p>
 
 <h3 id="from-pypi">Installing from <abbr title="The Python Package Index is a repository of software for the Python programming language.">PyPI</abbr></h3>
 <p>EasyPeasy is available on <strong><abbr title="The Python Package Index is a repository of software for the Python programming language.">PyPI</abbr> (Python Package Index)</strong> and can be
-installed using <code>pip</code>.</p>
-<p>We recommend installing the latest release of EasyPeasy with the
-<code>visualization</code> extras, which include optional dependencies used for
-simplified visualization of charts and tables. This can be especially
-useful for running the <abbr title="An open-source web application that allows you to create and share documents that contain live code, equations, visualizations, and narrative text.">Jupyter Notebook</abbr> examples. To do so, use the
-following command:</p>
-<div class="language-text highlight"><pre><span></span><code>pip install &#39;easypeasy[visualization]&#39;
-</code></pre></div>
-<p>If only the core functionality is needed, the library can be installed
-simply with:</p>
+installed using <code>pip</code>. To do so, use the following command:</p>
 <div class="language-text highlight"><pre><span></span><code>pip install easypeasy
 </code></pre></div>
 <p>To install a specific version of EasyPeasy, e.g., 1.0.3:</p>
@@ -1049,8 +1034,8 @@ useful for testing.</p>
 <p>To install EasyPeasy from the <code>develop</code> branch of <abbr title="A web-based platform for version control and collaboration.">GitHub</abbr>, for example:</p>
 <div class="language-text highlight"><pre><span></span><code>pip install git+https://github.com/easyscience/peasy-lib@develop
 </code></pre></div>
-<p>To include extra dependencies (e.g., visualization):</p>
-<div class="language-text highlight"><pre><span></span><code>pip install &#39;easypeasy[visualization] @ git+https://github.com/easyscience/peasy-lib@develop&#39;
+<p>To include extra dependencies (e.g., dev):</p>
+<div class="language-text highlight"><pre><span></span><code>pip install &#39;easypeasy[dev] @ git+https://github.com/easyscience/peasy-lib@develop&#39;
 </code></pre></div>
 <h2 id="how-to-run-tutorials">How to Run Tutorials</h2>
 <p>EasyPeasy includes a collection of <strong><abbr title="An open-source web application that allows you to create and share documents that contain live code, equations, visualizations, and narrative text.">Jupyter Notebook</abbr> examples</strong> that
