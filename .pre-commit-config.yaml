@@ -33,8 +33,8 @@ repos:
         stages: [manual]
 
       - id: pixi-docs-format-check
-        name: pixi run docs-format-check
-        entry: pixi run docs-format-check
+        name: pixi run docs-format-check-pre STAGED_FILES
+        entry: pixi run docs-format-check-pre
         language: system
         pass_filenames: false
         stages: [manual]
