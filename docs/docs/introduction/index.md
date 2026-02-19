@@ -6,9 +6,8 @@ icon: material/information-slab-circle
 
 ## Description
 
-**EasyPeasy** is a scientific software for performing imaginary
-calculations based on a theoretical model and refining its parameters
-against experimental data.
+**EasyPeasy** is a software for performing imaginary calculations based
+on a imaginary model and refining its parameters against imaginary data.
 
 **EasyPeasy** is developed both as a Python library and as a
 cross-platform desktop application.
@@ -17,8 +16,10 @@ Here, we focus on the Python library. For the graphical user interface
 (GUI), please see the corresponding
 [GUI resources](https://easyscience.github.io/peasy-app).
 
+<!--
 **EasyPeasy** is developed using the
 [EasyScience framework](https://easyscience.org).
+-->
 
 ## License
 
@@ -62,7 +63,7 @@ on GitHub.
 ## Get in Touch
 
 For general questions or feedback, contact us at
-[support@easypeasy.org](mailto:support@easypeasy.org).
+[support@easyscience.org](mailto:support@easyscience.org).
 
 To report bugs or request features, please use the
 [GitHub Issue Tracker](https://github.com/easyscience/peasy-lib/issues)
