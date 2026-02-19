@@ -875,8 +875,8 @@
 <p>To install and set up EasyPeasy, we recommend using
 <a href="https://pixi.prefix.dev"><strong><abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr></strong></a>, a modern package manager for
 Windows, macOS, and Linux.</p>
-<div class="admonition note">
-<p class="admonition-title">Main benefits of using <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr></p>
+<details class="note">
+<summary>Main benefits of using <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr></summary>
 <ul>
 <li><strong>Ease of use</strong>: <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> simplifies the installation process, making it
   accessible even for users with limited experience in package management.</li>
@@ -887,7 +887,7 @@ Windows, macOS, and Linux.</p>
 <li><strong><abbr title="The Python Package Index is a repository of software for the Python programming language.">PyPI</abbr> and <abbr title="Conda is a cross-platform, language-agnostic binary package manager.">Conda</abbr> support</strong>: <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> can install packages from both <abbr title="The Python Package Index is a repository of software for the Python programming language.">PyPI</abbr> and
   <abbr title="Conda is a cross-platform, language-agnostic binary package manager.">Conda</abbr> repositories, providing access to a wide range of libraries.</li>
 </ul>
-</div>
+</details>
 <p>An alternative installation method using the traditional <strong><abbr title="Package installer for Python.">pip</abbr></strong> package
 manager is also provided.</p>
 <h2 id="installing-with-pixi">Installing with <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> <small>recommended</small></h2>
@@ -899,6 +899,27 @@ manager is also provided.</p>
   <a href="https://pixi.prefix.dev/latest/installation">official <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> Installation Guide</a>.</li>
 </ul>
 <h4 id="setting-up-easypeasy-with-pixi">Setting up EasyPeasy with <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr></h4>
+<!-- prettier-ignore-start -->
+
+<ul>
+<li>
+<p>Choose a project location (local drive recommended).</p>
+<details class="warning">
+<summary><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="m0 93.7 183.6-25.3v177.4H0zm0 324.6 183.6 25.3V268.4H0zm203.8 28L448 480V268.4H203.8zm0-380.6v180.1H448V32z"/></svg></span> Windows + OneDrive</summary>
+<p>We <strong>do not recommend creating a <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> project inside OneDrive or other
+synced folders</strong>.</p>
+<p>By default, <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> creates the virtual environment inside the project
+directory (in <code>.pixi/</code>). On Windows, synced folders such as OneDrive
+may cause file‑system issues (e.g., path-length limitations or
+restricted link operations), which can lead to unexpected install
+errors or environments being recreated.</p>
+<p>Instead, create your project in a <strong>local directory on your drive</strong>
+where you have full write permissions.</p>
+</details>
+</li>
+</ul>
+<!-- prettier-ignore-end -->
+
 <ul>
 <li>Initialize a new <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> project and navigate into it:
   <div class="language-text highlight"><pre><span></span><code>pixi init easypeasy
@@ -1185,7 +1206,7 @@ EasyPeasy.</p>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      © 2021-2026 EasyPeasy
+      © 2025-2026 EasyPeasy
     </div>
   
   
