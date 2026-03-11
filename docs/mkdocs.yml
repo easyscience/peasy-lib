@@ -181,3 +181,4 @@ nav:
           - Dummy tutorial: tutorials/tutorial.ipynb
   - API Reference:
       - API Reference: api-reference/index.md
+      - utils: api-reference/utils.md
