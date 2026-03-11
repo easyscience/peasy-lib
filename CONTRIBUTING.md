@@ -64,14 +64,15 @@ We use the following branches:
 - `develop` — active development branch
 - Short-lived branches — one branch per contribution
 
-All normal contributions must target the `develop` branch.
-
 > [!IMPORTANT]
+>
+> All normal contributions must target the `develop` branch.
+>
 > - Do **not** open Pull Requests against `master`
 > - Always create your branch from `develop`
 > - Always target `develop` when opening a Pull Request
 
-See ADR easyscience/.github#12 for full details on the branching
+See ADR easyscience/.github#12 for more details on the branching
 strategy.
 
 ---
@@ -153,7 +154,8 @@ pixi run post-install
 
 After this step, your development environment is ready.
 
-See ADR easyscience/.github#63 for more details about this decision.
+See ADR easyscience/.github#63 for more details about using Pixi for
+development.
 
 ---
 
@@ -168,7 +170,9 @@ git checkout -b my-change
 ```
 
 > [!IMPORTANT]
+>
 > Use a clear and descriptive name, for example:
+>
 > - `improve-solver-speed`
 > - `fix-boundary-condition`
 > - `add-tutorial-example`
@@ -182,8 +186,12 @@ Clear branch names make reviews and history easier to understand.
 While developing, make small, logical commits with clear messages.
 
 > [!IMPORTANT]
-> - When adding new functionality, include appropriate docstrings
-> - Add or update unit tests to cover new functionality and behavior changes
+>
+> When adding new functionality or making changes, make sure to add or
+> update the following as needed:
+>
+> - 📘 docstrings
+> - 🧪 unit tests
 
 Example:
 
@@ -223,15 +231,15 @@ This command:
 A successful run should look like this:
 
 ```bash
-pixi run pyproject-check...................................Passed
-pixi run license-check.....................................Passed
-pixi run py-lint-check.....................................Passed
-pixi run py-format-check...................................Passed
-pixi run docstring-lint-check..............................Passed
-pixi run docstring-format-check............................Passed
-pixi run nonpy-format-check................................Passed
-pixi run notebook-lint-check...............................Passed
-pixi run unit-tests........................................Passed
+pixi run pyproject-check.......................Passed
+pixi run license-check.........................Passed
+pixi run py-lint-check.........................Passed
+pixi run py-format-check.......................Passed
+pixi run docstring-lint-check..................Passed
+pixi run docstring-format-check................Passed
+pixi run nonpy-format-check....................Passed
+pixi run notebook-lint-check...................Passed
+pixi run unit-tests............................Passed
 ```
 
 If something fails, read the error message carefully and fix the issue.
@@ -265,6 +273,7 @@ pixi run check
 ```
 
 > [!IMPORTANT]
+>
 > All checks must pass before your Pull Request can be merged.
 
 If you are unsure how to fix an issue, ask for help in your Pull Request
@@ -291,8 +300,9 @@ On GitHub:
 ### Pull Request Title
 
 > [!IMPORTANT]
+>
 > The PR title appears in release notes and changelogs. It should be
-concise and informative.
+> concise and informative.
 
 Good examples:
 
@@ -305,8 +315,9 @@ Good examples:
 ### Required `[scope]` Label
 
 > [!IMPORTANT]
+>
 > Each Pull Request must include a `[scope]` label, which is used for
-automatically suggesting version bumps when preparing a new release.
+> automatically suggesting version bumps when preparing a new release.
 
 The available scopes are:
 
@@ -318,7 +329,8 @@ The available scopes are:
 | `[scope] maintenance`   | Code/tooling cleanup without feature or bug fix (major.minor.**PATCH**) |
 | `[scope] significant`   | Breaking or major changes (**MAJOR**.minor.patch)                       |
 
-See ADR easyscience/.github#33 for full versioning rules.
+See ADR easyscience/.github#33 for more details on the standardized
+labeling scheme.
 
 ---
 
@@ -362,6 +374,7 @@ git push
 ## 10. Documentation Contributions
 
 > [!IMPORTANT]
+>
 > If your change affects users, update the documentation.
 
 This may include:
@@ -396,6 +409,7 @@ Clear issue reports help maintainers significantly.
 ## 12. Security Issues
 
 > [!IMPORTANT]
+>
 > Do **not** report security vulnerabilities publicly.
 
 If you discover a potential vulnerability, contact the maintainers
