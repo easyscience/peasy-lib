@@ -14,23 +14,6 @@ def dummy_method(
 
     Args:
         left (str): Left side of the new string.
-        right (bool): Right side of the new string.
-        middle (int): Middle part of the new string.
-
-    Returns:
-        str: The output string.
-    """
-
-    output = left + right
-    return output
-
-
-def dummy_method_2(left, right):
-    """Dummy method for testing. It concatenates the left and right
-    strings.
-
-    Args:
-        left (bool): Left side of the new string.
         right (str): Right side of the new string.
 
     Returns:
@@ -41,10 +24,36 @@ def dummy_method_2(left, right):
     return output
 
 
-def dummy_method_3(left, right):
-    """Dummy method for testing.
+def dummy_method_2(
+    left: str,
+    right: str,
+) -> str:
+    """Dummy method 2 for testing.
 
-    It concatenates the left and right strings.
+    Args:
+        left (str): Left side of the new string.
+        right (str): Right side of the new string.
+
+    Returns:
+        str: The output string.
+    """
+
+    output = left + right
+    return output
+
+
+def dummy_method_3(
+    left: str,
+    right: str,
+) -> str:
+    """Dummy method 3 for testing.
+
+    Args:
+        left (str): Left side of the new string.
+        right (str): Right side of the new string.
+
+    Returns:
+        str: The output string.
     """
 
     output = left + right
