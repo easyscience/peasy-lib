@@ -3180,8 +3180,8 @@ packages:
   requires_python: '>=3.5'
 - pypi: ./
   name: easypeasy
-  version: 2.1.2+dev6
-  sha256: 0b5c116525e4ba4cdb2c46e309b641a93581bdbc28703188e644773d8aabd979
+  version: 2.1.2+dev8
+  sha256: c7bbf670cc15037b3030cd5e9b66d758ecf58ad115f305149bca5b6b376152a4
   requires_dist:
   - darkdetect
   - jupyterlab
