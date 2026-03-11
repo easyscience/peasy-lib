@@ -213,7 +213,7 @@ select = [
   'PLR', # https://docs.astral.sh/ruff/rules/#refactor-plr
   'PLW', # https://docs.astral.sh/ruff/rules/#warning-plw
   # flake8 rules
-  #'A',     # https://docs.astral.sh/ruff/rules/#flake8-builtins-a
+  'A',     # https://docs.astral.sh/ruff/rules/#flake8-builtins-a
   'ANN',   # https://docs.astral.sh/ruff/rules/#flake8-annotations-ann
   'ARG',   # https://docs.astral.sh/ruff/rules/#flake8-unused-arguments-arg
   'ASYNC', # https://docs.astral.sh/ruff/rules/#flake8-async-async
