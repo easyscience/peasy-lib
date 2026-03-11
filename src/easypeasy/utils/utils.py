@@ -4,6 +4,10 @@
 
 from __future__ import annotations
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 def dummy_method(
     left: str,
@@ -20,41 +24,6 @@ def dummy_method(
         str: The output string.
     """
 
-    output = left + right
-    return output
+    logger.debug('Calling dummy method')
 
-
-def dummy_method_2(
-    left: str,
-    right: str,
-) -> str:
-    """Dummy method 2 for testing.
-
-    Args:
-        left (str): Left side of the new string.
-        right (str): Right side of the new string.
-
-    Returns:
-        str: The output string.
-    """
-
-    output = left + right
-    return output
-
-
-def dummy_method_3(
-    left: str,
-    right: str,
-) -> str:
-    """Dummy method 3 for testing.
-
-    Args:
-        left (str): Left side of the new string.
-        right (str): Right side of the new string.
-
-    Returns:
-        str: The output string.
-    """
-
-    output = left + right
-    return output
+    return left + right
