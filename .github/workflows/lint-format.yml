@@ -1,9 +1,12 @@
-# The workflow is divided into several steps:
-#   - Check the validity of pyproject.toml
-#   - Check code linting
-#   - Check code formatting
-#   - Check formatting of docstrings in the code
-#   - Check formatting of Markdown, YAML, TOML, etc. files
+# The workflow checks
+#  - the validity of pyproject.toml,
+#  - the presence and correctness of SPDX license headers,
+#  - linting and formatting of Python code,
+#  - linting and formatting of docstrings in Python code,
+#  - formatting of non-Python files (like markdown and toml).
+#  - linting of Python code in Jupyter notebooks (for library template).
+#
+# A summary of the checks is added to the GitHub Actions summary.
 
 name: Lint and format checks
 
@@ -88,11 +91,11 @@ jobs:
         shell: bash
         run: pixi run nonpy-format-check
 
-      - name: Check formatting of Python code in Jupyter notebooks (ipynb)
-        id: notebooks_format
+      - name: Check linting of Python code in Jupyter notebooks (ipynb)
+        id: notebook_lint
         continue-on-error: true
         shell: bash
-        run: pixi run notebook-format-check
+        run: pixi run notebook-lint-check
 
       # Add summary
       - name: Add quality checks summary
@@ -111,7 +114,7 @@ jobs:
             echo "| docstring lint   | ${{ steps.docstring_lint.outcome == 'success' && '✅' || '❌' }} |"
             echo "| docstring format | ${{ steps.docstring_format.outcome == 'success' && '✅' || '❌' }} |"
             echo "| nonpy format     | ${{ steps.nonpy_format.outcome == 'success' && '✅' || '❌' }} |"
-            echo "| notebooks format | ${{ steps.notebooks_format.outcome == 'success' && '✅' || '❌' }} |"
+            echo "| notebooks lint   | ${{ steps.notebook_lint.outcome == 'success' && '✅' || '❌' }} |"
           } >> "$GITHUB_STEP_SUMMARY"
 
       # Fail job if any check failed
@@ -124,6 +127,6 @@ jobs:
           || steps.docstring_lint.outcome == 'failure'
           || steps.docstring_format.outcome == 'failure'
           || steps.nonpy_format.outcome == 'failure'
-          || steps.notebooks_format.outcome == 'failure'
+          || steps.notebook_lint.outcome == 'failure'
         shell: bash
         run: exit 1
