@@ -42,10 +42,10 @@ channels = ['conda-forge']
 
 [dependencies]
 nodejs = '*' # Required for Prettier (non-Python formatting)
-gsl = '*'    # GNU Scientific Library; required for pdffit2.
+#gsl = '*' # GNU Scientific Library; required for pdffit2
 
 [pypi-dependencies] # == [feature.default.pypi-dependencies]
-pip = '*'                                                     # Native package installer
+#pip = '*' # Native package installer
 easypeasy = { path = ".", editable = true, extras = ['dev'] }
 
 # Specific features: Set specific Python versions
@@ -92,8 +92,9 @@ test = { depends-on = ['unit-tests'] }
 ###########
 
 pyproject-check = 'python -m validate_pyproject pyproject.toml'
-docs-format-check = 'docformatter --check src/ docs/docs/tutorials/'
-notebook-format-check = 'nbqa ruff docs/docs/tutorials/'
+docstring-lint-check = 'pydoclint --quiet src/'
+docstring-format-check = 'docformatter --check src/'
+notebook-lint-check = 'nbqa ruff docs/docs/tutorials/'
 py-lint-check = 'ruff check src/ tests/ docs/docs/tutorials/'
 py-format-check = "ruff format --check src/ tests/ docs/docs/tutorials/"
 nonpy-format-check = "npx prettier --list-different --config=prettierrc.toml --ignore-unknown ."
@@ -106,19 +107,19 @@ check = 'pre-commit run --hook-stage manual --all-files'
 ##########
 
 docs-format-fix = 'docformatter --in-place src/ docs/docs/tutorials/'
-notebook-format-fix = 'nbqa ruff --fix docs/docs/tutorials/'
+notebook-lint-fix = 'nbqa ruff --fix docs/docs/tutorials/'
 py-lint-fix = 'ruff check --fix src/ tests/ docs/docs/tutorials/'
 py-format-fix = "ruff format src/ tests/ docs/docs/tutorials/"
 nonpy-format-fix = 'npx prettier --write --list-different --config=prettierrc.toml --ignore-unknown .'
 nonpy-format-fix-modified = "python tools/nonpy_prettier_modified.py --write"
-success-message-fix = 'echo "✅ All code auto-formatting steps have been applied."'
+success-message-fix = 'echo "✅ All auto-formatting steps completed successfully!"'
 
 fix = { depends-on = [
   'py-format-fix',
   'docs-format-fix',
   'py-lint-fix',
   'nonpy-format-fix',
-  'notebook-format-fix',
+  'notebook-lint-fix',
   'success-message-fix',
 ] }
 
@@ -199,11 +200,45 @@ pre-commit-setup = { depends-on = [
   'pre-commit-install',
 ] }
 
+#################
+# 🐙️ GitHub Tasks
+#################
+
+repo-wiki = 'gh api -X PATCH repos/easyscience/peasy-lib -f has_wiki=false'
+repo-discussions = 'gh api -X PATCH repos/easyscience/peasy-lib -f has_discussions=true'
+repo-description = "gh api -X PATCH repos/easyscience/peasy-lib -f description='Imaginary data analysis'"
+repo-homepage = "gh api -X PATCH repos/easyscience/peasy-lib -f homepage='https://easyscience.github.io/peasy-lib'"
+repo-config = { depends-on = [
+  'repo-wiki',
+  'repo-discussions',
+  'repo-description',
+  'repo-homepage',
+] }
+
+master-protection = 'gh api -X POST repos/easyscience/peasy-lib/rulesets --input .github/configs/rulesets-master.json'
+develop-protection = 'gh api -X POST repos/easyscience/peasy-lib/rulesets --input .github/configs/rulesets-develop.json'
+gh-pages-protection = 'gh api -X POST repos/easyscience/peasy-lib/rulesets --input .github/configs/rulesets-gh-pages.json'
+branch-protection = { depends-on = [
+  'master-protection',
+  'develop-protection',
+  'gh-pages-protection',
+] }
+
+pages-deployment = 'gh api -X POST repos/easyscience/peasy-lib/pages --input .github/configs/pages-deployment.json'
+
+github-labels = 'python tools/update_github_labels.py'
+
+#########################
+# ⚖️ SPDX License Headers
+#########################
+
+license-remove = 'python tools/remove_license_headers.py src/ tests/'
+license-add = 'python tools/add_license_headers.py src/ tests/'
+license-check = 'python tools/check_license_headers.py src/ tests/'
+
 ####################################
 # 🚀 Other Development & Build Tasks
 ####################################
-
-github-labels = 'python tools/update_github_labels.py'
 
 default-build = 'python -m build'
 dist-build = 'python -m build --wheel --outdir dist'
@@ -212,7 +247,6 @@ npm-config = 'npm config set registry https://registry.npmjs.org/'
 prettier-install = 'npm install --no-save --no-audit --no-fund prettier prettier-plugin-toml'
 
 clean-pycache = "find . -type d -name '__pycache__' -prune -exec rm -rf '{}' +"
-spdx-update = 'python tools/update_spdx.py'
 
 post-install = { depends-on = [
   'npm-config',
