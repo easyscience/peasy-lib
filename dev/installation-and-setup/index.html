@@ -655,6 +655,8 @@
           
         
       
+        
+      
     
     
     
@@ -686,6 +688,11 @@
 
             </a>
             
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
           </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
@@ -699,6 +706,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-reference/utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    utils
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
           </ul>
@@ -951,18 +986,8 @@ cd easypeasy
 </ul>
 <h2 id="classical-installation">Classical Installation</h2>
 <p>This section describes how to install EasyPeasy using the traditional
-method with <strong><abbr title="Package installer for Python.">pip</abbr></strong>. This approach is more flexible and suitable for
-users familiar with Python package management and virtual environments.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Currently, classical installation doesn't allow installing the
-GNU Scientific Library (GSL) dependency automatically. As a result,
-the calculation engine <strong>pdffit2</strong> will not be available. To make it
-work, ensure that GSL is installed on your system.</p>
-<p>Alternatively, consider using the <strong><abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr> installation method</strong> described
-in the <a href="#installing-with-pixi">Installing with <abbr title="A modern package manager for Windows, macOS, and Linux.">Pixi</abbr></a> section, which
-handles GSL installation automatically.</p>
-</div>
+method with <strong><abbr title="Package installer for Python.">pip</abbr></strong>. It is assumed that you are familiar with Python
+package management and virtual environments.</p>
 <h3 id="environment-setup">Environment Setup <small>optional</small></h3>
 <p>We recommend using a <strong>virtual environment</strong> to isolate dependencies and
 avoid conflicts with system-wide packages. If any issues arise, you can
@@ -1286,12 +1311,16 @@ EasyPeasy.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="../assets/javascripts/extra.js"></script>
+      
+        <script src="../assets/javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
