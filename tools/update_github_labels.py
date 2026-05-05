@@ -1,3 +1,5 @@
+# SPDX-FileCopyrightText: 2026 EasyScience contributors <https://github.com/easyscience>
+# SPDX-License-Identifier: BSD-3-Clause
 """Set/update GitHub labels for current or specified easyscience
 repository.
 
@@ -17,7 +19,7 @@ from __future__ import annotations
 import argparse
 import json
 import shlex
-import subprocess
+import subprocess  # noqa: S404
 import sys
 from dataclasses import dataclass
 
@@ -54,6 +56,7 @@ class Colors:
 
 
 LABEL_RENAMES = [
+    # Default GitHub labels to rename (if they exist)
     LabelRename('bug', '[scope] bug'),
     LabelRename('documentation', '[scope] documentation'),
     LabelRename('duplicate', '[maintainer] duplicate'),
@@ -63,6 +66,8 @@ LABEL_RENAMES = [
     LabelRename('invalid', '[maintainer] invalid'),
     LabelRename('question', '[maintainer] question'),
     LabelRename('wontfix', '[maintainer] wontfix'),
+    # Custom label renames (if they exist)
+    LabelRename('[bot] pull request', '[bot] release'),
 ]
 
 LABELS = [
@@ -161,9 +166,14 @@ LABELS = [
     ),
     # Bot label
     Label(
-        '[bot] pull request',
+        '[bot] release',
         Colors.BOT,
         'Automated release PR. Excluded from changelog/versioning',
+    ),
+    Label(
+        '[bot] backmerge',
+        Colors.BOT,
+        'Automated backmerge master → develop failed due to conflicts',
     ),
 ]
 

@@ -14,16 +14,16 @@
 name: Docs build and deployment
 
 on:
+  # Trigger the workflow on push
+  push:
+    # Selected branches
+    branches: [develop] # master and main are already verified in PR
+    # Runs on creating a new tag starting with 'v', e.g. 'v1.0.3'
+    tags: ['v*']
   # Trigger the workflow on pull request
   pull_request:
     # Selected branches
     branches: [master, main, develop]
-  # Trigger the workflow on push
-  push:
-    # Selected branches
-    branches: [master, main, develop]
-    # Runs on creating a new tag starting with 'v', e.g. 'v1.0.3'
-    tags: ['v*']
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -83,7 +83,7 @@ jobs:
       # Check out the repository source code.
       # Note: The gh-pages branch is fetched separately later for mike deployment.
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       # Activate dark mode to create documentation with Plotly charts in dark mode
       # Need a better solution to automatically switch the chart colour theme based on the mkdocs material switcher

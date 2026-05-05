@@ -21,7 +21,12 @@ Here, we focus on the Python library. For the graphical user interface
 (GUI), please see the corresponding
 [GUI resources](https://github.com/easyscience/peasy-app).
 
+License:
+[BSD 3-Clause](https://github.com/easyscience/peasy-lib/blob/master/LICENSE)
+
 ## Useful Links
+
+### For Users
 
 - 📖 [Documentation](https://easyscience.github.io/peasy-lib/latest)
 - 🚀
@@ -32,10 +37,13 @@ Here, we focus on the Python library. For the graphical user interface
   [Get in Touch](https://easyscience.github.io/peasy-lib/latest/introduction/#get-in-touch)
 - 🧾
   [Citation](https://easyscience.github.io/peasy-lib/latest/introduction/#citation)
-- 🤝
-  [Contributing](https://easyscience.github.io/peasy-lib/latest/introduction/#contributing)
+
+### For Contributors
+
+- 🧑‍💻 [Source Code](https://github.com/easyscience/peasy-lib)
 - 🐞 [Issue Tracker](https://github.com/easyscience/peasy-lib/issues)
 - 💡 [Discussions](https://github.com/easyscience/peasy-lib/discussions)
-- 🧑‍💻 [Source Code](https://github.com/easyscience/peasy-lib)
-- ⚖️
-  [License](https://raw.githubusercontent.com/easyscience/peasy-lib/refs/heads/master/LICENSE)
+- 🤝
+  [Contributing Guide](https://github.com/easyscience/peasy-lib/blob/master/CONTRIBUTING.md)
+- 🛡
+  [Code of Conduct](https://github.com/easyscience/.github/blob/master/CODE_OF_CONDUCT.md)

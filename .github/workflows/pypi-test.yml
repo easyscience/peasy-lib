@@ -13,6 +13,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 # Set the environment variables to be used in all jobs defined in this workflow
 env:
   CI_BRANCH: ${{ github.head_ref || github.ref_name }}
@@ -29,7 +32,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Set up pixi
         uses: ./.github/actions/setup-pixi
@@ -42,6 +45,10 @@ jobs:
       - name: Init pixi project
         run: pixi init easypeasy
 
+      - name: Set the minimum system requirements
+        working-directory: easypeasy
+        run: pixi project system-requirements add macos 14.0
+
       - name: Add Python 3.13 from Conda
         working-directory: easypeasy
         run: pixi add "python=3.13"
@@ -50,21 +57,17 @@ jobs:
         working-directory: easypeasy
         run: pixi add gsl
 
-      - name: Add easypeasy from PyPI
+      - name: Add easypeasy (with dev dependencies) from PyPI
         working-directory: easypeasy
-        run: pixi add --pypi "easypeasy"
-
-      - name: Add dev dependencies from PyPI
-        working-directory: easypeasy
-        run: pixi add --pypi pytest pytest-xdist
-
-      - name: Add Pixi task as a shortcut
-        working-directory: easypeasy
-        run: pixi task add easypeasy "python -m easypeasy"
+        run: pixi add --pypi "easypeasy[dev]"
 
       - name: Run unit tests to verify the installation
         working-directory: easypeasy
         run: pixi run python -m pytest ../tests/unit/ --color=yes -v
+
+      - name: Run functional tests to verify the installation
+        working-directory: easypeasy
+        run: pixi run python -m pytest ../tests/functional/ --color=yes -v
 
       - name: Run integration tests to verify the installation
         working-directory: easypeasy
