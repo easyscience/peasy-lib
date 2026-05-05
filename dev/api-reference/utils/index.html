@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -906,7 +906,7 @@
 
     <div class="doc doc-contents first">
 
-        <p>EasyPeasy library.</p>
+        <p>Utilities for EasyPeasy.</p>
 <!-- prettier-ignore-start -->
 
 <!-- prettier-ignore-end -->
@@ -973,8 +973,8 @@
 
     <div class="doc doc-contents ">
 
-        <p>Dummy method for testing. It concatenates the left and right
-strings.</p>
+        <p>Dummy method for testing.</p>
+<p>It concatenates the left and right strings.</p>
 <!-- prettier-ignore-start -->
 
 <!-- prettier-ignore-end -->
@@ -1037,13 +1037,13 @@ strings.</p>
     <table>
       <thead>
         <tr>
-<th>Name</th>          <th>Type</th>
+          <th>Type</th>
           <th>Description</th>
         </tr>
       </thead>
       <tbody>
           <tr class="doc-section-item">
-<td><code>str</code></td>            <td>
+            <td>
                   <code><span title="str">str</span></code>
             </td>
             <td>
@@ -1078,19 +1078,33 @@ strings.</p>
 <span class="normal">26</span>
 <span class="normal">27</span>
 <span class="normal">28</span>
-<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">dummy_method</span><span class="p">(</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">dummy_method</span><span class="p">(</span>
     <span class="n">left</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">right</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Dummy method for testing. It concatenates the left and right</span>
-<span class="sd">    strings.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Dummy method for testing.</span>
 
-<span class="sd">    Args:</span>
-<span class="sd">        left (str): Left side of the new string.</span>
-<span class="sd">        right (str): Right side of the new string.</span>
+<span class="sd">    It concatenates the left and right strings.</span>
 
-<span class="sd">    Returns:</span>
-<span class="sd">        str: The output string.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    left : str</span>
+<span class="sd">        Left side of the new string.</span>
+<span class="sd">    right : str</span>
+<span class="sd">        Right side of the new string.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+<span class="sd">        The output string.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Calling dummy method&#39;</span><span class="p">)</span>
