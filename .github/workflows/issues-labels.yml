@@ -1,6 +1,6 @@
-# Verifies if an issue has at least one of the `[scope]` and one of the
-# `[priority]` labels. If not, the bot adds labels with a warning emoji
-# to indicate that those labels need to be added.
+# Verifies if the current issue has at least one real `[scope]` label and one
+# real `[priority]` label. If either is missing, the workflow adds a reminder
+# label with a warning emoji.
 
 name: Issue labels check
 
@@ -13,8 +13,6 @@ permissions:
 
 jobs:
   check-labels:
-    if: github.actor != 'easyscience[bot]'
-
     runs-on: ubuntu-latest
 
     concurrency:
@@ -25,27 +23,52 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Setup easyscience[bot]
-        id: bot
-        uses: ./.github/actions/setup-easyscience-bot
+      - name: Sync missing-label reminders
+        uses: ./.github/actions/github-script
         with:
-          app-id: ${{ vars.EASYSCIENCE_APP_ID }}
-          private-key: ${{ secrets.EASYSCIENCE_APP_KEY }}
+          script: |
+            const labels = context.payload.issue.labels.map(({ name }) => name);
+            const requirements = [
+              {
+                prefix: '[scope] ',
+                reminder: '[scope] ⚠️ label needed',
+              },
+              {
+                prefix: '[priority] ',
+                reminder: '[priority] ⚠️ label needed',
+              },
+            ];
 
-      - name: Check for required [scope] label
-        uses: trstringer/require-label-prefix@v1
-        with:
-          secret: ${{ steps.bot.outputs.token }}
-          prefix: '[scope]'
-          labelSeparator: ' '
-          addLabel: true
-          defaultLabel: '[scope] ⚠️ label needed'
+            const labelsToAdd = [];
+            const labelsToRemove = [];
 
-      - name: Check for required [priority] label
-        uses: trstringer/require-label-prefix@v1
-        with:
-          secret: ${{ steps.bot.outputs.token }}
-          prefix: '[priority]'
-          labelSeparator: ' '
-          addLabel: true
-          defaultLabel: '[priority] ⚠️ label needed'
+            for (const { prefix, reminder } of requirements) {
+              const hasRealLabel = labels.some(
+                (name) => name.startsWith(prefix) && name !== reminder,
+              );
+              const hasReminderLabel = labels.includes(reminder);
+
+              if (hasRealLabel && hasReminderLabel) {
+                labelsToRemove.push(reminder);
+              } else if (!hasRealLabel && !hasReminderLabel) {
+                labelsToAdd.push(reminder);
+              }
+            }
+
+            if (labelsToAdd.length > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                labels: labelsToAdd,
+              });
+            }
+
+            for (const name of labelsToRemove) {
+              await github.rest.issues.removeLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                name,
+              });
+            }
