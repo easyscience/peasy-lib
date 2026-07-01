@@ -42,8 +42,7 @@ Please make sure you follow the EasyScience organization-wide
 If you are not planning to contribute code, you may want to:
 
 - 🐞 Report a bug — see [Reporting Issues](#11-reporting-issues)
-- 🛡 Report a security issue — see
-  [Security Issues](#12-security-issues)
+- 🛡 Report a security issue — see [Security Issues](#12-security-issues)
 - 💬 Ask a question or start a discussion at
   [Project Discussions](https://github.com/easyscience/peasy-lib/discussions)
 
@@ -246,6 +245,12 @@ or to run only Python linting checks:
 
 ```bash
 pixi run py-lint-check
+```
+
+To add missing license headers:
+
+```bash
+pixi run spdx-add
 ```
 
 Some formatting issues can be fixed automatically:
