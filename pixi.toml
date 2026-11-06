@@ -4,7 +4,7 @@
 
 [workspace]
 # Minimum Pixi version (must match CI, see .github/actions/setup-pixi)
-requires-pixi = '>=0.76.2'
+requires-pixi = '>=0.84.1'
 
 # Supported platforms for the lock file (pixi.lock)
 platforms = [
