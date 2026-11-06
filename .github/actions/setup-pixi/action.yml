@@ -35,6 +35,7 @@ runs:
   steps:
     - uses: prefix-dev/setup-pixi@v0.9.5
       with:
+        pixi-version: v0.76.2
         environments: ${{ inputs.environments }}
         activate-environment: ${{ inputs.activate-environment }}
         run-install: ${{ inputs.run-install }}
